@@ -23,3 +23,7 @@ img {
 .color {
 	color: #373c41;
 }
+
+button {
+	background-opacity: 0%;
+}
