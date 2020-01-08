@@ -27,3 +27,15 @@ img {
 button {
 	
 }
+
+.flex-container {
+    display:flex;
+}
+
+#gifs-appear-here {
+    margin: 20px;
+}
+
+#movies-view {
+    margin: 20px;
+}
