@@ -1,167 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
+
 <head>
-  <meta charset="utf-8">
-  <title>Mood Movies</title>
-  <style type="text/css">
-    button,
-    div,
-    form,
-    input {
-      margin: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-
 <body>
+    
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" id="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100 img-fluid" src="https://www.pixelstalk.net/wp-content/uploads/2016/06/Funny-happy-kids-hd-pictures.jpg" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+         <button class="btn btn-outline-dark" data-mood="Happy"> <h1 class="color" >Happy</h1> </button>
+          <p>Tell us how you're feeling</p>
+        </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 img-fluid" src="http://cdn.desktopwallpapers4.me/wallpapers/photography/2560x1440/2/15268-sad-danbo-2560x1440-photography-wallpaper.jpg" alt="Second slide">
+             <div class="carousel-caption d-none d-md-block">
+          <button class="btn btn-outline-dark" data-mood="Sad"><h1 class="color" >Sad</h1></button>
+          <p>Tell us how you're feeling</p>
+        </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 img-fluid" src="images/c4c91444-40c9-4640-9769-63377e412731.jpg" alt="Third slide">
+             <div class="carousel-caption d-none d-md-block">
+          <button class="btn btn-outline-dark" data-mood="Angry"><h1 class="color" >Angry</h1></button>
+          <p>Tell us how you're feeling</p>
+        </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 img-fluid" src="https://n74df333l0p11ftok3gpzqtz-wpengine.netdna-ssl.com/wp-content/uploads/2019/05/Screen-Shot-2019-04-17-at-14.37.58-1200x657.png" alt="Fourth slide">
+             <div class="carousel-caption d-none d-md-block">
+          <button class="btn btn-outline-dark" data-mood="Silly"><h1 class="color" >Silly</h1></button>
+          <p>Tell us how you're feeling</p>
+        </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next anger" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    
+    
+<div class = "flex-container">
+ <div id="gifs-appear-here">
+</div>
 
-  <div class="container">
-    <h1>Movie Search</h1>
+<div id = "movies-view">
 
-    <!-- Rendered Buttons will get Dumped Here  -->
-    <div id="buttons-view"></div>
+</div>
+    
+</div>
 
-    <!-- Movies will Get Dumped Here -->
-    <div id="movies-view"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      // Initial array of moods
-      const moods = ["happy", "sad", "angry", "silly"];
+    
+    
 
-      const moviesArray = [
-    {
-        movieMood: "happy",
-        choices: ["School of Rock", "Love Actually", "Forrest Gump", "Ferris Bueller's Day Off", "Sister Act"],
-    },
-    {
-        movieMood: "sad",
-        choices: ["My Sister's Keeper", "Hachi: A Dog's Tale", "The Green Mile", "The Pursuit of Happyness", "Good Will Hunting"],
-    },
-    {
-        movieMood: "angry",
-        choices: ["Inglourious Basterds", "Texas Chainsaw Massacre", "Kill Bill", "The Accountant", "Django Unchained"],
-    },
-    {
-        movieMood: "silly",
-        choices: ["Napoleon Dynamite", "Dumb and Dumber", "Monty Python and the Holy Grail", "Anchorman: The Legend of Ron Burgundy", "Elf"],
-    },
+    
 
-]
-
-      // displayMovieInfo function re-renders the HTML to display the appropriate content
-      function displayMovieInfo() {
-
-        let movie = $(this).attr("data-name");
-
-        // if statement for each of the mood
-        for (let i = 0; i < moviesArray.length; i++) {
-            if (movie === moviesArray[i].movieMood) {
-                var randomNum = Math.floor(Math.random()*5)
-                movie = moviesArray[i].choices[randomNum]
-            }
-            
-        }
-        console.log(movie);
-
-        const queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
-
-        // Creating an AJAX call for the specific movie button being clicked
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function(response) {
-
-          // Creating a div to hold the movie
-          const movieDiv = $("<div class='movie'>");
-
-          // Storing the rating data
-          const rating = response.Rated;
-
-          // Creating an element to have the rating displayed
-          const pOne = $("<p>").text("Rating: " + rating);
-
-          // Displaying the rating
-          movieDiv.append(pOne);
-
-          // Storing the release year
-          const released = response.Released;
-
-          // Creating an element to hold the release year
-          const pTwo = $("<p>").text("Released: " + released);
-
-          // Displaying the release year
-          movieDiv.append(pTwo);
-
-          // Storing the plot
-          const plot = response.Plot;
-
-          // Creating an element to hold the plot
-          const pThree = $("<p>").text("Plot: " + plot);
-
-          // Appending the plot
-          movieDiv.append(pThree);
-
-          // Retrieving the URL for the image
-          const imgURL = response.Poster;
-
-          // Creating an element to hold the image
-          const image = $("<img>").attr("src", imgURL);
-
-          // Appending the image
-          movieDiv.append(image);
-
-          // Putting the entire movie above the previous movies
-          $("#movies-view").html(movieDiv);
-        });
-
-      }
-
-      // Function for displaying movie data
-      function renderButtons() {
-
-        // Deleting the movies prior to adding new movies
-        // (this is necessary otherwise you will have repeat buttons)
-        $("#buttons-view").empty();
-
-        // Looping through the array of movies
-        for (let i = 0; i < 4; i++) {
-
-          // Then dynamicaly generating buttons for each movie in the array
-          // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-          const a = $("<button>");
-          // Adding a class of movie-btn to our button
-          a.addClass("movie-btn");
-          // Adding a data-attribute
-          a.attr("data-name", moods[i]);
-          // Providing the initial button text
-          a.text(moods[i]);
-          // Adding the button to the buttons-view div
-          $("#buttons-view").append(a);
-        }
-      }
-
-      // This function handles events where a movie button is clicked
-      $("#add-movie").on("click", function(event) {
-        event.preventDefault();
-        // This line grabs the input from the textbox
-        const movie = $("#movie-input").val().trim();
-
-        // Adding movie from the textbox to our array
-        moods.push(movie);
-
-        // Calling renderButtons which handles the processing of our movie array
-        renderButtons();
-      });
-
-      // Adding a click event listener to all elements with a class of "movie-btn"
-      $(document).on("click", ".movie-btn", displayMovieInfo);
-
-      // Calling the renderButtons function to display the initial buttons
-      renderButtons();
-    </script>
-  </div>
+    <script src="script.js"></script>
 </body>
+
 
 </html>

@@ -1,1 +1,41 @@
-movie-btn
+nav {
+	text-align: right;
+	margin-left: 7%;
+}
+.navbar {
+	background-color: #7c8b98;
+}
+/* img {
+	position: relative;
+	width: 100px;
+	height: 1%;
+	overflow: hidden;
+	z-index: 1;
+} */
+.carousel-caption {
+	top: 62%;
+	transform: translateY(-50%);
+}
+
+img {
+	height: 30%;
+}
+.color {
+	color: #373c41;
+}
+
+button {
+	
+}
+
+.flex-container {
+    display:flex;
+}
+
+#gifs-appear-here {
+    margin: 20px;
+}
+
+#movies-view {
+    margin: 20px;
+}
