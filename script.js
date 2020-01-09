@@ -1,45 +1,14 @@
 //SPOTIFY
-//Oauth token BQAqs7-1OEVaI2_8l0vKmIOQxCr4BN35Y4GxewWyPmRQzisItDZqWZWPm9VbblJIGHIPSR7lhf_XaU7XM1cjlFuCvafg3Nktci0v9LDfU3XQHObOqqqRnZLzdPi7-4at8x6TdLzZAbUUUoiYc_4sTg
+//Oauth token BQC0uhBNoJsFv353zWf9ByFQQNEJmJoxrMz5cREKYcukYs3t5Fepg-R1fSbDD9Cg2kXnuynxC-3LeLccNemi0rGj1N8j16lPPHyp6kaBLUqpAW3PkDqtcIWP2Riwo0p2XY-ianTTzGewWGrWrV6SMA
+
 //happy mood playlist spotify URI: spotify:playlist:0kWycnqEfYA31P87pJBtA8
+
 //spotify object model: https://developer.spotify.com/documentation/web-api/reference/object-model/
 
-// const request = require("request");
-// const user_id = "shannon";
-// const token = "Bearer "
-// const playlists_url = "https://api.spotify.com/v1/users/" + user_id + "/playlists"
-
-// request({ url: playlists_url, headers: { "Authorization": token } }, function (err, res) {
-//     if (res) {
-//         const playlists = JSON.parse(res.body);
-//         const playlist_url = playlists.items[0].href
-//         request({ url: playlist_url, headers: { "Authorization": token } }), function (err, res) {
-//             if (res) {
-//                 const playlist = JSON.parse(res.body);
-//                 console.log("playlist: " + playlist.name);
-//                 playlist.tracks.forEach(function (track) {
-//                     console.log(track.track.name);
-//                 });
-//             }
-//         }
-//     }
-// })
+// more music apis: https://musicmachinery.com/music-apis/
 
 
-// love shack id = spotify:track:4W4wYHtsrgDiivRASVOINL
 
-// function myFunction(moodSongs) {
-//     for (let i = 0; i < moodSongs.length; i++) {
-//         const songID = moodSongs[i];
-//     }
-// }
-
-// const happySongs = {
-//     LoveShack: "4W4wYHtsrgDiivRASVOINL",
-//     Happy: "60nZcImufyMA1MKQY3dcCH",
-//     ComeOnEileen: "6tmslRyHPI7dyTe8rAHcbQ",
-//     JustLikeFire: "7K5dzhGda2vRTaAWYI3hrb",
-//     ImWalkingonSunshine: "6mht0HfWSayOESGoaXEShd"
-// }
 $(document).ready(function(){
     $("button").on("click", function () {
         const mood = $(this).attr("data-mood");
@@ -55,19 +24,23 @@ function displayMusicInfo(mood) {
         },
         {
             musicMood: "Sad",
-            choices: []
+            // song IDs for Say Something, Creep, Mad World, Fade Into You, Summertime Sadness
+            choices: ["6Vc5wAMmXdKIAM7WUoEb7N", "6b2oQwSGFkzsMtQruIWm2p", "3JOVTQ5h8HGFnDdp4VT3MP", "1LzNfuep1bnAUR9skqdHCK", "2dBwB667LHQkLhdYlwLUZK"]
         },
         {
             musicMood: "Angry",
-            choices: []
+            // song IDs for Break Stuff, I Hate Everything About You, Down with the Sickness, Bodies, Prison Song
+            choices: ["5cZqsjVs6MevCnAkasbEOX", "6rUp7v3l8yC4TKxAAR5Bmx", "40rvBMQizxkIqnjPdEWY1v", "7CpbhqKUedOIrcvc94p60Y", "3AwLxSqo1jOOMpNsgxqRNE"]
         },
         {
             musicMood: "Silly",
-            choices: []
+            // song IDs for White & Nerdy, Itsy-Bitsy Teeny-Weeny Yellow Polka Dot Bikini, F.U.N. Song, Axel F, Barbie Girl
+            choices: ["60R2v9lheAu3lwZwAFxMZK", "3B3jI9LaQyOwrtjdlnNOw0", "0gdLTqxAY4DDUQxXzmwj1z", "2Ea1iuiNtpR9BcFlQYRE5d", "2RSOzvKUnfDDrb2nQPfpQU"]
         },
         {
             musicMood: "Festive",
-            choices: []
+            // song IDs for Grandma Got Run Over by a Reindeer, All I Want for Christmas is You, Monster Mash, Thriller, It's the Most Wonderful Time of the Year
+            choices: ["49iHYFjT5yO6WEw6KerX9o", "0bYg9bo50gSsH3LtXe2SQn", "0xxZY5C9xxij3D1HkzbnfC", "7azo4rpSUh8nXgtonC6Pkq", "5hslUAKq9I9CG2bAulFkHN"]
         }
     ]
     let song = $(this).attr("data-name");
@@ -86,121 +59,88 @@ function displayMusicInfo(mood) {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: "Bearer BQAqs7-1OEVaI2_8l0vKmIOQxCr4BN35Y4GxewWyPmRQzisItDZqWZWPm9VbblJIGHIPSR7lhf_XaU7XM1cjlFuCvafg3Nktci0v9LDfU3XQHObOqqqRnZLzdPi7-4at8x6TdLzZAbUUUoiYc_4sTg"
+            Authorization: "Bearer BQC0uhBNoJsFv353zWf9ByFQQNEJmJoxrMz5cREKYcukYs3t5Fepg-R1fSbDD9Cg2kXnuynxC-3LeLccNemi0rGj1N8j16lPPHyp6kaBLUqpAW3PkDqtcIWP2Riwo0p2XY-ianTTzGewWGrWrV6SMA"
         }
     }).then(function (response) {
         console.log(response);
+        // Creating a div to hold the song
+        const songDiv = $("#songDiv");
+
+        //Storing the title
+        const title = response.tracks["0"].name;
+        //Creating an element to have the title displayed
+        console.log(title);
+        const pOne = $("<p>").text("Title: " + title);
+        //Displaying the title
+        songDiv.append(pOne);
+
+        //Storing the artist
+        const artist = response.tracks["0"].artists["0"].name;
+        //Creating an element to have the artist displayed
+        const pTwo = $("<p>").text("Artist: " + artist);
+        //Displaying the artist
+        songDiv.append(pTwo);
+
+        //Storing the album
+        const album = response.tracks["0"].album.name;
+        //Creating an element to have the album displayed
+        const pThree = $("<p>").text("Album: " + album);
+        //Displaying the album
+        songDiv.append(pThree);
+        
+        //Retrieving the URL for the album image
+        const imageURL = response.tracks["0"].album.images["0"].url;
+        const albumImage = $("<img>").attr("src", imageURL);
+        //Displaying the albumImage
+        songDiv.append(albumImage);
+
     })
 
 }
 
 
+// click mood and have GIF appear
+$("button").on("click", function () {
+    // In this case, the "this" keyword refers to the button that was clicked
+    const mood = $(this).attr("data-mood");
 
+    // Constructing a URL to search Giphy for the mood
+    const queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        mood + "&api_key=dc6zaTOxFJmzC&limit=10";
 
-// const sadSongs = []
-// const angrySongs = []
-// const sillySongs = []
-// const festiveSongs =[]
-// // const mood = $(this).attr("data-mood");
-// const getTracksURL = "https://api.spotify.com/v1/tracks?ids=4W4wYHtsrgDiivRASVOINL&market=US&"
+    // Performing our AJAX GET request
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+        // After the data comes back from the API
+        .then(function (response) {
+            // Storing an array of results in the results variable
+            const results = response.data;
 
-// $.ajax({
-//     url: getTracksURL,
-//     method: "GET",
-//     headers: {
-//         Accept: "application/json",
-//         "Content-Type": "application/json",
-//         Authorization: "Bearer BQCv7xiYuCVfUwkVab2t3ghroRjfdjKq9V8RMISCo4l9Heh-Lf32EiJ0reYpgBoiho2SxgFWF3c7_OdvwxNid9ykG3dNSLRqJhw6uU3KoWz5CFiRFHR_5lJ0glwbKFwfRWWt1VvjKZKmIkP9vVlsyQ"
-//     }
-// }).then(function (response) {
-//     console.log(response);
-// })
-// })
+            // Looping over every result item
+            for (let i = 0; i < results.length; i++) {
 
+                // Only taking action if the photo has an appropriate rating
+                function getGif() {
 
-//musicovery!!!!!!!!! http://musicovery.com/api/V6/doc/documentation.php#playlist_tag
-// go down to 'Playlist: get from a tag' and go down to  'Playlist from mood coordinates (valence, arousal)'
+                    // Creating a div for the gif
+                    const gifDiv = $("<div>");
 
-// let valence = 0
-// let arousal = 0
+                    // Creating an image tag
+                    const moodImage = $("<img>");
 
-// click mood 
-// $("button").on("click", function () {
-//     const mood = $(this).attr("data-mood");
-// if (mood == "Happy") {
-//     valence = 900000;
-//     arousal = 400000;
-// } else if (mood == "Angry") {
-//     valence = 330000;
-//     arousal = 900000;
-// } else if (mood == "Sad") {
-//     valence = 100000;
-//     arousal = 100000;
-// } else {
-//     valence = 900000;
-//     arousal = 200000;
-// }
+                    // Giving the image tag an src attribute of a property pulled off the
+                    // result item
+                    moodImage.attr("src", results[i].images.fixed_height.url);
 
-// const musicoveryURL = "http://musicovery.com/api/V6/playlist.php?&fct=getfrommood&trackvalence=" + valence + "&trackarousal=" + arousal
-//     const musicoveryURL = "http://musicovery.com/api/V6/playlist.php?&fct=getfrommood&trackvalence=900000&trackarousal=400000&listenercountry=us"
+                    // Appending the moodImage we created to the "gifDiv" div we created
+                    gifDiv.append(moodImage);
 
-//     $.ajax({
-//         url: musicoveryURL,
-//         method: "GET"
-//     }).then(function (response) {
-//         console.log(JSON.stringify(response));
-//     })
-
-// });
-
-
-// more music apis:
-// https://musicmachinery.com/music-apis/
-
-
-
-// // click mood and have GIF appear
-// $("button").on("click", function () {
-//     // In this case, the "this" keyword refers to the button that was clicked
-//     const mood = $(this).attr("data-mood");
-
-//     // Constructing a URL to search Giphy for the mood
-//     const queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-//         mood + "&api_key=dc6zaTOxFJmzC&limit=10";
-
-//     // Performing our AJAX GET request
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET"
-//     })
-//         // After the data comes back from the API
-//         .then(function (response) {
-//             // Storing an array of results in the results variable
-//             const results = response.data;
-
-//             // Looping over every result item
-//             for (let i = 0; i < results.length; i++) {
-
-//                 // Only taking action if the photo has an appropriate rating
-//                 function getGif() {
-
-//                     // Creating a div for the gif
-//                     const gifDiv = $("<div>");
-
-//                     // Creating an image tag
-//                     const moodImage = $("<img>");
-
-//                     // Giving the image tag an src attribute of a property pulled off the
-//                     // result item
-//                     moodImage.attr("src", results[i].images.fixed_height.url);
-
-//                     // Appending the moodImage we created to the "gifDiv" div we created
-//                     gifDiv.append(moodImage);
-
-//                     // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-//                     $("#gifs-appear-here").prepend(gifDiv);
-//                 }
-//                 getGif();
-//             }
-//         })
-// })
+                    // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+                    $("#gifs-appear-here").prepend(gifDiv);
+                }
+                getGif();
+            }
+        })
+})
