@@ -5,11 +5,8 @@
 
 //spotify object model: https://developer.spotify.com/documentation/web-api/reference/object-model/
 
-// more music apis: https://musicmachinery.com/music-apis/
 
-
-
-$(document).ready(function(){
+$(document).ready(function () {
     $("button").on("click", function () {
         const mood = $(this).attr("data-mood");
         displayMusicInfo(mood);
@@ -66,33 +63,38 @@ function displayMusicInfo(mood) {
         // Creating a div to hold the song
         const songDiv = $("#songDiv");
 
-        //Storing the title
+        // Storing the title
         const title = response.tracks["0"].name;
-        //Creating an element to have the title displayed
+        // Creating an element to have the title displayed
         console.log(title);
         const pOne = $("<p>").text("Title: " + title);
-        //Displaying the title
+        // Displaying the title
         songDiv.append(pOne);
 
-        //Storing the artist
+        // Storing the artist
         const artist = response.tracks["0"].artists["0"].name;
-        //Creating an element to have the artist displayed
+        // Creating an element to have the artist displayed
         const pTwo = $("<p>").text("Artist: " + artist);
-        //Displaying the artist
+        // Displaying the artist
         songDiv.append(pTwo);
 
-        //Storing the album
+        // Storing the album
         const album = response.tracks["0"].album.name;
-        //Creating an element to have the album displayed
+        // Creating an element to have the album displayed
         const pThree = $("<p>").text("Album: " + album);
-        //Displaying the album
+        // Displaying the album
         songDiv.append(pThree);
-        
-        //Retrieving the URL for the album image
+
+        // Retrieving the URL for the album image
         const imageURL = response.tracks["0"].album.images["0"].url;
         const albumImage = $("<img>").attr("src", imageURL);
         //Displaying the albumImage
         songDiv.append(albumImage);
+
+        // Append link to song
+        const songURL = response.tracks["0"].external_urls.spotify;
+        const link = $("<p><a title='songlink' href='" + songURL + "'>" + 'Click here to listen!' + "</a></p>");
+        songDiv.append(link);
 
     })
 
