@@ -61,7 +61,7 @@ function displayMusicInfo(mood) {
     }).then(function (response) {
         console.log(response);
         // Creating a div to hold the song
-        const songDiv = $("#songDiv");
+        const songDiv = $("<div class='songDiv'>");
 
         // Storing the title
         const title = response.tracks["0"].name;
@@ -85,16 +85,19 @@ function displayMusicInfo(mood) {
         // Displaying the album
         songDiv.append(pThree);
 
+        // Append song link
+        const songURL = response.tracks["0"].external_urls.spotify;
+        const link = $("<p><a title='songlink' href='" + songURL + "'>" + 'Click here to listen!' + "</a></p>");
+        songDiv.append(link);
+
         // Retrieving the URL for the album image
         const imageURL = response.tracks["0"].album.images["0"].url;
         const albumImage = $("<img>").attr("src", imageURL);
         //Displaying the albumImage
         songDiv.append(albumImage);
 
-        // Append link to song
-        const songURL = response.tracks["0"].external_urls.spotify;
-        const link = $("<p><a title='songlink' href='" + songURL + "'>" + 'Click here to listen!' + "</a></p>");
-        songDiv.append(link);
+        // Add each song's info to the songs-view div (and replace previous song info)
+        $("#songs-view").html(songDiv);
 
     })
 
