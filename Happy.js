@@ -4,15 +4,34 @@ const happy = [
     "funny cats",
     "inspiring", ];
 
-    const totalResponses = happy.length;
+const sad = [
+  "paperman",
+  "kitbull",
+  "Giving",
+]
+
+const angry = [
+  "spooky ghost",
+  "avatar trailer",
+
+]
+
+const silly = [
+
+]
+
+const festive = [
+
+]
+      //working on a button to activate an array
+"happy".onclick=pickhappy()
+// --------------------------------------happy------------------------------------------------//
+      //add a function to use this array only if happy is chosen 
+function pickhappy() {
+const totalResponses = happy.length;
 const responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
 const chosenVideo = happy[responseIndex];
-console.log(chosenVideo);
-
-// for (let i= 0; i < happy.length; i++) {
-//   const element = happy[1];
-//   console.log(element); 
-// };
+console.log(chosenVideo); 
 
 if (chosenVideo === "heavy is dead") {
   var videoSelect="oiuyhxp4w9I"
@@ -25,9 +44,32 @@ if (chosenVideo === "heavy is dead") {
 }
   else  {
     alert("no video");
+  }}
+
+//--------------------------------------happy-------------------------------------------------//
+
+//---------------------------------------Sad------------------------------------------------------//
+      //add a function to use this array only if sad is chosen   
+const totalResponses = sad.length;
+const responseIndex = Math.floor((Math.random() * 10) + 1) % totalResponses;
+const chosenVideo = sad[responseIndex];
+console.log(chosenVideo);
+
+if (chosenVideo === "paperman") {
+  var videoSelect="KGpTBEzFFiM"
+  pickVideo();
+  
+  
+} else if (chosenVideo === "kitbull") {
+  var videoSelect= "AZS5cgybKcI";
+  pickVideo();
+}
+  else  {
+    alert("no video");
   }
 
 
+//---------------------------------------Sad------------------------------------------------------//
 
 
 
@@ -35,7 +77,8 @@ if (chosenVideo === "heavy is dead") {
 
 
 
-//---------------------------------------Heavy is dead-----------------------//
+
+//---------------------------------------pick video-----------------------//
 function pickVideo() {
         var x=document.getElementById("player");
         
@@ -104,5 +147,5 @@ function pickVideo() {
       function stopVideo() {
         player.stopVideo();
       }
-//-----------------------------------Heavy is dead-----------------------------------------------------//
+//-----------------------------------pick video-----------------------------------------------------//
 
