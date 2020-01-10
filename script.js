@@ -1,5 +1,5 @@
 //SPOTIFY
-//Oauth token BQC0uhBNoJsFv353zWf9ByFQQNEJmJoxrMz5cREKYcukYs3t5Fepg-R1fSbDD9Cg2kXnuynxC-3LeLccNemi0rGj1N8j16lPPHyp6kaBLUqpAW3PkDqtcIWP2Riwo0p2XY-ianTTzGewWGrWrV6SMA
+//Oauth token BQCvcziswENRqSS4aWThKOFbJnqNf-aZ2p3PLNwDJFR-Hxkv5FK_YSgia62ehFu-DFLO0RuufC4vRKzJ9HKnMO0FI1QYp0PDpQLGlCCZer2eCMlGjw59HZMPs9hmm32uTKQtnJBsKLpoytGO2WVJ7w
 
 //happy mood playlist spotify URI: spotify:playlist:0kWycnqEfYA31P87pJBtA8
 
@@ -56,7 +56,7 @@ function displayMusicInfo(mood) {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: "Bearer BQC0uhBNoJsFv353zWf9ByFQQNEJmJoxrMz5cREKYcukYs3t5Fepg-R1fSbDD9Cg2kXnuynxC-3LeLccNemi0rGj1N8j16lPPHyp6kaBLUqpAW3PkDqtcIWP2Riwo0p2XY-ianTTzGewWGrWrV6SMA"
+            Authorization: "Bearer BQCvcziswENRqSS4aWThKOFbJnqNf-aZ2p3PLNwDJFR-Hxkv5FK_YSgia62ehFu-DFLO0RuufC4vRKzJ9HKnMO0FI1QYp0PDpQLGlCCZer2eCMlGjw59HZMPs9hmm32uTKQtnJBsKLpoytGO2WVJ7w"
         }
     }).then(function (response) {
         console.log(response);
@@ -92,7 +92,7 @@ function displayMusicInfo(mood) {
 
         // Retrieving the URL for the album image
         const imageURL = response.tracks["0"].album.images["0"].url;
-        const albumImage = $("<img>").attr("src", imageURL);
+        const albumImage = $("<img>").attr("src", imageURL).width(200).height(200);
         //Displaying the albumImage
         songDiv.append(albumImage);
 
@@ -149,3 +149,5 @@ $("button").on("click", function () {
             }
         })
 })
+
+
