@@ -17,7 +17,6 @@ $(document).ready(function() {
 });
 
 //SPOTIFY
-
 // const request = require("request");
 // const user_id = "shannon";
 // const token = "Bearer "
