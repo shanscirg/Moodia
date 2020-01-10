@@ -1,29 +1,71 @@
-nav {
-	text-align: right;
-	margin-left: 7%;
+html,
+body {
+	height: 100%;
 }
-.navbar {
-	background-color: #7c8b98;
-}
-/* img {
-	position: relative;
-	width: 100px;
-	height: 1%;
+.container {
+	min-height: 100%;
 	overflow: hidden;
-	z-index: 1;
-} */
-.carousel-caption {
-	top: 62%;
-	transform: translateY(-50%);
 }
 
-img {
-	height: 30%;
+.happy {
+	background-image: url(images/happy.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
-.color {
-	color: #373c41;
+/* .row {
+	/* padding-top: 25%;
+	padding-bottom: 50%;
+	margin-bottom: -50%; */
+/* } */
+.col-md-3 {
+	padding-bottom: 100px;
+}
+#happybtn {
+	margin-top: 100%;
+	width: 50%;
+}
+#sadbtn {
+	margin-top: 100%;
+	width: 50%;
+}
+#angrybtn {
+	margin-top: 100%;
+	width: 50%;
+}
+#sillybtn {
+	margin-top: 100%;
+	width: 50%;
+}
+.sad {
+	background-image: url(images/saddanboResize.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
 
-button {
-	
+.angry {
+	background-image: url(images/angry.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.silly {
+	background-image: url(images/silly.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
 }
