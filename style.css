@@ -1,0 +1,83 @@
+html,
+body {
+	height: 100%;
+}
+.container {
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.happy {
+	background-image: url(images/happy.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+/* .row {
+	/* padding-top: 25%;
+	padding-bottom: 50%;
+	margin-bottom: -50%; */
+/* } */
+.col-md-3 {
+	padding-bottom: 100px;
+}
+#happybtn {
+	margin-top: 100%;
+	width: 50%;
+}
+#sadbtn {
+	margin-top: 100%;
+	width: 50%;
+}
+#angrybtn {
+	margin-top: 100%;
+	width: 50%;
+}
+#sillybtn {
+	margin-top: 100%;
+	width: 50%;
+}
+.sad {
+	background-image: url(images/saddanboResize.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.angry {
+	background-image: url(images/angry.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.silly {
+	background-image: url(images/silly.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.flex-container {
+    display:flex;
+}
+
+#gifs-appear-here {
+    margin: 20px;
+}
+
+#movies-view {
+    margin: 20px;
+}
