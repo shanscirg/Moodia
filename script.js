@@ -1,3 +1,21 @@
+$(document).ready(function() {
+	$('#sad').on('mouseover', function() {
+		$('#body').removeClass();
+		$('body').fadeIn('slow').attr('class', 'sad');
+	});
+	$('#angry').on('mouseover', function() {
+		$('#body').removeClass();
+		$('body').fadeIn('slow').attr('class', 'angry');
+	});
+	$('#silly').on('mouseover', function() {
+		$('#body').removeClass();
+		$('body').fadeIn('slow').attr('class', 'silly');
+	});
+	$('#happy').on('mouseover', function() {
+		$('body').fadeIn('slow').attr('class', 'happy');
+	});
+});
+
 //SPOTIFY
 // const request = require("request");
 // const user_id = "shannon";
@@ -6,54 +24,54 @@
 
 // request({ url: playlists_url, headers: { "Authorization": token } }, function (err, res) {
 //
-$(document).ready(function() {
-	// click mood and have GIF appear
-	$('button').on('click', function() {
-		$('#carousel').hide();
-		// In this case, the "this" keyword refers to the button that was clicked
-		const mood = $(this).attr('data-mood');
-		displayMovieInfo(mood);
 
-		// Constructing a URL to search Giphy for the mood
-		const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=10';
+// click mood and have GIF appear
+$('button').on('click', function() {
+	$('#main').hide();
+	$('body').removeClass();
+	// In this case, the "this" keyword refers to the button that was clicked
+	const mood = $(this).attr('data-mood');
+	displayMovieInfo(mood);
 
-		// Performing our AJAX GET request
-		$.ajax({
-			url    : queryURL,
-			method : 'GET'
-		})
-			// After the data comes back from the API
-			.then(function(response) {
-				// Storing an array of results in the results variable
-				const results = response.data;
+	// Constructing a URL to search Giphy for the mood
+	const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=10';
 
-				// Looping over every result item
-				for (let i = 0; i < results.length; i++) {
-					// Only taking action if the photo has an appropriate rating
-					function getGif() {
-						// Creating a div for the gif
-						const gifDiv = $('<div>');
+	// Performing our AJAX GET request
+	$.ajax({
+		url    : queryURL,
+		method : 'GET'
+	})
+		// After the data comes back from the API
+		.then(function(response) {
+			// Storing an array of results in the results variable
+			const results = response.data;
 
-						// Creating an image tag
-						const moodImage = $('<img>');
+			// Looping over every result item
+			for (let i = 0; i < results.length; i++) {
+				// Only taking action if the photo has an appropriate rating
+				function getGif() {
+					// Creating a div for the gif
+					const gifDiv = $('<div>');
 
-						// Giving the image tag an src attribute of a property pulled off the
-						// result item
-						moodImage.attr('src', results[i].images.fixed_height.url);
+					// Creating an image tag
+					const moodImage = $('<img>');
 
-						// Appending the moodImage we created to the "gifDiv" div we created
-						gifDiv
-							.append(moodImage)
-							.attr('data-target', '#gifs-appear-here')
-							.attr('data-slide-to', i.toString());
+					// Giving the image tag an src attribute of a property pulled off the
+					// result item
+					moodImage.attr('src', results[i].images.fixed_height.url);
 
-						// Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-						$('#gifs-appear-here').html(gifDiv);
-					}
-					getGif();
+					// Appending the moodImage we created to the "gifDiv" div we created
+					gifDiv
+						.append(moodImage)
+						.attr('data-target', '#gifs-appear-here')
+						.attr('data-slide-to', i.toString());
+
+					// Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+					$('#gifs-appear-here').html(gifDiv);
 				}
-			});
-	});
+				getGif();
+			}
+		});
 });
 
 function displayMovieInfo(mood) {
@@ -162,12 +180,11 @@ function displayMovieInfo(mood) {
 
 //spotify object model: https://developer.spotify.com/documentation/web-api/reference/object-model/
 
-$(document).ready(function() {
-	$('button').on('click', function() {
-		const mood = $(this).attr('data-mood');
-		displayMusicInfo(mood);
-	});
+$('button').on('click', function() {
+	const mood = $(this).attr('data-mood');
+	displayMusicInfo(mood);
 });
+
 function displayMusicInfo(mood) {
 	const songsArray = [
 		{
@@ -243,7 +260,7 @@ function displayMusicInfo(mood) {
 			Accept         : 'application/json',
 			'Content-Type' : 'application/json',
 			Authorization  :
-				'Bearer BQCvcziswENRqSS4aWThKOFbJnqNf-aZ2p3PLNwDJFR-Hxkv5FK_YSgia62ehFu-DFLO0RuufC4vRKzJ9HKnMO0FI1QYp0PDpQLGlCCZer2eCMlGjw59HZMPs9hmm32uTKQtnJBsKLpoytGO2WVJ7w'
+				'Bearer BQAx8R-PTTrNk9s_Zf_Aw9sitCZgorZvVNdyg8_pk7oHk1gSr7M2NtPNWcolclVTfls8kINRxOaRJPMc2yD3w0k6fHXhzkC6PqAAWWtgUvmeZ8ywbGDDtkO3mFNwSs5r7mkKj2Y4TeQezaAucxZEAA'
 		}
 	}).then(function(response) {
 		console.log(response);
@@ -287,46 +304,3 @@ function displayMusicInfo(mood) {
 		$('#songs-view').html(songDiv);
 	});
 }
-
-// click mood and have GIF appear
-$('button').on('click', function() {
-	// In this case, the "this" keyword refers to the button that was clicked
-	const mood = $(this).attr('data-mood');
-
-	// Constructing a URL to search Giphy for the mood
-	const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=10';
-
-	// Performing our AJAX GET request
-	$.ajax({
-		url    : queryURL,
-		method : 'GET'
-	})
-		// After the data comes back from the API
-		.then(function(response) {
-			// Storing an array of results in the results variable
-			const results = response.data;
-
-			// Looping over every result item
-			for (let i = 0; i < results.length; i++) {
-				// Only taking action if the photo has an appropriate rating
-				function getGif() {
-					// Creating a div for the gif
-					const gifDiv = $('<div>');
-
-					// Creating an image tag
-					const moodImage = $('<img>');
-
-					// Giving the image tag an src attribute of a property pulled off the
-					// result item
-					moodImage.attr('src', results[i].images.fixed_height.url);
-
-					// Appending the moodImage we created to the "gifDiv" div we created
-					gifDiv.append(moodImage);
-
-					// Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-					$('#gifs-appear-here').prepend(gifDiv);
-				}
-				getGif();
-			}
-		});
-});
