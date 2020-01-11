@@ -393,6 +393,6 @@ function displayVideo(mood) {
 		movieDiv.prepend(image);
 
 		// Putting the entire movie above the previous movies
-		$('#movies-view').html(movieDiv);
+		$('#videos-view').html(videoDiv);
 	});
 }
