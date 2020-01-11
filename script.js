@@ -128,7 +128,7 @@ function displayMovieInfo(mood) {
 	}
 	console.log(movie);
 
-	const queryURL = 'https://www.omdbapi.com/?t=' + movie + '&apikey=trilogy';
+	const queryURL = 'https://www.omdbapi.com/?t=' + movie + '&apikey=66fdabe8';
 
 	// Creating an AJAX call for the specific movie button being clicked
 	$.ajax({
@@ -344,9 +344,9 @@ function displayVideo(mood) {
 			video = videosArray[i].choices[randomNum];
 		}
 	}
-	console.log(movie);
+	console.log(video);
 
-	const queryURL = 'https://www.omdbapi.com/?t=' + movie + '&apikey=trilogy';
+	const queryURL = 'https://www.googleapis.com/youtube/v3/search' + video + '&apikey=AIzaSyDAGGCpLGmBI-YC8qWftw53XEQ47Iv8vRc';
 
 	// Creating an AJAX call for the specific movie button being clicked
 	$.ajax({
@@ -354,7 +354,7 @@ function displayVideo(mood) {
 		method : 'GET'
 	}).then(function(response) {
 		// Creating a div to hold the movie
-		const movieDiv = $("<div class='movie'>");
+		const videoDiv = $("<div class='video'>");
 
 		// Storing the rating data
 		const rating = response.Rated;
