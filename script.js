@@ -311,7 +311,7 @@ function displayMusicInfo(mood) {
 }
 
 function displayVideo(mood) {
-	const videoArray = [
+	const videosArray = [
 		{
 			videoMood : 'Happy',
 			choices   : [ 
@@ -333,5 +333,66 @@ function displayVideo(mood) {
 				'avatar trailer',
 				'Kill Bill',]
 		},
-	}
 	];
+
+	let video = $(this).attr('data-name');
+
+	// if statement for each of the mood
+	for (let i = 0; i < videosArray.length; i++) {
+		if (mood === videosArray[i].videoMood) {
+			var randomNum = Math.floor(Math.random() * 3);
+			video = videosArray[i].choices[randomNum];
+		}
+	}
+	console.log(movie);
+
+	const queryURL = 'https://www.omdbapi.com/?t=' + movie + '&apikey=trilogy';
+
+	// Creating an AJAX call for the specific movie button being clicked
+	$.ajax({
+		url    : queryURL,
+		method : 'GET'
+	}).then(function(response) {
+		// Creating a div to hold the movie
+		const movieDiv = $("<div class='movie'>");
+
+		// Storing the rating data
+		const rating = response.Rated;
+
+		// Creating an element to have the rating displayed
+		const pOne = $('<p>').text('Rating: ' + rating);
+
+		// Displaying the rating
+		movieDiv.append(pOne);
+
+		// Storing the release year
+		const released = response.Released;
+
+		// Creating an element to hold the release year
+		const pTwo = $('<p>').text('Released: ' + released);
+
+		// Displaying the release year
+		movieDiv.append(pTwo);
+
+		// Storing the plot
+		const plot = response.Plot;
+
+		// Creating an element to hold the plot
+		const pThree = $('<p>').text('Plot: ' + plot);
+
+		// Appending the plot
+		movieDiv.append(pThree);
+
+		// Retrieving the URL for the image
+		const imgURL = response.Poster;
+
+		// Creating an element to hold the image
+		const image = $('<img>').attr('src', imgURL);
+
+		// Appending the image
+		movieDiv.prepend(image);
+
+		// Putting the entire movie above the previous movies
+		$('#movies-view').html(movieDiv);
+	});
+}
