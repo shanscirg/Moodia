@@ -2,6 +2,9 @@ html,
 body {
 	height: 100%;
 }
+.jumbotron {
+	background-color: rgba(0, 0, 0, 0);
+}
 .container {
 	min-height: 100%;
 	overflow: hidden;
@@ -21,8 +24,8 @@ body {
 	padding-bottom: 50%;
 	margin-bottom: -50%; */
 /* } */
-.col-md-3 {
-	padding-bottom: 100px;
+.moods {
+	padding-bottom: 100%;
 }
 #happybtn {
 	margin-top: 100%;
