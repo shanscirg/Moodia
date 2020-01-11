@@ -78,7 +78,12 @@ function displayMovieInfo(mood) {
 	const moviesArray = [
 		{
 			movieMood : 'Happy',
-			choices   : [ 'School of Rock', 'Love Actually', 'Forrest Gump', "Ferris Bueller's Day Off", 'Sister Act' ]
+			choices   : [ 
+				'School of Rock', 
+				'Love Actually', 
+				'Forrest Gump', 
+				"Ferris Bueller's Day Off", 
+				'Sister Act' ]
 		},
 		{
 			movieMood : 'Sad',
@@ -304,3 +309,29 @@ function displayMusicInfo(mood) {
 		$('#songs-view').html(songDiv);
 	});
 }
+
+function displayVideo(mood) {
+	const videoArray = [
+		{
+			videoMood : 'Happy',
+			choices   : [ 
+				'heavy is dead', 
+				'funny cats', 
+				'inspiring',]
+		},
+		{
+			videoMood : 'Sad',
+			choices   : [
+				"paperman",
+				"kitbull",
+				'Giving',]
+		},
+		{
+			videoMood : 'Angry',
+			choices   : [
+				'spooky ghost',
+				'avatar trailer',
+				'Kill Bill',]
+		},
+	}
+	];
