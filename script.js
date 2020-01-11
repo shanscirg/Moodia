@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	// console.log(moment);
 	$('#sad').on('mouseover', function() {
 		$('#body').removeClass();
 		$('body').fadeIn('slow').attr('class', 'sad');
@@ -13,6 +14,9 @@ $(document).ready(function() {
 	});
 	$('#happy').on('mouseover', function() {
 		$('body').fadeIn('slow').attr('class', 'happy');
+	});
+	$('#festive').on('mouseover', function() {
+		$('body').fadeIn('slow').attr('class', 'festive');
 	});
 });
 
