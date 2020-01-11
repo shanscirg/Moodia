@@ -118,6 +118,16 @@ function displayMovieInfo(mood) {
 				'Anchorman: The Legend of Ron Burgundy',
 				'Elf'
 			]
+		},
+		{
+			movieMood : 'Festive',
+			choices   : [
+				'The Holiday',
+				'Bad Santa',
+				'Four Christmases',
+				'Die Hard',
+				'The Night Before'
+			]
 		}
 	];
 
