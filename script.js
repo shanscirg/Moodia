@@ -1,116 +1,163 @@
-$(document).ready(function () {
-    $('html, body').animate(
-        {
-            scrollTop: '0px'
-        },
-        0
-    );
-    $('body').attr('style', 'overflow: hidden');
-    $('#bth').hide();
-    $('#main').show();
-    $('#stuff').hide();
-    $('body').attr('class', 'backgroundDefault');
-    // console.log(moment);
-    $('#sad').on('mouseover', function () {
-        $('#body').removeClass();
-        $('body').fadeIn('slow').attr('class', 'sad');
-    });
-    $('#angry').on('mouseover', function () {
-        $('#body').removeClass();
-        $('body').fadeIn('slow').attr('class', 'angry');
-    });
-    $('#silly').on('mouseover', function () {
-        $('#body').removeClass();
-        $('body').fadeIn('slow').attr('class', 'silly');
-    });
-    $('#happy').on('mouseover', function () {
-        $('body').fadeIn('slow').attr('class', 'happy');
-    });
-    $('#festive').on('mouseover', function () {
-        $('body').fadeIn('slow').attr('class', 'festive');
-    });
+$(document).ready(function() {
+	$('html, body').animate(
+		{
+			scrollTop : '0px'
+		},
+		0
+	);
 
-    $('#bth').on('click', function () {
-        $('html, body').animate(
-            {
-                scrollTop: '0px'
-            },
-            0
-        );
+	if ($(window).width() < 1000) {
+		console.log('ahhhhhh');
+		$('#happy').addClass('happy');
+		$('#sad').addClass('sad');
+		$('#angry').addClass('angry');
+		$('#silly').addClass('silly');
+		$('#festive').addClass('festive');
+		$('body').attr('class', 'backgroundDefault');
+	}
+	if ($(window).width() > 1000) {
+		$('body').attr('style', 'overflow-x: hidden');
+		$('#sad').on('mouseover', function() {
+			$('#body').removeClass();
+			$('body').fadeIn('slow').attr('class', 'sad');
+		});
+		$('#angry').on('mouseover', function() {
+			$('#body').removeClass();
+			$('body').fadeIn('slow').attr('class', 'angry');
+		});
+		$('#silly').on('mouseover', function() {
+			$('#body').removeClass();
+			$('body').fadeIn('slow').attr('class', 'silly');
+		});
+		$('#happy').on('mouseover', function() {
+			$('body').fadeIn('slow').attr('class', 'happy');
+		});
+		$('#festive').on('mouseover', function() {
+			$('body').fadeIn('slow').attr('class', 'festive');
+		});
+	}
+	$(window).on('resize', function() {
+		var windoww = $(window).width();
+		console.log(windoww);
+		if ($(window).width() > 1000) {
+			$('body').attr('style', 'overflow-x: hidden');
+			$('#sad').on('mouseover', function() {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'sad');
+			});
+			$('#angry').on('mouseover', function() {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'angry');
+			});
+			$('#silly').on('mouseover', function() {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'silly');
+			});
+			$('#happy').on('mouseover', function() {
+				$('body').fadeIn('slow').attr('class', 'happy');
+			});
+			$('#festive').on('mouseover', function() {
+				$('body').fadeIn('slow').attr('class', 'festive');
+			});
+			$('#happy').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
+			$('#sad').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
+			$('#angry').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
+			$('#silly').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
+			$('#festive').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
+		} else {
+			$('#happy').addClass('happy');
+			$('#sad').addClass('sad');
+			$('#angry').addClass('angry');
+			$('#silly').addClass('silly');
+			$('#festive').addClass('festive');
+			$('body').attr('class', 'backgroundDefault');
+		}
+	});
+	$('#bth').hide();
+	$('#main').show();
+	$('#stuff').hide();
+	$('body').attr('class', 'backgroundDefault');
 
-        $('#main').show();
-        $('#stuff').hide();
-        $('body').attr('style', 'overflow: hidden');
-    });
+	// console.log(moment);
 
-    // click mood to have entertainment ideas appear
+	$('#bth').on('click', function() {
+		alert(windowwidth);
+		$('html, body').animate(
+			{
+				scrollTop : '0px'
+			},
+			0
+		);
 
-    $('button').on('click', function (event) {
-        event.preventDefault();
-        const mood = $(this).attr('data-mood');
-        $('#header').text('You chose ' + mood);
-        $('#main').hide();
-        $('body').removeClass();
-        $('#bth').show();
-        $('#stuff').show();
-        $('body').attr('style', 'overflow: show');
-        localStorage.setItem('mood', mood);
-        displayMovieInfo(mood);
+		$('#main').show();
+		$('#stuff').hide();
+		$('body').attr('style', 'overflow-x: hidden');
+		$('body').attr('class', 'backgroundDefault');
+	});
 
+	$('button').on('click', function(event) {
+		event.preventDefault();
+		const mood = $(this).attr('data-mood');
+		$('#header').text('You chose ' + mood);
+		$('#main').hide();
+		$('body').removeClass();
+		$('#bth').show();
+		$('#stuff').show();
+		$('body').attr('style', 'overflow: show');
+		localStorage.setItem('mood', mood);
+		displayMovieInfo(mood);
 
-        // GIFS:
+		// GIFS:
 
-        // Constructing a URL to search Giphy for the mood
-        const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=10';
+		// Constructing a URL to search Giphy for the mood
+		const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=10';
 
-        // Performing our AJAX GET request
-        $.ajax({
-            url: queryURL,
-            method: 'GET'
-        })
-            // After the data comes back from the API
-            .then(function (response) {
-                // Storing an array of results in the results variable
-                const results = response.data;
+		// Performing our AJAX GET request
+		$.ajax({
+			url    : queryURL,
+			method : 'GET'
+		})
+			// After the data comes back from the API
+			.then(function(response) {
+				// Storing an array of results in the results variable
+				const results = response.data;
 
-                // Looping over every result item
-                for (let i = 0; i < results.length; i++) {
-                    // Only taking action if the photo has an appropriate rating
-                    function getGif() {
-                        // Creating a div for the gif
-                        const gifDiv = $('<div>');
+				// Looping over every result item
+				for (let i = 0; i < results.length; i++) {
+					// Only taking action if the photo has an appropriate rating
+					function getGif() {
+						// Creating a div for the gif
+						const gifDiv = $('<div>');
 
-                        // Creating an image tag
-                        const moodImage = $('<img>');
+						// Creating an image tag
+						const moodImage = $('<img>');
 
-                        // Giving the image tag an src attribute of a property pulled off the
-                        // result item
-                        moodImage.attr('src', results[i].images.fixed_height.url);
+						// Giving the image tag an src attribute of a property pulled off the
+						// result item
+						moodImage.attr('src', results[i].images.fixed_height.url);
 
-                        // Appending the moodImage we created to the "gifDiv" div we created
-                        gifDiv
-                            .append(moodImage)
-                            .attr('data-target', '#gifs-appear-here')
-                            .attr('data-slide-to', i.toString());
+						// Appending the moodImage we created to the "gifDiv" div we created
+						gifDiv
+							.append(moodImage)
+							.attr('data-target', '#gifs-appear-here')
+							.attr('data-slide-to', i.toString());
 
-                        // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-                        $('#gifs-appear-here').html(gifDiv);
-                    }
-                    getGif();
-                }
-            });
-    });
+						// Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+						$('#gifs-appear-here').html(gifDiv);
+					}
+					getGif();
+				}
+			});
+	});
 
+	// MOVIES:
 
-
-    // MOVIES:
-
-    function displayMovieInfo(mood) {
-        const moviesArray = [
-            {
-                movieMood: 'Happy',
-                choices: [
-                    'School of Rock',
+	function displayMovieInfo(mood) {
+		const moviesArray = [
+			{
+				movieMood : 'Happy',
+				choices   : [
+					'School of Rock',
                     'Love Actually',
                     'Forrest Gump',
                     "Ferris Bueller's Day Off",
@@ -130,12 +177,12 @@ $(document).ready(function () {
                     'Little Miss Sunshine',
                     'Mary Poppins',
                     'Breakfast at Tiffany\'s'
-                ]
-            },
-            {
-                movieMood: 'Sad',
-                choices: [
-                    "My Sister's Keeper",
+				]
+			},
+			{
+				movieMood : 'Sad',
+				choices   : [
+					"My Sister's Keeper",
                     "Hachi: A Dog's Tale",
                     'The Green Mile',
                     'The Pursuit of Happyness',
@@ -155,10 +202,9 @@ $(document).ready(function () {
                     'Up',
                     'Philadelphia',
                     'Joker'
-
-                ]
-            },
-            {
+				]
+			},
+			{
                 movieMood: 'Angry',
                 choices: [
                     'Inglourious Basterds',
@@ -222,7 +268,7 @@ $(document).ready(function () {
                     'The Polar Express',
                     'A Christmas Story',
                     'The Santa Clause',
-                    
+
                     // Halloween movies
                     'Scream',
                     'It\'s the Great Pumpkin, Charlie Brown',
@@ -237,84 +283,82 @@ $(document).ready(function () {
                 ]
             }
         ];
+		let movie = $(this).attr('data-name');
 
-        let movie = $(this).attr('data-name');
+		// if statement for each of the moods
+		for (let i = 0; i < moviesArray.length; i++) {
+			if (mood === moviesArray[i].movieMood) {
+				var randomNum = Math.floor(Math.random() * 20);
+				movie = moviesArray[i].choices[randomNum];
+			}
+		}
+		console.log(movie);
 
-        // if statement for each of the moods
-        for (let i = 0; i < moviesArray.length; i++) {
-            if (mood === moviesArray[i].movieMood) {
-                var randomNum = Math.floor(Math.random() * 20);
-                movie = moviesArray[i].choices[randomNum];
-            }
-        }
-        console.log(movie);
+		const queryURL = 'https://www.omdbapi.com/?t=' + movie + '&apikey=66fdabe8';
 
-        const queryURL = 'https://www.omdbapi.com/?t=' + movie + '&apikey=66fdabe8';
+		// Creating an AJAX call for the specific movie button being clicked
+		$.ajax({
+			url    : queryURL,
+			method : 'GET'
+		}).then(function(response) {
+			// Creating a div to hold the movie
+			const movieDiv = $("<div class='movie'>");
 
-        // Creating an AJAX call for the specific movie button being clicked
-        $.ajax({
-            url: queryURL,
-            method: 'GET'
-        }).then(function (response) {
-            // Creating a div to hold the movie
-            const movieDiv = $("<div class='movie'>");
+			// Storing the rating data
+			const rating = response.Rated;
 
-            // Storing the rating data
-            const rating = response.Rated;
+			// Creating an element to have the rating displayed
+			const pOne = $('<p>').text('Rating: ' + rating);
 
-            // Creating an element to have the rating displayed
-            const pOne = $('<p>').text('Rating: ' + rating);
+			// Displaying the rating
+			movieDiv.append(pOne);
 
-            // Displaying the rating
-            movieDiv.append(pOne);
+			// Storing the release year
+			const released = response.Released;
 
-            // Storing the release year
-            const released = response.Released;
+			// Creating an element to hold the release year
+			const pTwo = $('<p>').text('Released: ' + released);
 
-            // Creating an element to hold the release year
-            const pTwo = $('<p>').text('Released: ' + released);
+			// Displaying the release year
+			movieDiv.append(pTwo);
 
-            // Displaying the release year
-            movieDiv.append(pTwo);
+			// Storing the plot
+			const plot = response.Plot;
 
-            // Storing the plot
-            const plot = response.Plot;
+			// Creating an element to hold the plot
+			const pThree = $('<p>').text('Plot: ' + plot);
 
-            // Creating an element to hold the plot
-            const pThree = $('<p>').text('Plot: ' + plot);
+			// Appending the plot
+			movieDiv.append(pThree);
 
-            // Appending the plot
-            movieDiv.append(pThree);
+			// Retrieving the URL for the image
+			const imgURL = response.Poster;
 
-            // Retrieving the URL for the image
-            const imgURL = response.Poster;
+			// Creating an element to hold the image
+			const image = $('<img>').attr('src', imgURL);
 
-            // Creating an element to hold the image
-            const image = $('<img>').attr('src', imgURL);
+			// Appending the image
+			movieDiv.prepend(image);
 
-            // Appending the image
-            movieDiv.prepend(image);
-
-            // Adding title to the movie div
+			// Adding title to the movie div
             movieDiv.prepend("<p style='font-size:200%;'><img src='https://i.ya-webdesign.com/images/vector-movie-4.png' width='50' height='50'>Watch This:</p>");
 
-            // Putting the entire movie above the previous movies
-            $('#movies-view').html(movieDiv);
-        });
-    }
+			// Putting the entire movie above the previous movies
+			$('#movies-view').html(movieDiv);
+		});
+	}
 
+	// SPOTIFY:
 
-    // SPOTIFY:
+	$('button').on('click', function() {
+		const mood = $(this).attr('data-mood');
+		displayMusicInfo(mood);
+	});
 
-    $('button').on('click', function () {
-        const mood = $(this).attr('data-mood');
-        displayMusicInfo(mood);
-    });
-
-    function displayMusicInfo(mood) {
-        const songsArray = [
-            {
-                musicMood: 'Happy',
+	function displayMusicInfo(mood) {
+		const songsArray = [
+			{
+				musicMood: 'Happy',
                 // song IDs for Love Shack, Happy, Come On Eileen, Just Like Fire, Walking On Sunshine, Say Hey (I Love You), I Gotta Feeling, Don't Stop Believin', Don't Worry Be Happy, I Got You (I feel good), Somewhere Over the Rainbow, Hey Ya!, (If You’re Wondering If I Want You To) I Want You To, Just Fine, Girls Just Wanna Have Fun, Can't Stop the Feeling, All Star, Twist and Shout, Hooked on a Feeling, Celebration
                 choices: [
                     '4W4wYHtsrgDiivRASVOINL',
@@ -450,79 +494,78 @@ $(document).ready(function () {
                 ]
             }
         ];
-        let song = $(this).attr('data-name');
-        for (let i = 0; i < songsArray.length; i++) {
-            if (mood === songsArray[i].musicMood) {
-                var randomNum = Math.floor(Math.random() * 20);
-                song = songsArray[i].choices[randomNum];
-            }
-        }
+		let song = $(this).attr('data-name');
+		for (let i = 0; i < songsArray.length; i++) {
+			if (mood === songsArray[i].musicMood) {
+				var randomNum = Math.floor(Math.random() * 20);
+				song = songsArray[i].choices[randomNum];
+			}
+		}
 
-        console.log(song);
+		console.log(song);
 
-        const getTracksURL = 'https://api.spotify.com/v1/tracks?ids=' + song + '&market=US';
-        $.ajax({
-            url: getTracksURL,
-            method: 'GET',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                Authorization:
-                    'Bearer BQCXWsFXRY-Of9d9gLs26OP7wIiTTJyZaWtDxWOeAtJe-WQwgynUarJhOUNxxkWjizAQtjq097rzQRq2w-euODdttsnBri5FKSz2pq-HK764587plXID_KtjWSuK2PIIa_C8pSo29GLFqo_wNFKWIQ'
-            }
-        }).then(function (response) {
-            console.log(response);
-            // Creating a div to hold the song
-            const songDiv = $("<div class='songDiv'>");
+		const getTracksURL = 'https://api.spotify.com/v1/tracks?ids=' + song + '&market=US';
+		$.ajax({
+			url     : getTracksURL,
+			method  : 'GET',
+			headers : {
+				Accept         : 'application/json',
+				'Content-Type' : 'application/json',
+				Authorization  :
+					'Bearer BQAd9K7PkXKDljAjOEvilktr0r8NIB1n7ai9IAo5zo8NLuYZ5QX8fniIh8CEFrV46g4vQv4PzSpbIayGhjKXvhed5bX964iDWmJwIpYlLhr89coc858JU4saoAEmE__csx2pvgYzYiAjHhZGMWGuxw'
+			}
+		}).then(function(response) {
+			console.log(response);
+			// Creating a div to hold the song
+			const songDiv = $("<div class='songDiv'>");
 
-            // Adds title to the song div
+			// Adds title to the song div
             songDiv.prepend("<p style='font-size:200%'><img src='https://cdn3.iconfinder.com/data/icons/small-black/512/music_notes_quaver_songs_sound-512.png' width='50' height='50'> Listen to This:</p>");
 
-            // Retrieving the URL for the album image
-            const imageURL = response.tracks['0'].album.images['0'].url;
-            const albumImage = $('<img>').attr('src', imageURL).width(250).height(250);
-            //Displaying the albumImage
-            songDiv.append(albumImage);
+			// Retrieving the URL for the album image
+			const imageURL = response.tracks['0'].album.images['0'].url;
+			const albumImage = $('<img>').attr('src', imageURL).width(250).height(250);
+			//Displaying the albumImage
+			songDiv.append(albumImage);
 
-            // Storing the title
-            const title = response.tracks['0'].name;
-            // Creating an element to have the title displayed
-            console.log(title);
-            const pOne = $('<p>').text('Title: ' + title);
-            // Displaying the title
-            songDiv.append(pOne);
+			// Storing the title
+			const title = response.tracks['0'].name;
+			// Creating an element to have the title displayed
+			console.log(title);
+			const pOne = $('<p>').text('Title: ' + title);
+			// Displaying the title
+			songDiv.append(pOne);
 
-            // Storing the artist
-            const artist = response.tracks['0'].artists['0'].name;
-            // Creating an element to have the artist displayed
-            const pTwo = $('<p>').text('Artist: ' + artist);
-            // Displaying the artist
-            songDiv.append(pTwo);
+			// Storing the artist
+			const artist = response.tracks['0'].artists['0'].name;
+			// Creating an element to have the artist displayed
+			const pTwo = $('<p>').text('Artist: ' + artist);
+			// Displaying the artist
+			songDiv.append(pTwo);
 
-            // Storing the album
-            const album = response.tracks['0'].album.name;
-            // Creating an element to have the album displayed
-            const pThree = $('<p>').text('Album: ' + album);
-            // Displaying the album
-            songDiv.append(pThree);
+			// Storing the album
+			const album = response.tracks['0'].album.name;
+			// Creating an element to have the album displayed
+			const pThree = $('<p>').text('Album: ' + album);
+			// Displaying the album
+			songDiv.append(pThree);
 
-            // Append song link
-            const songURL = response.tracks['0'].external_urls.spotify;
-            const link = $("<p><a title='songlink' href='" + songURL + "'>" + 'Click here to listen on Spotify!' + '</a></p>');
-            songDiv.append(link);
+			// Append song link
+			const songURL = response.tracks['0'].external_urls.spotify;
+			const link = $("<p><a title='songlink' href='" + songURL + "'>" + 'Click here to listen!' + '</a></p>');
+			songDiv.append(link);
 
+			// Add each song's info to the songs-view div (and replace previous song info)
+			$('#songs-view').html(songDiv);
+		});
+	}
+	$('#tryagain').on('click', function(event) {
+		const mood = localStorage.getItem('mood');
 
-            // Add each song's info to the songs-view div (and replace previous song info)
-            $('#songs-view').html(songDiv);
-        });
-    }
-    $('#tryagain').on('click', function (event) {
-        const mood = localStorage.getItem('mood');
-
-        event.preventDefault();
-        displayMovieInfo(mood);
-        displayMusicInfo(mood);
-    });
+		event.preventDefault();
+		displayMovieInfo(mood);
+		displayMusicInfo(mood);
+	});
 });
 
 // function displayVideo(mood) {
