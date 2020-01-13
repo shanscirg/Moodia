@@ -239,7 +239,7 @@ $(document).ready(function () {
         const songsArray = [
             {
                 musicMood: 'Happy',
-                // song IDs for Love Shack, Happy, Come On Eileen, Just Like Fire, Walking On Sunshine, Say Hey (I Love You), I Gotta Feeling, Don't Stop Believin', Don't Worry Be Happy, I Got You (I feel good), 
+                // song IDs for Love Shack, Happy, Come On Eileen, Just Like Fire, Walking On Sunshine, Say Hey (I Love You), I Gotta Feeling, Don't Stop Believin', Don't Worry Be Happy, I Got You (I feel good), Somewhere Over the Rainbow, Hey Ya!, (If You’re Wondering If I Want You To) I Want You To, Just Fine, Girls Just Wanna Have Fun, Can't Stop the Feeling, All Star, Twist and Shout, Hooked on a Feeling, Celebration
                 choices: [
                     '4W4wYHtsrgDiivRASVOINL',
                     '60nZcImufyMA1MKQY3dcCH',
@@ -250,7 +250,17 @@ $(document).ready(function () {
                     '4vp2J1l5RD4gMZwGFLfRAu',
                     '4bHsxqR3GMrXTxEPLuK5ue',
                     '4hObp5bmIJ3PP3cKA9K9GY',
-                    '5haXbSJqjjM0TCJ5XkfEaC'
+                    '5haXbSJqjjM0TCJ5XkfEaC',
+                    '25U7raB3ZSszayTYClh4hF',
+                    '2PpruBYCo4H7WOBJ7Q2EwM',
+                    '09aDV0TC2RfWFU5IwZfIdG',
+                    '33vzOPcd9FRirYGlCu32x4',
+                    '0xs0ewnEb6c2DlY7LjOD7t',
+                    '1WkMMavIMc4JZ8cfMmxHkI',
+                    '3cfOd4CMv2snFaKAnMdnvK',
+                    '5ZBeML7Lf3FMEVviTyvi8l',
+                    '6Ac4NVYYl2U73QiTt11ZKd',
+                    '3K7Q9PHUWPTaknlbFPThn2'
                 ]
             },
             {
