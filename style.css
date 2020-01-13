@@ -5,6 +5,9 @@ body {
 .backgroundDefault {
 	background-color: #232838;
 }
+.white {
+	background-color: transparent;
+}
 .jumbotron {
 	background-color: rgba(0, 0, 0, 0);
 }
@@ -251,5 +254,12 @@ body {
 	}
 	.body {
 		overflow: visible !important;
+		background-color: #232838;
+	}
+	.movies-view {
+		width: 100vw !important;
+	}
+	.songs-view {
+		width: 100vw !important;
 	}
 }
