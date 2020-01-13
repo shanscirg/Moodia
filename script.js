@@ -219,6 +219,9 @@ $(document).ready(function () {
             // Appending the image
             movieDiv.prepend(image);
 
+            // Adding title to the movie div
+            movieDiv.prepend("Suggested Movie:");
+
             // Putting the entire movie above the previous movies
             $('#movies-view').html(movieDiv);
         });
@@ -320,9 +323,12 @@ $(document).ready(function () {
             // Creating a div to hold the song
             const songDiv = $("<div class='songDiv'>");
 
+            // Adds title to the song div
+            songDiv.text("Suggested Song:");
+
             // Retrieving the URL for the album image
             const imageURL = response.tracks['0'].album.images['0'].url;
-            const albumImage = $('<img>').attr('src', imageURL).width(200).height(200);
+            const albumImage = $('<img>').attr('src', imageURL).width(250).height(250);
             //Displaying the albumImage
             songDiv.append(albumImage);
 
