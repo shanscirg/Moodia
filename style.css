@@ -104,6 +104,20 @@ body {
 #movies-view {
 	margin: 20px;
 }
+
+.movie {
+	width: 325px;
+	position: relative;
+	left: 150px;
+}
+
+.songDiv {
+	width: 275px;
+	padding-top: 20px;
+	position: relative;
+	left: 150px;
+}
+
 .col-xs-5ths,
 .col-sm-5ths {
 	position: relative;
