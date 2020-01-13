@@ -220,7 +220,7 @@ $(document).ready(function () {
             movieDiv.prepend(image);
 
             // Adding title to the movie div
-            movieDiv.prepend("Suggested Movie:");
+            movieDiv.prepend("Watch This:");
 
             // Putting the entire movie above the previous movies
             $('#movies-view').html(movieDiv);
@@ -318,13 +318,29 @@ $(document).ready(function () {
             },
             {
                 musicMood: 'Silly',
-                // song IDs for White & Nerdy, Itsy-Bitsy Teeny-Weeny Yellow Polka Dot Bikini, F.U.N. Song, Axel F, Barbie Girl
+                // song IDs for White & Nerdy, Itsy-Bitsy Teeny-Weeny Yellow Polka Dot Bikini, F.U.N. Song, Axel F, Barbie Girl, Touch my Tooter, Peaches, Business Time, A Boy Named Sue, Lonely Island, WDIDLN, #deep, ART IS DEAD, Like a Boss, Low Hangin' Fruit, Kickapoo, ROBOT, Satan Gave Me a Taco, Pretty Fly (For a White Guy), Baby Got Back
                 choices: [
                     '60R2v9lheAu3lwZwAFxMZK',
                     '3B3jI9LaQyOwrtjdlnNOw0',
                     '0gdLTqxAY4DDUQxXzmwj1z',
                     '2Ea1iuiNtpR9BcFlQYRE5d',
-                    '2RSOzvKUnfDDrb2nQPfpQU'
+                    '2RSOzvKUnfDDrb2nQPfpQU',
+                    '1rQN25LEBtaokdy2jigZSZ',
+                    '3VEFybccRTeWSZRkJxDuNR',
+                    '5SyRtYGBMz7Hmq2cZaaPIf',
+                    '5xMNjx7uqCzMpJZSo4Wq55',
+                    '23tFXzIrL3esi2ECP8mprj',
+                    '6Miej8wT36stpnC5kU98Ws',
+                    '6OIq2e2RktWjiYi6xNZHqF',
+                    '5KqdkuWE9AkTtoAiPpdD0E',
+                    '23tFXzIrL3esi2ECP8mprj',
+                    '6sJgXQ05q4PNttoWl88sXS',
+                    '7lFgli7y2vo7sjgynHZzBP',
+                    '1Tzu1gujQfDjbZuVRLBWR3',
+                    '0gUPQ41YqwtO39jgcgj6VD',
+                    '3SFXsFpeGmBTtQvKiwYMDA',
+                    '1SAkL1mYNJlaqnBQxVZrRl'
+
                 ]
             },
             {
@@ -357,7 +373,7 @@ $(document).ready(function () {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 Authorization:
-                    'Bearer BQAd9K7PkXKDljAjOEvilktr0r8NIB1n7ai9IAo5zo8NLuYZ5QX8fniIh8CEFrV46g4vQv4PzSpbIayGhjKXvhed5bX964iDWmJwIpYlLhr89coc858JU4saoAEmE__csx2pvgYzYiAjHhZGMWGuxw'
+                    'Bearer BQCXWsFXRY-Of9d9gLs26OP7wIiTTJyZaWtDxWOeAtJe-WQwgynUarJhOUNxxkWjizAQtjq097rzQRq2w-euODdttsnBri5FKSz2pq-HK764587plXID_KtjWSuK2PIIa_C8pSo29GLFqo_wNFKWIQ'
             }
         }).then(function (response) {
             console.log(response);
@@ -365,7 +381,7 @@ $(document).ready(function () {
             const songDiv = $("<div class='songDiv'>");
 
             // Adds title to the song div
-            songDiv.text("Suggested Song:");
+            songDiv.text("Listen to This:");
 
             // Retrieving the URL for the album image
             const imageURL = response.tracks['0'].album.images['0'].url;
