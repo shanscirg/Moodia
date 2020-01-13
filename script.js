@@ -191,7 +191,21 @@ $(document).ready(function () {
                     'Monty Python and the Holy Grail',
                     'Anchorman: The Legend of Ron Burgundy',
                     'Elf',
-                    ''
+                    'The 40-Year-Old Virgin',
+                    'Office Space',
+                    'Austin Powers: International Man of Mystery',
+                    'The Hangover',
+                    'Billy Madison',
+                    'Borat',
+                    'Superbad',
+                    'The Mask',
+                    'Ace Ventura, Pet Detective',
+                    'Kingpin',
+                    'Pee-Wee\'s Big Adventure',
+                    'Wayne\'s World',
+                    'The Pink Panter',
+                    'National Lampoon\'s Animal House',
+                    'Zoolander'
                 ]
             },
             {
