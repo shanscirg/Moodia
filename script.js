@@ -5,8 +5,10 @@ $(document).ready(function() {
 		},
 		0
 	);
-
-	if ($(window).width() < 1000) {
+	$('body').attr('class', 'backgroundDefault');
+	let testvalue = false;
+	console.log(testvalue);
+	if ($(window).width() < 1000 && testvalue === false) {
 		console.log('ahhhhhh');
 		$('#happy').addClass('happy');
 		$('#sad').addClass('sad');
@@ -15,8 +17,7 @@ $(document).ready(function() {
 		$('#festive').addClass('festive');
 		$('body').attr('class', 'backgroundDefault');
 	}
-	if ($(window).width() > 1000) {
-		$('body').attr('style', 'overflow-x: hidden');
+	if ($(window).width() > 1000 && testvalue === false) {
 		$('#sad').on('mouseover', function() {
 			$('#body').removeClass();
 			$('body').fadeIn('slow').attr('class', 'sad');
@@ -36,7 +37,9 @@ $(document).ready(function() {
 			$('body').fadeIn('slow').attr('class', 'festive');
 		});
 	}
-	$(window).on('resize', function() {
+
+	$(window).on('resize', function resizewindow() {
+		console.log(testvalue);
 		var windoww = $(window).width();
 		console.log(windoww);
 		if ($(window).width() > 1000) {
@@ -70,18 +73,21 @@ $(document).ready(function() {
 			$('#angry').addClass('angry');
 			$('#silly').addClass('silly');
 			$('#festive').addClass('festive');
-			$('body').attr('class', 'backgroundDefault');
+		}
+
+		if (testvalue === true) {
+			$('body').attr('class', 'white');
 		}
 	});
+
 	$('#bth').hide();
 	$('#main').show();
 	$('#stuff').hide();
-	$('body').attr('class', 'backgroundDefault');
 
 	// console.log(moment);
 
 	$('#bth').on('click', function() {
-		alert(windowwidth);
+		testvalue = false;
 		$('html, body').animate(
 			{
 				scrollTop : '0px'
@@ -108,6 +114,7 @@ $(document).ready(function() {
 
 	$('button').on('click', function(event) {
 		event.preventDefault();
+		testvalue = true;
 		const mood = $(this).attr('data-mood');
 		$('#header').text('You chose ' + mood);
 		$('#main').hide();
