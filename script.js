@@ -211,11 +211,29 @@ $(document).ready(function () {
             {
                 movieMood: 'Festive',
                 choices: [
+                    // Christmas movies
                     'The Holiday',
                     'Bad Santa',
                     'Four Christmases',
                     'Die Hard',
-                    'The Night Before Christmas'
+                    'How the Grinch Stole Christmas',
+                    'The Night Before',
+                    'Love Actually',
+                    'The Polar Express',
+                    'A Christmas Story',
+                    'The Santa Clause',
+                    
+                    // Halloween movies
+                    'Scream',
+                    'It\'s the Great Pumpkin, Charlie Brown',
+                    'Beetlejuice',
+                    'Halloween',
+                    'Edward Scissorhands',
+                    'Ghostbusters',
+                    'Carrie',
+                    'Hocus Pocus',
+                    'Casper',
+                    'Rocky Horror Picture Show'
                 ]
             }
         ];
