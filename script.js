@@ -5,32 +5,83 @@ $(document).ready(function() {
 		},
 		0
 	);
-	$('body').attr('style', 'overflow: hidden');
+
+	if ($(window).width() < 1000) {
+		console.log('ahhhhhh');
+		$('#happy').addClass('happy');
+		$('#sad').addClass('sad');
+		$('#angry').addClass('angry');
+		$('#silly').addClass('silly');
+		$('#festive').addClass('festive');
+		$('body').attr('class', 'backgroundDefault');
+	}
+	if ($(window).width() > 1000) {
+		$('body').attr('style', 'overflow-x: hidden');
+		$('#sad').on('mouseover', function() {
+			$('#body').removeClass();
+			$('body').fadeIn('slow').attr('class', 'sad');
+		});
+		$('#angry').on('mouseover', function() {
+			$('#body').removeClass();
+			$('body').fadeIn('slow').attr('class', 'angry');
+		});
+		$('#silly').on('mouseover', function() {
+			$('#body').removeClass();
+			$('body').fadeIn('slow').attr('class', 'silly');
+		});
+		$('#happy').on('mouseover', function() {
+			$('body').fadeIn('slow').attr('class', 'happy');
+		});
+		$('#festive').on('mouseover', function() {
+			$('body').fadeIn('slow').attr('class', 'festive');
+		});
+	}
+	$(window).on('resize', function() {
+		var windoww = $(window).width();
+		console.log(windoww);
+		if ($(window).width() > 1000) {
+			$('body').attr('style', 'overflow-x: hidden');
+			$('#sad').on('mouseover', function() {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'sad');
+			});
+			$('#angry').on('mouseover', function() {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'angry');
+			});
+			$('#silly').on('mouseover', function() {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'silly');
+			});
+			$('#happy').on('mouseover', function() {
+				$('body').fadeIn('slow').attr('class', 'happy');
+			});
+			$('#festive').on('mouseover', function() {
+				$('body').fadeIn('slow').attr('class', 'festive');
+			});
+			$('#happy').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
+			$('#sad').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
+			$('#angry').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
+			$('#silly').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
+			$('#festive').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
+		} else {
+			$('#happy').addClass('happy');
+			$('#sad').addClass('sad');
+			$('#angry').addClass('angry');
+			$('#silly').addClass('silly');
+			$('#festive').addClass('festive');
+			$('body').attr('class', 'backgroundDefault');
+		}
+	});
 	$('#bth').hide();
 	$('#main').show();
 	$('#stuff').hide();
 	$('body').attr('class', 'backgroundDefault');
+
 	// console.log(moment);
-	$('#sad').on('mouseover', function() {
-		$('#body').removeClass();
-		$('body').fadeIn('slow').attr('class', 'sad');
-	});
-	$('#angry').on('mouseover', function() {
-		$('#body').removeClass();
-		$('body').fadeIn('slow').attr('class', 'angry');
-	});
-	$('#silly').on('mouseover', function() {
-		$('#body').removeClass();
-		$('body').fadeIn('slow').attr('class', 'silly');
-	});
-	$('#happy').on('mouseover', function() {
-		$('body').fadeIn('slow').attr('class', 'happy');
-	});
-	$('#festive').on('mouseover', function() {
-		$('body').fadeIn('slow').attr('class', 'festive');
-	});
 
 	$('#bth').on('click', function() {
+		alert(windowwidth);
 		$('html, body').animate(
 			{
 				scrollTop : '0px'
@@ -40,7 +91,7 @@ $(document).ready(function() {
 
 		$('#main').show();
 		$('#stuff').hide();
-		$('body').attr('style', 'overflow: hidden');
+		$('body').attr('style', 'overflow-x: hidden');
 		$('body').attr('class', 'backgroundDefault');
 	});
 

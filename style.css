@@ -32,27 +32,27 @@ body {
 	margin-bottom: -50%; */
 /* } */
 .moods {
-	padding-bottom: 100%;
+	padding-bottom: 400px;
 }
 #happybtn {
 	margin-top: 70%;
-	width: 200px;
+	width: 170px;
 }
 #sadbtn {
 	margin-top: 70%;
-	width: 200px;
+	width: 170px;
 }
 #angrybtn {
 	margin-top: 70%;
-	width: 200px;
+	width: 170px;
 }
 #sillybtn {
 	margin-top: 70%;
-	width: 200px;
+	width: 170px;
 }
 #festivebtn {
 	margin-top: 70%;
-	width: 60%;
+	width: 170px;
 }
 .sad {
 	background-image: url(images/saddanboResize.png);
@@ -105,7 +105,13 @@ body {
 	margin: 20px;
 }
 .col-xs-5ths,
-.col-sm-5ths,
+.col-sm-5ths {
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
 .col-md-5ths,
 .col-lg-5ths {
 	position: relative;
@@ -144,33 +150,106 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-	#happybtn {
+	#happy {
+		width: 200px;
+		padding-bottom: 400 !important;
+		margin: 0;
+	}
+	#sad {
+		width: 200px;
+		padding-bottom: 400 !important;
+		margin: 0;
+	}
+	#angry {
+		width: 200px;
+		padding-bottom: 400 !important;
+		margin: 0;
+	}
+	#silly {
+		width: 200px;
+		padding-bottom: 400 !important;
+		margin: 0;
+	}
+	#festive {
 		width: 200px;
 		padding: 0;
 		margin: 0;
+	}
+	#happybtn {
+		margin-top: 300px;
 	}
 	#sadbtn {
-		width: 200px;
-		padding: 0;
-		margin: 0;
+		margin-top: 300px;
 	}
 	#angrybtn {
-		width: 200px;
-		padding: 0;
-		margin: 0;
+		margin-top: 300px;
 	}
 	#sillybtn {
-		width: 200px;
-		padding: 0;
-		margin: 0;
+		margin-top: 300px;
 	}
 	#festivebtn {
-		width: 200px;
-		padding: 0;
-		margin: 0;
+		margin-top: 300px;
 	}
 	.moods,
 	.buttons {
+		padding: 20px 0 0px 0;
+		margin: 0 0 0 0;
+		width: 100vw !important;
+		height: 700px;
+	}
+	.body {
+		overflow: visible !important;
+	}
+}
+@media screen and (max-width: 700px) {
+	#happy {
+		width: 200px;
+		padding-bottom: 400 !important;
+		margin: 0;
+	}
+	#sad {
+		width: 200px;
+		padding-bottom: 400 !important;
+		margin: 0;
+	}
+	#angry {
+		width: 200px;
+		padding-bottom: 400 !important;
+		margin: 0;
+	}
+	#silly {
+		width: 200px;
+		padding-bottom: 400 !important;
+		margin: 0;
+	}
+	#festive {
+		width: 200px;
 		padding: 0;
+		margin: 0;
+	}
+	#happybtn {
+		margin-top: 300px;
+	}
+	#sadbtn {
+		margin-top: 300px;
+	}
+	#angrybtn {
+		margin-top: 300px;
+	}
+	#sillybtn {
+		margin-top: 300px;
+	}
+	#festivebtn {
+		margin-top: 300px;
+	}
+	.moods,
+	.buttons {
+		padding: 20px 0 0px 0;
+		margin: 0 0 0 0;
+		width: 100vw !important;
+		height: 500px;
+	}
+	.body {
+		overflow: visible !important;
 	}
 }
