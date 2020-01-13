@@ -265,13 +265,28 @@ $(document).ready(function () {
             },
             {
                 musicMood: 'Sad',
-                // song IDs for Say Something, Creep, Mad World, Fade Into You, Summertime Sadness
+                // song IDs for Say Something, Creep, Mad World, Fade Into You, Summertime Sadness, Nothing Compares 2 U, The Scientist, Breathe Me, Bruises, Can We Kiss Forever?, The Love You Left Behind, Love is a Losing Game, Will You Still Love Me Tomorrow?, I'd Rather Go Blind, Cry Baby, Kozmic Blues, Sad Forever, bury a friend, lovely, Liability
                 choices: [
                     '6Vc5wAMmXdKIAM7WUoEb7N',
                     '6b2oQwSGFkzsMtQruIWm2p',
                     '3JOVTQ5h8HGFnDdp4VT3MP',
                     '1LzNfuep1bnAUR9skqdHCK',
-                    '2dBwB667LHQkLhdYlwLUZK'
+                    '2dBwB667LHQkLhdYlwLUZK',
+                    '3nvuPQTw2zuFAVuLsC9IYQ',
+                    '75JFxkI2RXiU7L9VXzMkle',
+                    '2Bo0hh0yoQReC4reJav5DT',
+                    '4Of7rzpRpV1mWRbhp5rAqG',
+                    '1Av69kr9JitqPWo7WJLS5q',
+                    '60wa5J6SkXtBXHySQ3PoNB',
+                    '570ZDO2Lmh6NQChOU5xPUL',
+                    '0LbK1bodGLc9xmV1cS9jvL',
+                    '1kPBT8S2wJFNAyBMnGVZgL',
+                    '3L60Vu9qmY6fg2QroRIxgi',
+                    '1cTrWlx7OSaJf3pLpiYRRR',
+                    '4a5zacCsHLtMC2mcxkqWwn',
+                    '4SSnFejRGlZikf02HLewEF',
+                    '0u2P5u6lvoDfwTYjAADbn4',
+                    '6Kkt27YmFyIFrcX3QXFi2o'
                 ]
             },
             {
@@ -311,7 +326,7 @@ $(document).ready(function () {
         let song = $(this).attr('data-name');
         for (let i = 0; i < songsArray.length; i++) {
             if (mood === songsArray[i].musicMood) {
-                var randomNum = Math.floor(Math.random() * 5);
+                var randomNum = Math.floor(Math.random() * 20);
                 song = songsArray[i].choices[randomNum];
             }
         }
