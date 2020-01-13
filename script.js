@@ -291,13 +291,29 @@ $(document).ready(function () {
             },
             {
                 musicMood: 'Angry',
-                // song IDs for Break Stuff, I Hate Everything About You, Down with the Sickness, Bodies, Prison Song
+                // song IDs for Break Stuff, I Hate Everything About You, Down with the Sickness, Bodies, Prison Song, Platypus (I Hate You), Party Up, Shit Luck, Don't Look Back in Anger, Angry Again, Drop the World, Worst Behavior, Murder in My Heart for the Judge, Hell No I Ain't Happy, Angry Chair, War Pigs, Cool to Hate, You Fucked Up, I've Had It, One Step Closer
                 choices: [
                     '5cZqsjVs6MevCnAkasbEOX',
                     '6rUp7v3l8yC4TKxAAR5Bmx',
                     '40rvBMQizxkIqnjPdEWY1v',
                     '7CpbhqKUedOIrcvc94p60Y',
-                    '3AwLxSqo1jOOMpNsgxqRNE'
+                    '3AwLxSqo1jOOMpNsgxqRNE',
+                    '6SFL3a2JotvZFwTiggc4cb',
+                    '4AIHPdr6x3qNbxTR8ngWdQ',
+                    '3b1UyW9VxSymsahmyL3qCD',
+                    '2Hvt5gu7Xavgec3vcurQtd',
+                    '3CI1JP2ooMBSFjIy1u6Yrc',
+                    '3e21cX0CVwzkQXiHz7WUQZ',
+                    '48RN2EOOyG2Gs5Pyla7ZJj',
+                    '3w4KpXGtlbJPf5gTq3GQPo',
+                    '2YnUO4gMwlh27KbVEj2Crn',
+                    '5jCp5VtcpUlHtW8Dwlx13Y',
+                    '2rd9ETlulTbz6BYZcdvIE1',
+                    '3M3gKehdtIR2krOZfkw2iK',
+                    '0gnvI2vSWIacE3hgLbuWtn',
+                    '5b0kcwMjAES1SKEHBxQHAJ',
+                    '3K4HG9evC7dg3N0R9cYqk4'
+        
                 ]
             },
             {
