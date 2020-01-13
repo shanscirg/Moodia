@@ -165,7 +165,22 @@ $(document).ready(function () {
                     'Texas Chainsaw Massacre',
                     'Kill Bill',
                     'The Accountant',
-                    'Django Unchained'
+                    'Django Unchained',
+                    'Rambo',
+                    'Cruel Intentions',
+                    '8 Mile',
+                    'Dangerous Minds',
+                    'American History X',
+                    'Scarface',
+                    'Fight Club',
+                    'Live Free or Die Hard',
+                    'In Bruges',
+                    'The Addams Family',
+                    'Tucker and Dale Vs Evil',
+                    'The Belko Experiment',
+                    'Mayhem',
+                    'Upgrade',
+                    'Changing Lanes'
                 ]
             },
             {
@@ -175,7 +190,8 @@ $(document).ready(function () {
                     'Dumb and Dumber',
                     'Monty Python and the Holy Grail',
                     'Anchorman: The Legend of Ron Burgundy',
-                    'Elf'
+                    'Elf',
+                    ''
                 ]
             },
             {
