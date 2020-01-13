@@ -16,30 +16,34 @@
 </head>
 <body>
 
-   <div>
-    <div class="row buttons text-center" id="main">
-        <div class="col-md-5ths col-sm-5ths col-xs-5ths" id="happy">
+   <div id="main">
+    <div class="jumbotron">
+        <h1 class="text-center display-4">Tell us how you're feeling.</h1>
+        <p class="lead text-center">We'll do the rest.</p>
+    </div>
+    <div class="row buttons text-center" >
+        <div class="col-md-5ths col-sm-5ths col-xs-5ths moods" id="happy">
             <button type="button" class="btn btn-outline-light" id="happybtn" data-mood="Happy">
                 <h1>Happy</h1>
             </button>
         </div>
-        <div class="col-md-5ths col-sm-5ths col-xs-5ths" id="sad">
+        <div class="col-md-5ths col-sm-5ths col-xs-5ths moods" id="sad">
             <button  type="button" class="btn btn-outline-light" id="sadbtn" data-mood="Sad">
                 <h1>Sad</h1>
             </butt
             on >
         </div>
-        <div class="col-md-5ths col-sm-5ths col-xs-5ths" id="angry">
+        <div class="col-md-5ths col-sm-5ths col-xs-5ths moods" id="angry">
             <button type="button" class="btn btn-outline-light" id="angrybtn" data-mood="Angry">
                 <h1>Angry</h1>
             </button>
         </div>
-        <div class="col-md-5ths col-sm-5ths col-xs-5ths" id="silly">
+        <div class="col-md-5ths col-sm-5ths col-xs-5ths moods" id="silly">
             <button type="button" class="btn btn-outline-light" id="sillybtn" data-mood="Silly">
                 <h1>Silly</h1>
             </button>
         </div>
-        <div class="col-md-5ths col-sm-5ths col-xs-5ths" id="festive">
+        <div class="col-md-5ths col-sm-5ths col-xs-5ths moods" id="festive">
             <button type="button" class="btn btn-outline-light" id="festivebtn" data-mood="Festive">
                 <h1>Festive</h1>
             </button>
@@ -47,19 +51,25 @@
 
     </div>
 </div>
-<div class = "flex-container">
-    <div id="gifs-appear-here">
-   </div>
+<div id="stuff">
+<div class="row">
+
    
-   <div id = "movies-view">
+   <div class="col-md-4 fluid-jumbotron" id="movies-view">
    
    </div>
        
-   </div>
+   
     
-
     
-    <div id="songs-view"></div>
+    <div class="col-md-4 fluid-jumbotron" id="songs-view"></div>
+    <div><p class="btn btn-dark" id="bth">back to home</p></div>
+    <div><p class="btn btn-dark" id="tryagain">try again</p></div>
+    <div class = "col-md-4">
+        <div id="gifs-appear-here">
+        </div>
+       </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
