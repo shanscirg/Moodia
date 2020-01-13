@@ -1,6 +1,15 @@
 $(document).ready(function () {
+    $('html, body').animate(
+        {
+            scrollTop: '0px'
+        },
+        0
+    );
     $('body').attr('style', 'overflow: hidden');
     $('#bth').hide();
+    $('#main').show();
+    $('#stuff').hide();
+    $('body').attr('class', 'backgroundDefault');
     // console.log(moment);
     $('#sad').on('mouseover', function () {
         $('#body').removeClass();
@@ -47,15 +56,18 @@ $(document).ready(function () {
 
     $('button').on('click', function (event) {
         event.preventDefault();
+        const mood = $(this).attr('data-mood');
+        $('#header').text('You chose ' + mood);
         $('#main').hide();
         $('body').removeClass();
         $('#bth').show();
         $('#stuff').show();
         $('body').attr('style', 'overflow: show');
-        // In this case, the "this" keyword refers to the button that was clicked
-        const mood = $(this).attr('data-mood');
         localStorage.setItem('mood', mood);
         displayMovieInfo(mood);
+
+
+        // GIFS:
 
         // Constructing a URL to search Giphy for the mood
         const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=10';
@@ -97,6 +109,10 @@ $(document).ready(function () {
                 }
             });
     });
+
+
+
+    // MOVIES:
 
     function displayMovieInfo(mood) {
         const moviesArray = [
@@ -148,7 +164,7 @@ $(document).ready(function () {
 
         let movie = $(this).attr('data-name');
 
-        // if statement for each of the mood
+        // if statement for each of the moods
         for (let i = 0; i < moviesArray.length; i++) {
             if (mood === moviesArray[i].movieMood) {
                 var randomNum = Math.floor(Math.random() * 5);
@@ -208,11 +224,8 @@ $(document).ready(function () {
         });
     }
 
-    //Oauth token BQCvcziswENRqSS4aWThKOFbJnqNf-aZ2p3PLNwDJFR-Hxkv5FK_YSgia62ehFu-DFLO0RuufC4vRKzJ9HKnMO0FI1QYp0PDpQLGlCCZer2eCMlGjw59HZMPs9hmm32uTKQtnJBsKLpoytGO2WVJ7w
 
-    //happy mood playlist spotify URI: spotify:playlist:0kWycnqEfYA31P87pJBtA8
-
-    //spotify object model: https://developer.spotify.com/documentation/web-api/reference/object-model/
+    // SPOTIFY:
 
     $('button').on('click', function () {
         const mood = $(this).attr('data-mood');
@@ -307,6 +320,12 @@ $(document).ready(function () {
             // Creating a div to hold the song
             const songDiv = $("<div class='songDiv'>");
 
+            // Retrieving the URL for the album image
+            const imageURL = response.tracks['0'].album.images['0'].url;
+            const albumImage = $('<img>').attr('src', imageURL).width(200).height(200);
+            //Displaying the albumImage
+            songDiv.append(albumImage);
+
             // Storing the title
             const title = response.tracks['0'].name;
             // Creating an element to have the title displayed
@@ -334,11 +353,6 @@ $(document).ready(function () {
             const link = $("<p><a title='songlink' href='" + songURL + "'>" + 'Click here to listen!' + '</a></p>');
             songDiv.append(link);
 
-            // Retrieving the URL for the album image
-            const imageURL = response.tracks['0'].album.images['0'].url;
-            const albumImage = $('<img>').attr('src', imageURL).width(200).height(200);
-            //Displaying the albumImage
-            songDiv.append(albumImage);
 
             // Add each song's info to the songs-view div (and replace previous song info)
             $('#songs-view').html(songDiv);

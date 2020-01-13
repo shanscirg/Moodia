@@ -27,8 +27,8 @@
 
     <div id="main">
         <div class="jumbotron">
-            <h1 class="text-center display-4">Tell us how you're feeling.</h1>
-            <p class="lead text-center">We'll do the rest.</p>
+            <h1 class="text-center display-4 jumbotron1">Tell us how you're feeling.</h1>
+            <p class="lead lead1 text-center">We'll do the rest.</p>
         </div>
         <div class="row buttons text-center">
             <div class="col-md-5ths col-sm-5ths col-xs-5ths moods" id="happy">
@@ -56,10 +56,56 @@
                     <h1>Festive</h1>
                 </button>
             </div>
+            <div class="row buttons text-center">
+                <div class="col-md-5ths col-sm-5ths col-xs-5ths moods" id="happy">
+                    <button type="button" class="btn btn-outline-light" id="happybtn" data-mood="Happy">
+                        <h1>Happy</h1>
+                    </button>
+                </div>
+                <div class="col-md-5ths col-sm-5ths col-xs-5ths moods" id="sad">
+                    <button type="button" class="btn btn-outline-light" id="sadbtn" data-mood="Sad">
+                        <h1>Sad</h1>
+                        </butt on>
+                </div>
+                <div class="col-md-5ths col-sm-5ths col-xs-5ths moods" id="angry">
+                    <button type="button" class="btn btn-outline-light" id="angrybtn" data-mood="Angry">
+                        <h1>Angry</h1>
+                    </button>
+                </div>
+                <div class="col-md-5ths col-sm-5ths col-xs-5ths moods" id="silly">
+                    <button type="button" class="btn btn-outline-light" id="sillybtn" data-mood="Silly">
+                        <h1>Silly</h1>
+                    </button>
+                </div>
+                <div class="col-md-5ths col-sm-5ths col-xs-5ths moods" id="festive">
+                    <button type="button" class="btn btn-outline-light" id="festivebtn" data-mood="Festive">
+                        <h1>Festive</h1>
+                    </button>
+                </div>
 
+            </div>
         </div>
     </div>
-    <div id="stuff">
+    <div class="container" id="stuff">
+        <div class="jumbotron">
+            <h1 class="display-4 text-center" id="header">You chose </h1>
+            <div class="row">
+                <div class="col-lg-12 text-center" id="gifs-appear-here">
+                </div>
+            </div>
+            <p class="lead text-center">Here, have some movies and music and stuff</p>
+            <hr class="my-4">
+            <div class="row text-center">
+                <div class="col-md-3 text-center" id="tryagain">
+                    <p class="btn btn-primary">try again</p>
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-3">
+                    <p class="btn btn-dark " id="bth">back to home</p>
+                </div>
+            </div>
+
+        </div>
         <div class="row">
 
 
@@ -71,16 +117,9 @@
 
 
             <div class="col-md-4 fluid-jumbotron" id="songs-view"></div>
-            <div>
-                <p class="btn btn-dark" id="bth">back to home</p>
-            </div>
-            <div>
-                <p class="btn btn-dark" id="tryagain">try again</p>
-            </div>
-            <div class="col-md-4">
-                <div id="gifs-appear-here">
-                </div>
-            </div>
+
+
+
         </div>
 
         <script src="script.js"></script>
