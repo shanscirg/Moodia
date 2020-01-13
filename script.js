@@ -43,16 +43,7 @@ $(document).ready(function () {
         $('body').attr('style', 'overflow: hidden');
     });
 
-    //SPOTIFY
-    // const request = require("request");
-    // const user_id = "shannon";
-    // const token = "Bearer "
-    // const playlists_url = "https://api.spotify.com/v1/users/" + user_id + "/playlists"
-
-    // request({ url: playlists_url, headers: { "Authorization": token } }, function (err, res) {
-    //
-
-    // click mood and have GIF appear
+    // click mood to have entertainment ideas appear
 
     $('button').on('click', function (event) {
         event.preventDefault();
@@ -123,7 +114,22 @@ $(document).ready(function () {
                     'Love Actually',
                     'Forrest Gump',
                     "Ferris Bueller's Day Off",
-                    'Sister Act'
+                    'Sister Act',
+                    'The Princess Bride',
+                    'Girls Trip',
+                    'Big',
+                    'Grease',
+                    'My Big Fat Greek Wedding',
+                    'Mamma Mia!',
+                    'Pitch Perfect',
+                    'Mrs. Doubtfire',
+                    'Happy Gilmore',
+                    'Matilda',
+                    'Despicable Me',
+                    'It\'s a Wonderful Life',
+                    'Little Miss Sunshine',
+                    'Mary Poppins',
+                    'Breakfast at Tiffany\'s'
                 ]
             },
             {
@@ -133,7 +139,23 @@ $(document).ready(function () {
                     "Hachi: A Dog's Tale",
                     'The Green Mile',
                     'The Pursuit of Happyness',
-                    'Good Will Hunting'
+                    'Good Will Hunting',
+                    'The Fault in Our Stars',
+                    'A Walk to Remember',
+                    'The Help',
+                    'World Trade Center',
+                    'Cinderella Man',
+                    'P.S. I Love You',
+                    'Dallas Buyers Club',
+                    'Marley and Me',
+                    'Seven Pounds',
+                    'The Notebook',
+                    'Brokeback Mountain',
+                    'Milk',
+                    'Up',
+                    'Philadelphia',
+                    'Joker'
+
                 ]
             },
             {
@@ -158,7 +180,13 @@ $(document).ready(function () {
             },
             {
                 movieMood: 'Festive',
-                choices: ['The Holiday', 'Bad Santa', 'Four Christmases', 'Die Hard', 'The Night Before']
+                choices: [
+                    'The Holiday',
+                    'Bad Santa',
+                    'Four Christmases',
+                    'Die Hard',
+                    'The Night Before Christmas'
+                ]
             }
         ];
 
@@ -167,7 +195,7 @@ $(document).ready(function () {
         // if statement for each of the moods
         for (let i = 0; i < moviesArray.length; i++) {
             if (mood === moviesArray[i].movieMood) {
-                var randomNum = Math.floor(Math.random() * 5);
+                var randomNum = Math.floor(Math.random() * 20);
                 movie = moviesArray[i].choices[randomNum];
             }
         }
@@ -220,7 +248,7 @@ $(document).ready(function () {
             movieDiv.prepend(image);
 
             // Adding title to the movie div
-            movieDiv.prepend("Watch This:");
+            movieDiv.prepend("<p style='font-size:200%;'><img src='https://i.ya-webdesign.com/images/vector-movie-4.png' width='50' height='50'>Watch This:</p>");
 
             // Putting the entire movie above the previous movies
             $('#movies-view').html(movieDiv);
@@ -313,7 +341,7 @@ $(document).ready(function () {
                     '0gnvI2vSWIacE3hgLbuWtn',
                     '5b0kcwMjAES1SKEHBxQHAJ',
                     '3K4HG9evC7dg3N0R9cYqk4'
-        
+
                 ]
             },
             {
@@ -400,7 +428,7 @@ $(document).ready(function () {
             const songDiv = $("<div class='songDiv'>");
 
             // Adds title to the song div
-            songDiv.text("Listen to This:");
+            songDiv.prepend("<p style='font-size:200%'><img src='https://cdn3.iconfinder.com/data/icons/small-black/512/music_notes_quaver_songs_sound-512.png' width='50' height='50'> Listen to This:</p>");
 
             // Retrieving the URL for the album image
             const imageURL = response.tracks['0'].album.images['0'].url;
@@ -432,7 +460,7 @@ $(document).ready(function () {
 
             // Append song link
             const songURL = response.tracks['0'].external_urls.spotify;
-            const link = $("<p><a title='songlink' href='" + songURL + "'>" + 'Click here to listen!' + '</a></p>');
+            const link = $("<p><a title='songlink' href='" + songURL + "'>" + 'Click here to listen on Spotify!' + '</a></p>');
             songDiv.append(link);
 
 
