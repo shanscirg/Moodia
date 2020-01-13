@@ -41,6 +41,7 @@ $(document).ready(function() {
 		$('#main').show();
 		$('#stuff').hide();
 		$('body').attr('style', 'overflow: hidden');
+		$('body').attr('class', 'backgroundDefault');
 	});
 
 	//SPOTIFY
