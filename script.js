@@ -345,13 +345,32 @@ $(document).ready(function () {
             },
             {
                 musicMood: 'Festive',
-                // song IDs for Grandma Got Run Over by a Reindeer, All I Want for Christmas is You, Monster Mash, Thriller, It's the Most Wonderful Time of the Year
+                // song IDs (xmas) for Grandma Got Run Over by a Reindeer, All I Want for Christmas is You,  It's the Most Wonderful Time of the Year, Jingle Bell Rock, Holly Jolly Christmas, Santa Baby, Rockin' Around the Christmas Tree, You're a Mean One Mr. Grinch, Feliz Navidad, Baby It's Cold Outside
+                // song IDs (halloween) for Monster Mash, Thriller, Ghostbusters, Disturbia, Superstition, This is Halloween, I'm in Love with a Monster, Freak on Me, Somebody's Watching Me, I Put a Spell on You
                 choices: [
+                    // Christmas songs:
                     '49iHYFjT5yO6WEw6KerX9o',
                     '0bYg9bo50gSsH3LtXe2SQn',
+                    '5hslUAKq9I9CG2bAulFkHN',
+                    '6xE98wKYt4vZk8j7cctjw8',
+                    '33BcB8XVwJU4qB7bDSkVya',
+                    '1vZKP9XURuqMp1SpXGnoyb',
+                    '28fuXrmmF9dYWx25dMW9dP',
+                    '6TnjaL02usP9dwCGzdk5GS',
+                    '0oPdaY4dXtc3ZsaG17V972',
+                    '4MrfQL4TYQXJBlZYpAHTuE',
+
+                    // Halloween songs: 
                     '0xxZY5C9xxij3D1HkzbnfC',
                     '7azo4rpSUh8nXgtonC6Pkq',
-                    '5hslUAKq9I9CG2bAulFkHN'
+                    '300zfRaCgTmEm5Eqe3HqZZ',
+                    '2VOomzT6VavJOGBeySqaMc',
+                    '4dwrL3Z5U2RZ6MZiKE2PgL',
+                    '2R6BwqVhAZOdz0NzUQAEh5',
+                    '0hO71r8vbnrXSaXVrR9ptF',
+                    '2cLdAX3vruDbZm4kIjiXQB',
+                    '6A4Jc8npNo79BOgsrPptLA',
+                    '0sjxRg1VlYfx4YG7uxurrq'
                 ]
             }
         ];
