@@ -1,6 +1,15 @@
 $(document).ready(function() {
+	$('html, body').animate(
+		{
+			scrollTop : '0px'
+		},
+		0
+	);
 	$('body').attr('style', 'overflow: hidden');
 	$('#bth').hide();
+	$('#main').show();
+	$('#stuff').hide();
+	$('body').attr('class', 'backgroundDefault');
 	// console.log(moment);
 	$('#sad').on('mouseover', function() {
 		$('#body').removeClass();
@@ -47,13 +56,15 @@ $(document).ready(function() {
 
 	$('button').on('click', function(event) {
 		event.preventDefault();
+		const mood = $(this).attr('data-mood');
+		$('#header').text('You chose ' + mood);
 		$('#main').hide();
 		$('body').removeClass();
 		$('#bth').show();
 		$('#stuff').show();
 		$('body').attr('style', 'overflow: show');
 		// In this case, the "this" keyword refers to the button that was clicked
-		const mood = $(this).attr('data-mood');
+
 		localStorage.setItem('mood', mood);
 		displayMovieInfo(mood);
 
@@ -295,7 +306,7 @@ $(document).ready(function() {
 				Accept         : 'application/json',
 				'Content-Type' : 'application/json',
 				Authorization  :
-					'Bearer BQALXbgJK1azVcLhWGt6-pUtSrONPSuURyj2cvVtVi4XBkDzXZtCRUM_ylSeylJQM2e5mD3e-a_JUISII0BLX2OjyhDYLXGQOQuV0UClDu2ZBWhsCWNFSqvmrHgVUfoll6Sieo43mR3e3qrkbFOHeg'
+					'Bearer BQAd9K7PkXKDljAjOEvilktr0r8NIB1n7ai9IAo5zo8NLuYZ5QX8fniIh8CEFrV46g4vQv4PzSpbIayGhjKXvhed5bX964iDWmJwIpYlLhr89coc858JU4saoAEmE__csx2pvgYzYiAjHhZGMWGuxw'
 			}
 		}).then(function(response) {
 			console.log(response);
