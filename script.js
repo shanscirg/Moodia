@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 $(document).ready(function() {
 	$('html, body').animate(
 		{
@@ -736,4 +734,3 @@ for (let i = 0; i < videosArray.length; i++) {
 console.log(video);
 });
 //-------------------------------------------Youtube-------------------------------------------------//
->>>>>>> Stashed changes

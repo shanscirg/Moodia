@@ -1,79 +1,105 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <!---------------------------Media list------------------------------>
-    <ul class="list-unstyled">
-      <li class="media">
-        <img src="..." class="mr-3" alt="...">
-        <div class="media-body">
-          <h5 class="mt-0 mb-1">A movie to fit your mood!</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+    <div id="main">
+        <div class="jumbotron">
+            <h1 class="text-center display-4 jumbotron1">Tell us how you're feeling.</h1>
+            <p class="lead lead1 text-center">We'll do the rest.</p>
         </div>
-      </li>
-      <li class="media my-4">
-        <img src="..." class="mr-3" alt="...">
-        <div class="media-body">
-          <h5 class="mt-0 mb-1">A song to get you going</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        </div>
-      </li>
-      <li class="media">
-        <div class="media-body">
-          <h5 class="mt-0 mb-1">Even Youtube has something for you!</h5>
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_of_YouTube_%282015-2017%29.svg" 
-            class="mr-3" alt="...">
-            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/oiuyhxp4w9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-            <button id = "happy">Happy</button>
-
-            <button id = "sad"></button>
-            <div id="player"></div>
-            <div id="heavyplayer"></div>
-            <div id="catplayer"></div>
-          <p id="videoTitle"></p>
-        </div>
-<<<<<<< Updated upstream
-      </li>
-    </ul>
-    <!---------------------------Media list------------------------------>
-
-    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-      <!-- button to hide/show the player -->
-    
-  <script src="./Happy.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!------------------------------- Psuedo Code -------------------------------->
-  <!-- Use an object to create multiple arrays for each mood -->
-      <!-- Happy, Sad, Angry, Silly -->
-  <!-- Each mood array should contain up to 5 videos -->
-  <!-- A function should be put into place to randomly pick
-      a video when the slide is picked(page is loaded) -->
-  </body>
-=======
-
-        <div class="row">
-            <div class="col-sm-12 col-md-5" id="movies-view"></div>
-            <div class="col-sm-12 col-md-5" id="songs-view"></div>
-
+        <div class="row buttons text-center">
+            <div class="col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods" id="happy">
+                <button type="button" class="btn btn-outline-light" id="happybtn" data-mood="Happy">
+                    <h1>Happy</h1>
+                </button>
             </div>
-        </div>
-
-        <div class='row'>
-            <div class='col-sm-12 col-md-12 text-center' id="youtubeView">YouTube Goes Here!
-                <iframe id="chewtube" width="560" height="315" src="" frameborder="0" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>;
-
+            <div class="col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods " id="sad">
+                <button type="button" class="btn btn-outline-light" id="sadbtn" data-mood="Sad">
+                    <h1>Sad</h1>
+                </button>
+            </div>
+            <div class="col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods" id="angry">
+                <button type="button" class="btn btn-outline-light" id="angrybtn" data-mood="Angry">
+                    <h1>Angry</h1>
+                </button>
+            </div>
+            <div class="col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods" id="silly">
+                <button type="button" class="btn btn-outline-light" id="sillybtn" data-mood="Silly">
+                    <h1>Silly</h1>
+                </button>
+            </div>
+            <div class="col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods" id="festive">
+                <button type="button" class="btn btn-outline-light" id="festivebtn" data-mood="Festive">
+                    <h1>Festive</h1>
+                </button>
             </div>
         </div>
 
     </div>
+    <div class="container" id="stuff">
+        <div class="jumbotron mb-1">
+            <h1 class="display-4 text-center" id="header">You chose </h1>
+            <div class="row">
+                <div class="col-lg-12 text-center" id="gifs-appear-here">
+                </div>
+            </div>
+            <p class="lead text-center">Here, have some movies and music and stuff</p>
+            <hr class="my-4">
+            <div class="row text-center">
+                <div class="col-md-3 text-center" id="tryagain">
+                    <p class="btn btn-primary">I want more!</p>
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-3">
+                    <p class="btn btn-dark " id="bth">Back to home</p>
+                </div>
+            </div>
+        </div>
 
-    <footer class='footer mt-auto py-3 bg-light'>
+        <div class="row">
+            <div class="col-sm-12 col-md-5" id="movies-view"></div>
+            <div class="col-sm-12 col-md-5" id="songs-view"></div>
+        </div>
+
+        <div class='row'>
+            <div class='col-sm-12 col-md-12 text-center' id="youtubeView">YouTube Goes Here!
+                <iframe id="chewtube" width="560" height="315" src="" frameborder="0" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </div>
+    <div id="footerHere"></div>
+
+    <!-- <footer class='footer mt-auto py-3 bg-light'>
         <div class='container-fluid'>
             <p class='pt-3 text-muted text-center'>Copyright &copy;</p>
         </div>
-    </footer>
+    </footer> -->
 
     <script src="script.js"></script>
 </body>
 
->>>>>>> Stashed changes
 </html>
