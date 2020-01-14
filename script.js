@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	//----------------------Home page formatting/responsiveness---------------------//
+
 	$('html, body').animate(
 		{
 			scrollTop : '0px'
@@ -7,7 +9,6 @@ $(document).ready(function() {
 	);
 	$('body').attr('class', 'backgroundDefault');
 	let testvalue = false;
-	console.log(testvalue);
 	if ($(window).width() < 1000 && testvalue === false) {
 		$('body').attr('style', 'overflow: visible');
 		$('#happy').addClass('happy');
@@ -16,7 +17,6 @@ $(document).ready(function() {
 		$('#silly').addClass('silly');
 		$('#festive').addClass('festive');
 		$('body').attr('class', 'backgroundDefault');
-		$('.footer').hide();
 	}
 	if ($(window).width() > 1000 && testvalue === false) {
 		$('body').attr('style', 'overflow: hidden');
@@ -38,11 +38,9 @@ $(document).ready(function() {
 		$('#festive').on('mouseover', function() {
 			$('body').fadeIn('slow').attr('class', 'festive');
 		});
-		$('.footer').hide();
 	}
 
 	$(window).on('resize', function resizewindow() {
-		console.log(testvalue);
 		var windoww = $(window).width();
 		console.log(windoww);
 		if ($(window).width() > 1000 && testvalue === false) {
@@ -87,10 +85,8 @@ $(document).ready(function() {
 
 		if (testvalue === true) {
 			$('body').attr('class', 'white');
-			$('.footer').show();
 		}
 		if (testvalue === true && $(window).width < 992) {
-			
 		}
 	});
 
@@ -98,7 +94,7 @@ $(document).ready(function() {
 	$('#main').show();
 	$('#stuff').hide();
 
-	// console.log(moment);
+	//---------------------------"Back to home" button-----------------------------//
 
 	$('#bth').on('click', function() {
 		testvalue = false;
@@ -108,13 +104,14 @@ $(document).ready(function() {
 			},
 			0
 		);
-
 		$('#main').show();
 		$('#stuff').hide();
 		$('body').attr('style', 'overflow: hidden');
 		$('body').attr('class', 'backgroundDefault');
-		// $('#footerHere').remove();
+		$('#navbarHere').css('visibility', 'hidden');
 	});
+
+	//---------------------When any mood button is clicked------------------------//
 
 	$('button').on('click', function(event) {
 		event.preventDefault();
@@ -127,14 +124,40 @@ $(document).ready(function() {
 		$('#stuff').show();
 		$('body').attr('style', 'overflow: show');
 		localStorage.setItem('mood', mood);
+		getGif(mood);
 		displayMovieInfo(mood);
+		displayMusicInfo(mood);
+		getVideo(mood);
 		const footer = $(
-			"<footer class='footer mt-auto py-3 bg-light'><div class='container-fluid'><p class='pt-3 text-muted text-center'>Copyright &copy;</p></div></footer>"
+			"<footer class='footer mt-auto py-3'><div class='container-fluid'><p class='pt-3 text-center'>Copyright &copy;</p></div></footer>"
 		);
 		$('#footerHere').html(footer);
+		const navbar = $(
+			"<div class='navbar fixed-top' style='text-align:center' id='moodia'>Moodia: Media for Your Mood.</div>"
+		);
+		$('#navbarHere').html(navbar);
+		if (mood === 'Happy') {
+			$('.btns').removeClass('sadColors angryColors sillyColors festiveColors');
+			$('.btns, .footer, .navbar').addClass('happyColors');
+		} else if (mood === 'Sad') {
+			$('.btns').removeClass('happyColors angryColors sillyColors festiveColors');
+			$('.btns, .footer, .navbar').addClass('sadColors');
+		} else if (mood === 'Angry') {
+			$('.btns').removeClass('sadColors happyColors sillyColors festiveColors');
+			$('.btns, .footer, .navbar').addClass('angryColors');
+		} else if (mood === 'Silly') {
+			$('.btns').removeClass('sadColors angryColors happyColors festiveColors');
+			$('.btns, .footer, .navbar').addClass('sillyColors');
+		} else if (mood === 'Festive') {
+			$('.btns').removeClass('sadColors angryColors sillyColors happyColors');
+			$('.btns, .footer, .navbar').addClass('festiveColors');
+		}
+		$('#navbarHere').css('visibility', 'visible');
+	});
 
-		// GIFS:
+	//---------------------------Giphy-----------------------------//
 
+	function getGif(mood) {
 		// Constructing a URL to search Giphy for the mood
 		const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=25';
 
@@ -147,14 +170,13 @@ $(document).ready(function() {
 			.then(function(response) {
 				// Storing an array of results in the results variable
 				const results = response.data;
-				console.log(results.length);
 
 				// Looping over every result item
 				for (let i = 0; i < 3; i++) {
 					var randomNum = Math.floor(Math.random() * 25);
 					gifrandom = results[randomNum];
 					// Only taking action if the photo has an appropriate rating
-					function getGif() {
+					function getGifs() {
 						// Creating a div for the gif
 						const gifDiv = $('<div>');
 
@@ -174,12 +196,12 @@ $(document).ready(function() {
 						// Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
 						$('#gifs-appear-here').html(gifDiv);
 					}
-					getGif();
+					getGifs();
 				}
 			});
-	});
+	}
 
-	// MOVIES:
+	//---------------------------OMDB-----------------------------//
 
 	function displayMovieInfo(mood) {
 		const moviesArray = [
@@ -223,7 +245,7 @@ $(document).ready(function() {
 					'Cinderella Man',
 					'P.S. I Love You',
 					'Dallas Buyers Club',
-					'Marley and Me',
+					'Marley & Me',
 					'Seven Pounds',
 					'The Notebook',
 					'Brokeback Mountain',
@@ -312,7 +334,6 @@ $(document).ready(function() {
 				]
 			}
 		];
-		let movie = $(this).attr('data-name');
 
 		// if statement for each of the moods
 		for (let i = 0; i < moviesArray.length; i++) {
@@ -321,7 +342,6 @@ $(document).ready(function() {
 				movie = moviesArray[i].choices[randomNum];
 			}
 		}
-		console.log(movie);
 
 		const queryURL = 'https://www.omdbapi.com/?t=' + movie + '&apikey=66fdabe8';
 
@@ -371,7 +391,7 @@ $(document).ready(function() {
 
 			// Adding title to the movie div
 			movieDiv.prepend(
-				"<p style='font-size:200%;'><img src='https://i.ya-webdesign.com/images/vector-movie-4.png' width='100' height='100'></p>"
+				"<p><img src='https://i.ya-webdesign.com/images/vector-movie-4.png' width='100' height='100'></p>"
 			);
 
 			// Putting the entire movie above the previous movies
@@ -379,12 +399,9 @@ $(document).ready(function() {
 		});
 	}
 
-	// SPOTIFY:
-
-	$('button').on('click', function() {
-		const mood = $(this).attr('data-mood');
-		displayMusicInfo(mood);
-	});
+	//---------------------------Spotify-----------------------------//
+	// client ID: 9ef312560d62468a900c43c84bc1e487
+	// client secret: afcbb263b8bb447aab59e6337063a256
 
 	function displayMusicInfo(mood) {
 		const songsArray = [
@@ -523,15 +540,13 @@ $(document).ready(function() {
 				]
 			}
 		];
-		let song = $(this).attr('data-name');
+
 		for (let i = 0; i < songsArray.length; i++) {
 			if (mood === songsArray[i].musicMood) {
 				var randomNum = Math.floor(Math.random() * 20);
 				song = songsArray[i].choices[randomNum];
 			}
 		}
-
-		console.log(song);
 
 		const getTracksURL = 'https://api.spotify.com/v1/tracks?ids=' + song + '&market=US';
 		$.ajax({
@@ -541,10 +556,9 @@ $(document).ready(function() {
 				Accept         : 'application/json',
 				'Content-Type' : 'application/json',
 				Authorization  :
-					'Bearer BQBVEEumvX4jZKUUfCo5qhwqEtJhzvoZ-J5dBNGKDjvQ1eNCVrjRm8GRFoOa8dhjamQpL9wYq3Z0o6vXpzoqffbq1dQEJHsKUZ-XLaCL0xfK9irqfh6Vi0pAkqpD51M-gxz-c6IEh5zF8OsztfGCVw'
+					'Bearer BQBd1JuDQ5dZnqd49ZEnHRfNO9wewfxmyuqdFyjHl0e6YSnPXRLDcogPqMj8vLJJ8FGgINtkz0m3RUONLD5fSNDYUe2BLkSLehpaDGrvuBSIw_Fz05fAAeUpobQJubYmw1XC6AN4ydYIBsvdZ6FHlg'
 			}
 		}).then(function(response) {
-			console.log(response);
 			// Creating a div to hold the song
 			const songDiv = $("<div class='songDiv'>");
 
@@ -562,8 +576,7 @@ $(document).ready(function() {
 			// Storing the title
 			const title = response.tracks['0'].name;
 			// Creating an element to have the title displayed
-			console.log(title);
-			const pOne = $('<p>').text('Title: ' + title);
+			const pOne = $('<p>').text('Song: ' + '"' + title + '"');
 			// Displaying the title
 			songDiv.append(pOne);
 
@@ -583,105 +596,83 @@ $(document).ready(function() {
 
 			// Append song link
 			const songURL = response.tracks['0'].external_urls.spotify;
-			const link = $("<p><a title='songlink' href='" + songURL + "'>" + 'Click here to listen!' + '</a></p>');
+			const link = $("<p><a title='songlink' href='" + songURL + "'>" + 'Listen on Spotify!' + '</a></p>');
 			songDiv.append(link);
 
 			// Add each song's info to the songs-view div (and replace previous song info)
 			$('#songs-view').html(songDiv);
 		});
 	}
+
+	//---------------------------YouTube-----------------------------//
+
+	function getVideo(mood) {
+		const videosArray = [
+			{
+				videoMood : 'Happy',
+				// Heavy is dead, Adorable pets,
+				choices   : [
+					'https://www.youtube.com/embed/vZE1pev2IWE',
+					'https://www.youtube.com/embed/oiuyhxp4w9I',
+					'https://www.youtube.com/embed/Eb0qWVmpY9U',
+					'https://www.youtube.com/embed/wTblbYqQQag',
+					'https://www.youtube.com/embed/mgmVOuLgFB0'
+				]
+			},
+
+			{
+				videoMood : 'Sad',
+				choices   : [
+					'https://www.youtube.com/embed/eRl2OlyNMuc',
+					'https://www.youtube.com/embed/AZS5cgybKcI',
+					'https://www.youtube.com/embed/WjqiU5FgsYc',
+					'https://www.youtube.com/embed/kweN7VLx-JE',
+					'https://www.youtube.com/embed/Cwn3Ru0o8Io'
+				]
+			},
+			{
+				videoMood : 'Angry',
+				choices   : [ '', '', '', '', '' ]
+			},
+			{
+				videoMood : 'Silly',
+				choices   : [
+					'https://www.youtube.com/embed/Dd7FixvoKBw',
+					'https://www.youtube.com/embed/DODLEX4zzLQ',
+					'https://www.youtube.com/embed/mAX9qzX_LQU',
+					'https://www.youtube.com/embed/2aK8hy50fS4',
+					'https://www.youtube.com/embed/P2qOZDuiYlM'
+				]
+			},
+			{
+				videoMood : 'Festive',
+				choices   : [
+					'https://www.youtube.com/embed/O1C9zOQpKG4',
+					'https://www.youtube.com/embed/Qota928VTXw',
+					'https://www.youtube.com/embed/vOGhAV-84iI',
+					'https://www.youtube.com/embed/BlcYd_arZYE',
+					''
+				]
+			}
+		];
+		let video = $(this).attr('data-name');
+		for (let i = 0; i < videosArray.length; i++) {
+			if (mood === videosArray[i].videoMood) {
+				var randomNum = Math.floor(Math.random() * 5); //change to match any added videos//
+				video = videosArray[i].choices[randomNum];
+				$('#chewtube').attr('src', video);
+			}
+		}
+		console.log(video);
+	}
+
+	//---------------------------'I want more' button-----------------------------//
 	$('#tryagain').on('click', function(event) {
 		const mood = localStorage.getItem('mood');
-
 		event.preventDefault();
 		displayMovieInfo(mood);
 		displayMusicInfo(mood);
+		getGif(mood);
+		getVideo(mood);
 	});
 });
-
-// function displayVideo(mood) {
-// 	const videosArray = [
-// 		{
-// 			videoMood : 'Happy',
-// 			choices   : [
-// 				'heavy is dead',
-// 				'funny cats',
-// 				'inspiring',]
-// 		},
-// 		{
-// 			videoMood : 'Sad',
-// 			choices   : [
-// 				"paperman",
-// 				"kitbull",
-// 				'Giving',]
-// 		},
-// 		{
-// 			videoMood : 'Angry',
-// 			choices   : [
-// 				'spooky ghost',
-// 				'avatar trailer',
-// 				'Kill Bill',]
-// 		},
-// 	];
-
-// 	let video = $(this).attr('data-name');
-
-// 	// if statement for each of the mood
-// 	for (let i = 0; i < videosArray.length; i++) {
-// 		if (mood === videosArray[i].videoMood) {
-// 			var randomNum = Math.floor(Math.random() * 3);
-// 			video = videosArray[i].choices[randomNum];
-// 		}
-// 	}
-// 	console.log(video);
-
-// 	const queryURL = 'https://www.googleapis.com/youtube/v3/search' + video + '&apikey=AIzaSyDAGGCpLGmBI-YC8qWftw53XEQ47Iv8vRc';
-
-// 	// Creating an AJAX call for the specific movie button being clicked
-// 	$.ajax({
-// 		url    : queryURL,
-// 		method : 'GET'
-// 	}).then(function(response) {
-// 		// Creating a div to hold the movie
-// 		const videoDiv = $("<div class='video'>");
-
-// 		// Storing the rating data
-// 		const rating = response.Rated;
-
-// 		// Creating an element to have the rating displayed
-// 		const pOne = $('<p>').text('Rating: ' + rating);
-
-// 		// Displaying the rating
-// 		movieDiv.append(pOne);
-
-// 		// Storing the release year
-// 		const released = response.Released;
-
-// 		// Creating an element to hold the release year
-// 		const pTwo = $('<p>').text('Released: ' + released);
-
-// 		// Displaying the release year
-// 		movieDiv.append(pTwo);
-
-// 		// Storing the plot
-// 		const plot = response.Plot;
-
-// 		// Creating an element to hold the plot
-// 		const pThree = $('<p>').text('Plot: ' + plot);
-
-// 		// Appending the plot
-// 		movieDiv.append(pThree);
-
-// 		// Retrieving the URL for the image
-// 		const imgURL = response.Poster;
-
-// 		// Creating an element to hold the image
-// 		const image = $('<img>').attr('src', imgURL);
-
-// 		// Appending the image
-// 		movieDiv.prepend(image);
-
-// 		// Putting the entire movie above the previous movies
-// 		$('#videos-view').html(videoDiv);
-// 	});
-// }
