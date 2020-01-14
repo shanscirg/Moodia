@@ -270,10 +270,4 @@ body {
 		overflow: visible !important;
 		background-color: #232838;
 	}
-	.movies-view {
-		width: 100vw !important;
-	}
-	.songs-view {
-		width: 100vw !important;
-	}
 }
