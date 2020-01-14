@@ -538,7 +538,7 @@ $(document).ready(function () {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
 				Authorization:
-					'Bearer BBQAcaPpNrABhkoXq00-8zIND7BhiuQYCnRDo9O2HenYvHJ9SkDXlXN1Zpauka97YCOQQors2BjBbyup8fJ_BqT0tzzHLR0qcjtezWa1ja4le2KM_w16_iks_qp4RE8rg5DHhbqoZdarusONZw2wszw'
+					'Bearer BQAcaPpNrABhkoXq00-8zIND7BhiuQYCnRDo9O2HenYvHJ9SkDXlXN1Zpauka97YCOQQors2BjBbyup8fJ_BqT0tzzHLR0qcjtezWa1ja4le2KM_w16_iks_qp4RE8rg5DHhbqoZdarusONZw2wszw'
 			}
 		}).then(function (response) {
 			console.log(response);
@@ -641,10 +641,10 @@ const videosArray = [
       // song IDs for White & Nerdy, Itsy-Bitsy Teeny-Weeny Yellow Polka Dot Bikini, F.U.N. Song, Axel F, Barbie Girl
       choices: [
           'https://www.youtube.com/embed/Dd7FixvoKBw',
-          '',
-          '',
-          '',
-          ''
+          'https://www.youtube.com/embed/DODLEX4zzLQ',
+          'https://www.youtube.com/embed/mAX9qzX_LQU',
+          'https://www.youtube.com/embed/2aK8hy50fS4',
+          'https://www.youtube.com/embed/P2qOZDuiYlM'
       ]
   },
   {
