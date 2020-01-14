@@ -614,7 +614,8 @@ $(document).ready(function () {
 					"https://www.youtube.com/embed/oiuyhxp4w9I",
 					"https://www.youtube.com/embed/Eb0qWVmpY9U",
 					"https://www.youtube.com/embed/wTblbYqQQag",
-					"https://www.youtube.com/embed/mgmVOuLgFB0"
+					"https://www.youtube.com/embed/mgmVOuLgFB0",
+					"https://www.youtube.com/embed/MnrJzXM7a6o"
 				]
 			},
 
@@ -631,11 +632,12 @@ $(document).ready(function () {
 			{
 				videoMood: 'Angry',
 				choices: [
-					'',
-					'',
-					'',
-					'',
-					''
+					'https://www.youtube.com/embed/9iXCTbEN5QI',
+					'https://www.youtube.com/embed/BaxBFnIUTrc',
+					'https://www.youtube.com/embed/NCfN6WKzx3U?start=39',
+					'https://www.youtube.com/embed/gOdC0UTgCIA',
+					'https://www.youtube.com/embed/Q1BpdsA5wcI?start=30',
+					'https://www.youtube.com/embed/5LnbBN4W2z8?start=7'
 				]
 			},
 			{
@@ -645,7 +647,8 @@ $(document).ready(function () {
 					'https://www.youtube.com/embed/DODLEX4zzLQ',
 					'https://www.youtube.com/embed/mAX9qzX_LQU',
 					'https://www.youtube.com/embed/2aK8hy50fS4',
-					'https://www.youtube.com/embed/P2qOZDuiYlM'
+					'https://www.youtube.com/embed/P2qOZDuiYlM',
+					'https://www.youtube.com/embed/cFOAefphdGI?start=19'
 				]
 			},
 			{
