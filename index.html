@@ -21,11 +21,13 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script src='https://requirejs.org/docs/release/2.3.5/minified/require.js'></script>
 </head>
 
 <body>
     <div id="main">
         <div class="jumbotron">
+            <h1 class="text-center display-3 jumbotron1 font-weight-bold">Welcome to Moodia</h1>
             <h1 class="text-center display-4 jumbotron1">Tell us how you're feeling.</h1>
             <p class="lead lead1 text-center">We'll do the rest.</p>
         </div>
@@ -57,6 +59,7 @@
             </div>
         </div>
     </div>
+    <div id='navbarHere'></div>
     <div class="container" id="stuff">
         <div class="jumbotron mb-1" id='moodJumbo'>
             <h1 class="display-4 text-center" id="header">You chose </h1>
@@ -65,16 +68,17 @@
                 </div>
             </div>
             <p class="lead text-center">Here, have some movies and music and stuff</p>
+            <hr class="my-4">
             <div class="row text-center">
                 <div class="col-md-3">
-                    <p class="btn btn-secondary btn-lg" id="bth">Back to home</p>
+                    <p class="btn btn-lg btns" id="bth">Back to home</p>
                 </div>
                 <div class="col-md-6"></div>
                 <div class="col-md-3 text-center" id="tryagain">
-                    <p class="btn btn-secondary btn-lg">I want more!</p>
+                    <p class="btn btn-lg btns">I want more!</p>
                 </div>
             </div>
-            <hr class="my-4">
+
         </div>
         <div class="row">
             <div class='col-lg-1'></div>
@@ -86,7 +90,7 @@
             <div class='col-sm-12 col-md-12 text-center' id="videos-view">
                 <div id='videoImg'><img
                         src='https://theimgstudio.com/wp-content/uploads/2018/12/youtube-logo-png-transparent-image-5-e1544042155792.png'
-                        width='400' height='200'></div>
+                        width='300' height='150'></div>
                 <iframe id="chewtube" width="900" height="400" src="" frameborder="0"
                     allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
             </div>
