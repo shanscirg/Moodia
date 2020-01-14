@@ -534,7 +534,7 @@ $(document).ready(function() {
 				Accept         : 'application/json',
 				'Content-Type' : 'application/json',
 				Authorization  :
-					'Bearer BQDmaCMSGQvsK4pKWbtOcPl29nEJCz8_mu_4tP-U2Y5qzCLT33KtblFi-AhGN7dD1Y0lw8hx02zgtM-WAsT8rS9wKPpE3NHRATmJjh6AVyyAY3ZNkCupletNRJ6g3mJoTv8IycwKVTlsXyzu355ofA'
+					'Bearer BQBVEEumvX4jZKUUfCo5qhwqEtJhzvoZ-J5dBNGKDjvQ1eNCVrjRm8GRFoOa8dhjamQpL9wYq3Z0o6vXpzoqffbq1dQEJHsKUZ-XLaCL0xfK9irqfh6Vi0pAkqpD51M-gxz-c6IEh5zF8OsztfGCVw'
 			}
 		}).then(function(response) {
 			console.log(response);
