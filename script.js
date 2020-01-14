@@ -178,9 +178,7 @@ $(document).ready(function() {
 			"<footer class='footer mt-auto py-3'><div class='container-fluid'><p class='pt-3 text-center'>Copyright &copy;</p></div></footer>"
 		);
 		$('#footerHere').html(footer);
-		const navbar = $(
-			"<div class='navbar fixed-top' style='text-align:center' id='moodia'>Moodia: Media for Your Mood.</div>"
-		);
+		const navbar = $("<div class='navbar fixed-top navbar-expand-lg' style='text-align:center' id='moodia'>Moodia: Media for Your Mood.</div>");
 		$('#navbarHere').html(navbar);
 		if (mood === 'Happy') {
 			$('.btns').removeClass('sadColors angryColors sillyColors festiveColors');
@@ -655,14 +653,15 @@ $(document).ready(function() {
 	function getVideo(mood) {
 		const videosArray = [
 			{
-				videoMood : 'Happy',
-				// Heavy is dead, Adorable pets,
-				choices   : [
-					'https://www.youtube.com/embed/vZE1pev2IWE',
-					'https://www.youtube.com/embed/oiuyhxp4w9I',
-					'https://www.youtube.com/embed/Eb0qWVmpY9U',
-					'https://www.youtube.com/embed/wTblbYqQQag',
-					'https://www.youtube.com/embed/mgmVOuLgFB0'
+				videoMood: 'Happy',
+				// Heavy is dead, Adorable pets, 
+				choices: [
+					"https://www.youtube.com/embed/vZE1pev2IWE",
+					"https://www.youtube.com/embed/oiuyhxp4w9I",
+					"https://www.youtube.com/embed/Eb0qWVmpY9U",
+					"https://www.youtube.com/embed/wTblbYqQQag",
+					"https://www.youtube.com/embed/mgmVOuLgFB0",
+					"https://www.youtube.com/embed/MnrJzXM7a6o"
 				]
 			},
 
@@ -677,8 +676,15 @@ $(document).ready(function() {
 				]
 			},
 			{
-				videoMood : 'Angry',
-				choices   : [ '', '', '', '', '' ]
+				videoMood: 'Angry',
+				choices: [
+					'https://www.youtube.com/embed/9iXCTbEN5QI',
+					'https://www.youtube.com/embed/BaxBFnIUTrc',
+					'https://www.youtube.com/embed/NCfN6WKzx3U?start=39',
+					'https://www.youtube.com/embed/gOdC0UTgCIA',
+					'https://www.youtube.com/embed/Q1BpdsA5wcI?start=30',
+					'https://www.youtube.com/embed/5LnbBN4W2z8?start=7'
+				]
 			},
 			{
 				videoMood : 'Silly',
@@ -687,7 +693,8 @@ $(document).ready(function() {
 					'https://www.youtube.com/embed/DODLEX4zzLQ',
 					'https://www.youtube.com/embed/mAX9qzX_LQU',
 					'https://www.youtube.com/embed/2aK8hy50fS4',
-					'https://www.youtube.com/embed/P2qOZDuiYlM'
+					'https://www.youtube.com/embed/P2qOZDuiYlM',
+					'https://www.youtube.com/embed/cFOAefphdGI?start=19'
 				]
 			},
 			{
@@ -697,7 +704,7 @@ $(document).ready(function() {
 					'https://www.youtube.com/embed/Qota928VTXw',
 					'https://www.youtube.com/embed/vOGhAV-84iI',
 					'https://www.youtube.com/embed/BlcYd_arZYE',
-					''
+					'https://www.youtube.com/embed/0d0aeF12kC0'
 				]
 			}
 		];
