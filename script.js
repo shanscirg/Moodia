@@ -629,10 +629,10 @@ const videosArray = [
       videoMood: 'Festive',
       // song IDs for Grandma Got Run Over by a Reindeer, All I Want for Christmas is You, Monster Mash, Thriller, It's the Most Wonderful Time of the Year
       choices: [
-          '',
-          '',
-          '',
-          '',
+          'https://www.youtube.com/embed/O1C9zOQpKG4',
+          'https://www.youtube.com/embed/Qota928VTXw',
+          'https://www.youtube.com/embed/vOGhAV-84iI',
+          'https://www.youtube.com/embed/BlcYd_arZYE',
           ''
       ]
   }
@@ -640,7 +640,7 @@ const videosArray = [
 let video = $(this).attr('data-name');
 for (let i = 0; i < videosArray.length; i++) {
   if (mood === videosArray[i].videoMood) {
-      var randomNum = Math.floor(Math.random() * 3);
+      var randomNum = Math.floor(Math.random() * 5); //change to match any added videos//
 	  video = videosArray[i].choices[randomNum];
 	  $("#chewtube").attr("src", video);
   }
