@@ -10,6 +10,7 @@ body {
 }
 .jumbotron {
 	background-color: rgba(0, 0, 0, 0);
+	padding-bottom: 50;
 }
 .jumbotron1,
 .lead1 {
@@ -35,7 +36,7 @@ body {
 	margin-bottom: -50%; */
 /* } */
 .moods {
-	padding-bottom: 400px;
+	padding-bottom: 450px;
 }
 #happybtn {
 	margin-top: 70%;
@@ -115,6 +116,7 @@ body {
 .songDiv {
 	/* width: 325px; */
 	padding-top: 20px;
+	margin-right: 0;
 }
 
 .col-xs-5ths,

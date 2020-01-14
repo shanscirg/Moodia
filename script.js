@@ -108,7 +108,7 @@ $(document).ready(function() {
 
 		$('#main').show();
 		$('#stuff').hide();
-		$('body').attr('style', 'overflow-x: hidden');
+		$('body').attr('style', 'overflow: hidden');
 		$('body').attr('class', 'backgroundDefault');
 		// $('#footerHere').remove();
 	});
@@ -125,7 +125,9 @@ $(document).ready(function() {
 		$('body').attr('style', 'overflow: show');
 		localStorage.setItem('mood', mood);
 		displayMovieInfo(mood);
-		const footer = $("<footer class='footer mt-auto py-3 bg-light'><div class='container-fluid'><p class='pt-3 text-muted text-center'>Copyright &copy;</p></div></footer>");
+		const footer = $(
+			"<footer class='footer mt-auto py-3 bg-light'><div class='container-fluid'><p class='pt-3 text-muted text-center'>Copyright &copy;</p></div></footer>"
+		);
 		$('#footerHere').html(footer);
 
 		// GIFS:
