@@ -11,11 +11,9 @@ body {
 .jumbotron {
 	background-color: rgba(0, 0, 0, 0);
 }
-
 #moodJumbo {
 	padding-bottom: 0px;
 }
-
 .jumbotron1,
 .lead1 {
 	color: #ebebeb;
@@ -24,11 +22,9 @@ body {
 	min-height: 100%;
 	overflow: hidden;
 }
-
 .btn-secondary {
 	background-color: #448BCA;
 }
-
 .happy {
 	background-image: url(images/happy.jpg);
 	background-repeat: no-repeat;
@@ -38,11 +34,6 @@ body {
 	-o-transition: all 0.28s ease;
 	transition: all 0.28s ease;
 }
-/* .row {
-	/* padding-top: 28%;
-	padding-bottom: 50%;
-	margin-bottom: -50%; */
-/* } */
 .moods {
 	padding-bottom: 450px;
 }
@@ -75,7 +66,6 @@ body {
 	-o-transition: all 0.28s ease;
 	transition: all 0.28s ease;
 }
-
 .angry {
 	background-image: url(images/angry.jpg);
 	background-repeat: no-repeat;
@@ -85,7 +75,6 @@ body {
 	-o-transition: all 0.28s ease;
 	transition: all 0.28s ease;
 }
-
 .silly {
 	background-image: url(images/silly.png);
 	background-repeat: no-repeat;
@@ -95,7 +84,6 @@ body {
 	-o-transition: all 0.28s ease;
 	transition: all 0.28s ease;
 }
-
 .festive {
 	background-image: url(images/festive.jpg);
 	background-repeat: no-repeat;
@@ -108,23 +96,18 @@ body {
 .flex-container {
 	display: flex;
 }
-
 #gifs-appear-here {
 	margin: 20px;
 }
-
 #movies-view {
 	margin: 20px;
 }
-
 #videos-view {
 	margin-bottom: 30px;
 }
-
 .songDiv {
 	padding-top: 20px;
 }
-
 .col-xs-5ths,
 .col-sm-5ths {
 	position: relative;
@@ -132,7 +115,6 @@ body {
 	padding-right: 15px;
 	padding-left: 15px;
 }
-
 .col-md-5ths,
 .col-lg-5ths {
 	position: relative;
@@ -140,26 +122,22 @@ body {
 	padding-right: 15px;
 	padding-left: 15px;
 }
-
 .col-xs-5ths {
 	width: 20%;
 	float: left;
 }
-
 @media (min-width: 768px) {
 	.col-sm-5ths {
 		width: 20%;
 		float: left;
 	}
 }
-
 @media (min-width: 992px) {
 	.col-md-5ths {
 		width: 20%;
 		float: left;
 	}
 }
-
 @media (min-width: 1200px) {
 	.col-lg-5ths {
 		width: 20%;
@@ -169,7 +147,6 @@ body {
 #tryagain {
 	color: white;
 }
-
 @media screen and (max-width: 1000px) {
 	#happy {
 		width: 200px;
