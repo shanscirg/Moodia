@@ -1,14 +1,55 @@
 $(document).ready(function() {
-	//----------------------Home page formatting/responsiveness---------------------//
+	console.log('test');
+	window.onbeforeunload = function() {
+		window.scrollTo(0, 0);
+	};
+	function mouseover() {
+		$('#sad').on('mouseover', function() {
+			if ($(window).width() > 1000) {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'sad');
+			} else {
+				$('body').attr('class', 'backgroundDefault');
+			}
+		});
+		$('#angry').on('mouseover', function() {
+			if ($(window).width() > 1000) {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'angry');
+			} else {
+				$('body').attr('class', 'backgroundDefault');
+			}
+		});
+		$('#silly').on('mouseover', function() {
+			if ($(window).width() > 1000) {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'silly');
+			} else {
+				$('body').attr('class', 'backgroundDefault');
+			}
+		});
+		$('#happy').on('mouseover', function() {
+			if ($(window).width() > 1000) {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'happy');
+			} else {
+				$('body').attr('class', 'backgroundDefault');
+			}
+		});
+		$('#festive').on('mouseover', function() {
+			if ($(window).width() > 1000) {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'festive');
+			} else {
+				$('body').attr('class', 'backgroundDefault');
+			}
+		});
+	}
 
-	$('html, body').animate(
-		{
-			scrollTop : '0px'
-		},
-		0
-	);
 	$('body').attr('class', 'backgroundDefault');
+
 	let testvalue = false;
+
 	if ($(window).width() < 1000 && testvalue === false) {
 		$('body').attr('style', 'overflow: visible');
 		$('#happy').addClass('happy');
@@ -20,74 +61,62 @@ $(document).ready(function() {
 	}
 	if ($(window).width() > 1000 && testvalue === false) {
 		$('body').attr('style', 'overflow: hidden');
-		$('#sad').on('mouseover', function() {
-			$('#body').removeClass();
-			$('body').fadeIn('slow').attr('class', 'sad');
-		});
-		$('#angry').on('mouseover', function() {
-			$('#body').removeClass();
-			$('body').fadeIn('slow').attr('class', 'angry');
-		});
-		$('#silly').on('mouseover', function() {
-			$('#body').removeClass();
-			$('body').fadeIn('slow').attr('class', 'silly');
-		});
-		$('#happy').on('mouseover', function() {
-			$('body').fadeIn('slow').attr('class', 'happy');
-		});
-		$('#festive').on('mouseover', function() {
-			$('body').fadeIn('slow').attr('class', 'festive');
-		});
+		mouseover();
 	}
 
 	$(window).on('resize', function resizewindow() {
-		var windoww = $(window).width();
-		console.log(windoww);
 		if ($(window).width() > 1000 && testvalue === false) {
-			$('body').attr('style', 'overflow: hidden');
-			$('#sad').on('mouseover', function() {
-				$('#body').removeClass();
-				$('body').fadeIn('slow').attr('class', 'sad');
-			});
-			$('#angry').on('mouseover', function() {
-				$('#body').removeClass();
-				$('body').fadeIn('slow').attr('class', 'angry');
-			});
-			$('#silly').on('mouseover', function() {
-				$('#body').removeClass();
-				$('body').fadeIn('slow').attr('class', 'silly');
-			});
-			$('#happy').on('mouseover', function() {
-				$('body').fadeIn('slow').attr('class', 'happy');
-			});
-			$('#festive').on('mouseover', function() {
-				$('body').fadeIn('slow').attr('class', 'festive');
-			});
+			$('body').attr({ style: 'overflow: hidden' });
+			mouseover();
 			$('#happy').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
 			$('#sad').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
 			$('#angry').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
 			$('#silly').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
 			$('#festive').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
-		} else {
 			$('html, body').animate(
 				{
 					scrollTop : '0px'
 				},
 				0
 			);
+		}
+		if ($(window).width() < 1000 && testvalue === false) {
+			$('#sad').on('mouseover', function() {
+				$('#body').removeClass();
+				$('#body').addClass('sad');
+			});
+			$('#angry').on('mouseover', function() {
+				$('#body').removeClass();
+				$('#body').addClass('backgroundDefault');
+			});
+			$('#silly').on('mouseover', function() {
+				$('#body').removeClass();
+				$('#body').addClass('backgroundDefault');
+			});
+			$('#happy').on('mouseover', function() {
+				$('#body').removeClass();
+				$('#body').addClass('backgroundDefault');
+			});
+			$('#festive').on('mouseover', function() {
+				$('#body').removeClass();
+				$('#body').addClass('backgroundDefault');
+			});
 			$('#happy').addClass('happy');
 			$('#sad').addClass('sad');
 			$('#angry').addClass('angry');
 			$('#silly').addClass('silly');
 			$('#festive').addClass('festive');
 			$('body').attr('style', 'overflow: visible');
+			$('body').addClass('backgroundDefault');
 		}
 
 		if (testvalue === true) {
 			$('body').attr('class', 'white');
 		}
-		if (testvalue === true && $(window).width < 992) {
-		}
+		// if ($(window).width() < 994 && $(window).width() > 768) {
+		// 	$('#movies-view').addClass('test');
+		// 	$('#songs-view').addClass('test');
+		// }
 	});
 
 	$('#bth').hide();
@@ -104,9 +133,21 @@ $(document).ready(function() {
 			},
 			0
 		);
+		var windoww = $(window).width();
+
 		$('#main').show();
 		$('#stuff').hide();
-		$('body').attr('style', 'overflow: hidden');
+		if (windoww > 1000) {
+			$('body').attr('style', 'overflow: hidden');
+			$('#happy').removeClass('happy');
+			$('#sad').removeClass('sad');
+			$('#angry').removeClass('angry');
+			$('#silly').removeClass('silly');
+			$('#festive').removeClass('festive');
+		}
+		if (windoww < 1000) {
+			$('body').attr('style', 'overflow: visible');
+		}
 		$('body').attr('class', 'backgroundDefault');
 		$('#navbarHere').css('visibility', 'hidden');
 	});
@@ -116,6 +157,12 @@ $(document).ready(function() {
 	$('button').on('click', function(event) {
 		event.preventDefault();
 		testvalue = true;
+		$('html, body').animate(
+			{
+				scrollTop : '0px'
+			},
+			0
+		);
 		const mood = $(this).attr('data-mood');
 		$('#header').text('You chose ' + mood);
 		$('#main').hide();
