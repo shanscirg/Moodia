@@ -110,6 +110,7 @@ $(document).ready(function() {
 		$('#stuff').hide();
 		$('body').attr('style', 'overflow-x: hidden');
 		$('body').attr('class', 'backgroundDefault');
+		// $('#footerHere').remove();
 	});
 
 	$('button').on('click', function(event) {
@@ -124,9 +125,7 @@ $(document).ready(function() {
 		$('body').attr('style', 'overflow: show');
 		localStorage.setItem('mood', mood);
 		displayMovieInfo(mood);
-		const footer = $(
-			"<footer class='footer mt-auto py-3 bg-light'><div class='container-fluid'><p class='pt-3 text-muted text-center'>Copyright &copy;</p></div></footer>"
-		);
+		const footer = $("<footer class='footer mt-auto py-3 bg-light'><div class='container-fluid'><p class='pt-3 text-muted text-center'>Copyright &copy;</p></div></footer>");
 		$('#footerHere').html(footer);
 
 		// GIFS:
@@ -357,7 +356,7 @@ $(document).ready(function() {
 			const imgURL = response.Poster;
 
 			// Creating an element to hold the image
-			const image = $('<img>').attr('src', imgURL);
+			const image = $('<img>').attr('src', imgURL).height(444);
 
 			// Appending the image
 			movieDiv.prepend(image);
@@ -534,7 +533,7 @@ $(document).ready(function() {
 				Accept         : 'application/json',
 				'Content-Type' : 'application/json',
 				Authorization  :
-					'Bearer BQDmaCMSGQvsK4pKWbtOcPl29nEJCz8_mu_4tP-U2Y5qzCLT33KtblFi-AhGN7dD1Y0lw8hx02zgtM-WAsT8rS9wKPpE3NHRATmJjh6AVyyAY3ZNkCupletNRJ6g3mJoTv8IycwKVTlsXyzu355ofA'
+					'Bearer BQBVEEumvX4jZKUUfCo5qhwqEtJhzvoZ-J5dBNGKDjvQ1eNCVrjRm8GRFoOa8dhjamQpL9wYq3Z0o6vXpzoqffbq1dQEJHsKUZ-XLaCL0xfK9irqfh6Vi0pAkqpD51M-gxz-c6IEh5zF8OsztfGCVw'
 			}
 		}).then(function(response) {
 			console.log(response);
@@ -548,7 +547,7 @@ $(document).ready(function() {
 
 			// Retrieving the URL for the album image
 			const imageURL = response.tracks['0'].album.images['0'].url;
-			const albumImage = $('<img>').attr('src', imageURL).width(250).height(250);
+			const albumImage = $('<img>').attr('src', imageURL).width(300).height(444);
 			//Displaying the albumImage
 			songDiv.append(albumImage);
 
