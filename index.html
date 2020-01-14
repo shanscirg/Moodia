@@ -62,7 +62,7 @@
     <div id='navbarHere'></div>
     <div class="container" id="stuff">
         <div class="jumbotron mb-1" id='moodJumbo'>
-            <h1 class="display-4 text-center" id="header">You chose </h1>
+            <h1 class="display-4 text-center mt-4" id="header">You chose </h1>
             <div class="row">
                 <div class="col-lg-12 text-center" id="gifs-appear-here">
                 </div>
@@ -87,13 +87,17 @@
             <div class="col-sm-12 col-md-6 col-lg-4 mr-2 text-center" id="songs-view"></div>
         </div>
         <div class='row'>
-            <div class='col-sm-12 col-md-12 text-center' id="videos-view">
+            <div class="col-md-1 col-lg-2"></div>
+            <div class='col-sm-12 col-md-9 col-lg-8 text-center' id="videos-view">
                 <div id='videoImg'><img
                         src='https://theimgstudio.com/wp-content/uploads/2018/12/youtube-logo-png-transparent-image-5-e1544042155792.png'
                         width='300' height='150'></div>
-                <iframe id="chewtube" width="900" height="400" src="" frameborder="0"
-                    allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" id="chewtube" width="700" height="300" src="" frameborder="0"
+                        allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                </div>
             </div>
+            <div class="col-md-1 col-lg-2"></div>
         </div>
     </div>
     <div id="footerHere"></div>

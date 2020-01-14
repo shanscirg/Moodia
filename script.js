@@ -131,7 +131,7 @@ $(document).ready(function () {
 		getVideo(mood);
 		const footer = $("<footer class='footer mt-auto py-3'><div class='container-fluid'><p class='pt-3 text-center'>Copyright &copy;</p></div></footer>");
 		$('#footerHere').html(footer);
-		const navbar = $("<div class='navbar fixed-top' style='text-align:center' id='moodia'>Moodia: Media for Your Mood.</div>");
+		const navbar = $("<div class='navbar fixed-top navbar-expand-lg' style='text-align:center' id='moodia'>Moodia: Media for Your Mood.</div>");
 		$('#navbarHere').html(navbar);
 		if (mood === "Happy") {
 			$(".btns").removeClass("sadColors angryColors sillyColors festiveColors");
