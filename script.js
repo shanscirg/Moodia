@@ -89,6 +89,9 @@ $(document).ready(function() {
 			$('body').attr('class', 'white');
 			$('.footer').show();
 		}
+		if (testvalue === true && $(window).width < 992) {
+			
+		}
 	});
 
 	$('#bth').hide();
