@@ -7,5 +7,6 @@ As an internet user, I want to view music, movie, and video ideas based on my mo
 [Moodia: Media for Your Mood](https://shanscirg.github.io/Project1/)
 
 ### Images of Application:
-![screenshot1](/images/screenshot1.png)
 ![screenshot2](/images/screenshot2.png)
+![screenshot1](/images/screenshot1.png)
+
