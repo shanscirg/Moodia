@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	console.log('test');
 	window.onbeforeunload = function() {
 		window.scrollTo(0, 0);
 	};
