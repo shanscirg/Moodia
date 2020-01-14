@@ -108,17 +108,13 @@ body {
 	margin: 20px;
 }
 
-.movie {
-	width: 325px;
-	position: relative;
-	left: 150px;
-}
+/* .movie {
+	/* width: 325px; */
+/* } */
 
 .songDiv {
-	width: 275px;
+	/* width: 325px; */
 	padding-top: 20px;
-	position: relative;
-	left: 150px;
 }
 
 .col-xs-5ths,
