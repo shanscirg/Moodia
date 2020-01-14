@@ -133,7 +133,7 @@ $(document).ready(function() {
 		// GIFS:
 
 		// Constructing a URL to search Giphy for the mood
-		const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=10';
+		const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=25';
 
 		// Performing our AJAX GET request
 		$.ajax({
@@ -144,9 +144,12 @@ $(document).ready(function() {
 			.then(function(response) {
 				// Storing an array of results in the results variable
 				const results = response.data;
+				console.log(results.length);
 
 				// Looping over every result item
-				for (let i = 0; i < results.length; i++) {
+				for (let i = 0; i < 3; i++) {
+					var randomNum = Math.floor(Math.random() * 25);
+					gifrandom = results[randomNum];
 					// Only taking action if the photo has an appropriate rating
 					function getGif() {
 						// Creating a div for the gif
@@ -157,7 +160,7 @@ $(document).ready(function() {
 
 						// Giving the image tag an src attribute of a property pulled off the
 						// result item
-						moodImage.attr('src', results[i].images.fixed_height.url);
+						moodImage.attr('src', gifrandom.images.fixed_height.url);
 
 						// Appending the moodImage we created to the "gifDiv" div we created
 						gifDiv
@@ -272,7 +275,7 @@ $(document).ready(function() {
 					'Kingpin',
 					"Pee-Wee's Big Adventure",
 					"Wayne's World",
-					'The Pink Panter',
+					'The Pink Panther',
 					"National Lampoon's Animal House",
 					'Zoolander'
 				]
@@ -358,14 +361,14 @@ $(document).ready(function() {
 			const imgURL = response.Poster;
 
 			// Creating an element to hold the image
-			const image = $('<img>').attr('src', imgURL).height(444);
+			const image = $('<img>').attr('src', imgURL).width(300).height(444);
 
 			// Appending the image
 			movieDiv.prepend(image);
 
 			// Adding title to the movie div
 			movieDiv.prepend(
-				"<p style='font-size:200%;'><img src='https://i.ya-webdesign.com/images/vector-movie-4.png' width='50' height='50'>Watch This:</p>"
+				"<p style='font-size:200%;'><img src='https://i.ya-webdesign.com/images/vector-movie-4.png' width='100' height='100'></p>"
 			);
 
 			// Putting the entire movie above the previous movies
@@ -544,7 +547,7 @@ $(document).ready(function() {
 
 			// Adds title to the song div
 			songDiv.prepend(
-				"<p style='font-size:200%'><img src='https://cdn3.iconfinder.com/data/icons/small-black/512/music_notes_quaver_songs_sound-512.png' width='50' height='50'> Listen to This:</p>"
+				"<p style='font-size:200%'><img src='https://cdn3.iconfinder.com/data/icons/small-black/512/music_notes_quaver_songs_sound-512.png' width='100' height='100'></p>"
 			);
 
 			// Retrieving the URL for the album image
