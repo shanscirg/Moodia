@@ -594,89 +594,77 @@ $(document).ready(function() {
 	});
 });
 
-// function displayVideo(mood) {
-// 	const videosArray = [
-// 		{
-// 			videoMood : 'Happy',
-// 			choices   : [
-// 				'heavy is dead',
-// 				'funny cats',
-// 				'inspiring',]
-// 		},
-// 		{
-// 			videoMood : 'Sad',
-// 			choices   : [
-// 				"paperman",
-// 				"kitbull",
-// 				'Giving',]
-// 		},
-// 		{
-// 			videoMood : 'Angry',
-// 			choices   : [
-// 				'spooky ghost',
-// 				'avatar trailer',
-// 				'Kill Bill',]
-// 		},
-// 	];
+//---------------------------youtube-----------------------------//
+$('button').on('click', function() {
+	const mood = $(this).attr('data-mood');
 
-// 	let video = $(this).attr('data-name');
 
-// 	// if statement for each of the mood
-// 	for (let i = 0; i < videosArray.length; i++) {
-// 		if (mood === videosArray[i].videoMood) {
-// 			var randomNum = Math.floor(Math.random() * 3);
-// 			video = videosArray[i].choices[randomNum];
-// 		}
-// 	}
-// 	console.log(video);
+const videosArray = [
+  {
+      videoMood: 'Happy',
+      // Heavy is dead, Adorable pets, 
+      choices: [
+          "https://www.youtube.com/embed/vZE1pev2IWE",
+		  "https://www.youtube.com/embed/oiuyhxp4w9I" ,
+		  "https://www.youtube.com/embed/Eb0qWVmpY9U",
+		  "https://www.youtube.com/embed/wTblbYqQQag",
+		  "https://www.youtube.com/embed/mgmVOuLgFB0"
+      ]
+  },
+//   $("#imageID").attr('src', 'srcImage.jpg');//
 
-// 	const queryURL = 'https://www.googleapis.com/youtube/v3/search' + video + '&apikey=AIzaSyDAGGCpLGmBI-YC8qWftw53XEQ47Iv8vRc';
+  {
+      videoMood: 'Sad',
+      choices: [
+          'https://www.youtube.com/embed/eRl2OlyNMuc',
+          'https://www.youtube.com/embed/AZS5cgybKcI',
+          'https://www.youtube.com/embed/WjqiU5FgsYc',
+          'https://www.youtube.com/embed/kweN7VLx-JE',
+          'https://www.youtube.com/embed/Cwn3Ru0o8Io'
+      ]
+  },
+  {
+      videoMood: 'Angry',
+      // song IDs for Break Stuff, I Hate Everything About You, Down with the Sickness, Bodies, Prison Song
+      choices: [
+          '',
+          '',
+          '',
+          '',
+          ''
+      ]
+  },
+  {
+      videoMood: 'Silly',
+      // song IDs for White & Nerdy, Itsy-Bitsy Teeny-Weeny Yellow Polka Dot Bikini, F.U.N. Song, Axel F, Barbie Girl
+      choices: [
+          'https://www.youtube.com/embed/Dd7FixvoKBw',
+          '',
+          '',
+          '',
+          ''
+      ]
+  },
+  {
+      videoMood: 'Festive',
+      // song IDs for Grandma Got Run Over by a Reindeer, All I Want for Christmas is You, Monster Mash, Thriller, It's the Most Wonderful Time of the Year
+      choices: [
+          '',
+          '',
+          '',
+          '',
+          ''
+      ]
+  }
+];
+let video = $(this).attr('data-name');
+for (let i = 0; i < videosArray.length; i++) {
+  if (mood === videosArray[i].videoMood) {
+      var randomNum = Math.floor(Math.random() * 5);
+	  video = videosArray[i].choices[randomNum];
+	  $("#chewtube").attr("src", video);
+  }
+}
 
-// 	// Creating an AJAX call for the specific movie button being clicked
-// 	$.ajax({
-// 		url    : queryURL,
-// 		method : 'GET'
-// 	}).then(function(response) {
-// 		// Creating a div to hold the movie
-// 		const videoDiv = $("<div class='video'>");
-
-// 		// Storing the rating data
-// 		const rating = response.Rated;
-
-// 		// Creating an element to have the rating displayed
-// 		const pOne = $('<p>').text('Rating: ' + rating);
-
-// 		// Displaying the rating
-// 		movieDiv.append(pOne);
-
-// 		// Storing the release year
-// 		const released = response.Released;
-
-// 		// Creating an element to hold the release year
-// 		const pTwo = $('<p>').text('Released: ' + released);
-
-// 		// Displaying the release year
-// 		movieDiv.append(pTwo);
-
-// 		// Storing the plot
-// 		const plot = response.Plot;
-
-// 		// Creating an element to hold the plot
-// 		const pThree = $('<p>').text('Plot: ' + plot);
-
-// 		// Appending the plot
-// 		movieDiv.append(pThree);
-
-// 		// Retrieving the URL for the image
-// 		const imgURL = response.Poster;
-
-// 		// Creating an element to hold the image
-// 		const image = $('<img>').attr('src', imgURL);
-
-// 		// Appending the image
-// 		movieDiv.prepend(image);
-
-// 		// Putting the entire movie above the previous movies
-// 		$('#videos-view').html(videoDiv);
-// 	});
-// }
+console.log(video);
+});
