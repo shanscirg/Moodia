@@ -16,7 +16,7 @@ $(document).ready(function () {
 		$('#silly').addClass('silly');
 		$('#festive').addClass('festive');
 		$('body').attr('class', 'backgroundDefault');
-		$('.footer').hide();
+	
 	}
 	if ($(window).width() > 1000 && testvalue === false) {
 		$('body').attr('style', 'overflow: hidden');
@@ -38,7 +38,6 @@ $(document).ready(function () {
 		$('#festive').on('mouseover', function () {
 			$('body').fadeIn('slow').attr('class', 'festive');
 		});
-		$('.footer').hide();
 	}
 
 	$(window).on('resize', function resizewindow() {
@@ -87,7 +86,6 @@ $(document).ready(function () {
 
 		if (testvalue === true) {
 			$('body').attr('class', 'white');
-			$('.footer').show();
 		}
 	});
 
@@ -95,7 +93,6 @@ $(document).ready(function () {
 	$('#main').show();
 	$('#stuff').hide();
 
-	// console.log(moment);
 
 	$('#bth').on('click', function () {
 		testvalue = false;
@@ -368,7 +365,7 @@ $(document).ready(function () {
 
 			// Adding title to the movie div
 			movieDiv.prepend(
-				"<p style='font-size:200%;'><img src='https://i.ya-webdesign.com/images/vector-movie-4.png' width='100' height='100'></p>"
+				"<p><img src='https://i.ya-webdesign.com/images/vector-movie-4.png' width='100' height='100'></p>"
 			);
 
 			// Putting the entire movie above the previous movies
