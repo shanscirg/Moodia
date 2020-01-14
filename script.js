@@ -108,7 +108,7 @@ $(document).ready(function() {
 
 		$('#main').show();
 		$('#stuff').hide();
-		$('body').attr('style', 'overflow-x: hidden');
+		$('body').attr('style', 'overflow: hidden');
 		$('body').attr('class', 'backgroundDefault');
 		// $('#footerHere').remove();
 	});
@@ -270,7 +270,7 @@ $(document).ready(function() {
 					'Kingpin',
 					"Pee-Wee's Big Adventure",
 					"Wayne's World",
-					'The Pink Panter',
+					'The Pink Panther',
 					"National Lampoon's Animal House",
 					'Zoolander'
 				]
@@ -356,14 +356,14 @@ $(document).ready(function() {
 			const imgURL = response.Poster;
 
 			// Creating an element to hold the image
-			const image = $('<img>').attr('src', imgURL).height(444);
+			const image = $('<img>').attr('src', imgURL).width(300).height(444);
 
 			// Appending the image
 			movieDiv.prepend(image);
 
 			// Adding title to the movie div
 			movieDiv.prepend(
-				"<p style='font-size:200%;'><img src='https://i.ya-webdesign.com/images/vector-movie-4.png' width='50' height='50'>Watch This:</p>"
+				"<p style='font-size:200%;'><img src='https://i.ya-webdesign.com/images/vector-movie-4.png' width='100' height='100'></p>"
 			);
 
 			// Putting the entire movie above the previous movies
@@ -542,7 +542,7 @@ $(document).ready(function() {
 
 			// Adds title to the song div
 			songDiv.prepend(
-				"<p style='font-size:200%'><img src='https://cdn3.iconfinder.com/data/icons/small-black/512/music_notes_quaver_songs_sound-512.png' width='50' height='50'> Listen to This:</p>"
+				"<p style='font-size:200%'><img src='https://cdn3.iconfinder.com/data/icons/small-black/512/music_notes_quaver_songs_sound-512.png' width='100' height='100'></p>"
 			);
 
 			// Retrieving the URL for the album image

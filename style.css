@@ -11,6 +11,11 @@ body {
 .jumbotron {
 	background-color: rgba(0, 0, 0, 0);
 }
+
+#moodJumbo {
+	padding-bottom: 40px;
+}
+
 .jumbotron1,
 .lead1 {
 	color: #ebebeb;
@@ -18,6 +23,10 @@ body {
 .container {
 	min-height: 100%;
 	overflow: hidden;
+}
+
+.btn-secondary {
+	background-color: #448BCA;
 }
 
 .happy {
@@ -35,7 +44,7 @@ body {
 	margin-bottom: -50%; */
 /* } */
 .moods {
-	padding-bottom: 400px;
+	padding-bottom: 450px;
 }
 #happybtn {
 	margin-top: 70%;
