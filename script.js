@@ -1,15 +1,54 @@
-$(document).ready(function () {
+$(document).ready(function() {
+	window.onbeforeunload = function() {
+		window.scrollTo(0, 0);
+	};
+	function mouseover() {
+		$('#sad').on('mouseover', function() {
+			if ($(window).width() > 1000) {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'sad');
+			} else {
+				$('body').attr('class', 'backgroundDefault');
+			}
+		});
+		$('#angry').on('mouseover', function() {
+			if ($(window).width() > 1000) {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'angry');
+			} else {
+				$('body').attr('class', 'backgroundDefault');
+			}
+		});
+		$('#silly').on('mouseover', function() {
+			if ($(window).width() > 1000) {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'silly');
+			} else {
+				$('body').attr('class', 'backgroundDefault');
+			}
+		});
+		$('#happy').on('mouseover', function() {
+			if ($(window).width() > 1000) {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'happy');
+			} else {
+				$('body').attr('class', 'backgroundDefault');
+			}
+		});
+		$('#festive').on('mouseover', function() {
+			if ($(window).width() > 1000) {
+				$('#body').removeClass();
+				$('body').fadeIn('slow').attr('class', 'festive');
+			} else {
+				$('body').attr('class', 'backgroundDefault');
+			}
+		});
+	}
 
-	//----------------------Home page formatting/responsiveness---------------------//
-
-	$('html, body').animate(
-		{
-			scrollTop: '0px'
-		},
-		0
-	);
 	$('body').attr('class', 'backgroundDefault');
+
 	let testvalue = false;
+
 	if ($(window).width() < 1000 && testvalue === false) {
 		$('body').attr('style', 'overflow: visible');
 		$('#happy').addClass('happy');
@@ -18,76 +57,65 @@ $(document).ready(function () {
 		$('#silly').addClass('silly');
 		$('#festive').addClass('festive');
 		$('body').attr('class', 'backgroundDefault');
-
 	}
 	if ($(window).width() > 1000 && testvalue === false) {
 		$('body').attr('style', 'overflow: hidden');
-		$('#sad').on('mouseover', function () {
-			$('#body').removeClass();
-			$('body').fadeIn('slow').attr('class', 'sad');
-		});
-		$('#angry').on('mouseover', function () {
-			$('#body').removeClass();
-			$('body').fadeIn('slow').attr('class', 'angry');
-		});
-		$('#silly').on('mouseover', function () {
-			$('#body').removeClass();
-			$('body').fadeIn('slow').attr('class', 'silly');
-		});
-		$('#happy').on('mouseover', function () {
-			$('body').fadeIn('slow').attr('class', 'happy');
-		});
-		$('#festive').on('mouseover', function () {
-			$('body').fadeIn('slow').attr('class', 'festive');
-		});
+		mouseover();
 	}
 
 	$(window).on('resize', function resizewindow() {
-		var windoww = $(window).width();
-		console.log(windoww);
 		if ($(window).width() > 1000 && testvalue === false) {
-			$('body').attr('style', 'overflow: hidden');
-			$('#sad').on('mouseover', function () {
-				$('#body').removeClass();
-				$('body').fadeIn('slow').attr('class', 'sad');
-			});
-			$('#angry').on('mouseover', function () {
-				$('#body').removeClass();
-				$('body').fadeIn('slow').attr('class', 'angry');
-			});
-			$('#silly').on('mouseover', function () {
-				$('#body').removeClass();
-				$('body').fadeIn('slow').attr('class', 'silly');
-			});
-			$('#happy').on('mouseover', function () {
-				$('body').fadeIn('slow').attr('class', 'happy');
-			});
-			$('#festive').on('mouseover', function () {
-				$('body').fadeIn('slow').attr('class', 'festive');
-			});
+			$('body').attr({ style: 'overflow: hidden' });
+			mouseover();
 			$('#happy').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
 			$('#sad').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
 			$('#angry').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
 			$('#silly').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
 			$('#festive').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
-		} else {
 			$('html, body').animate(
 				{
-					scrollTop: '0px'
+					scrollTop : '0px'
 				},
 				0
 			);
+		}
+		if ($(window).width() < 1000 && testvalue === false) {
+			$('#sad').on('mouseover', function() {
+				$('#body').removeClass();
+				$('#body').addClass('sad');
+			});
+			$('#angry').on('mouseover', function() {
+				$('#body').removeClass();
+				$('#body').addClass('backgroundDefault');
+			});
+			$('#silly').on('mouseover', function() {
+				$('#body').removeClass();
+				$('#body').addClass('backgroundDefault');
+			});
+			$('#happy').on('mouseover', function() {
+				$('#body').removeClass();
+				$('#body').addClass('backgroundDefault');
+			});
+			$('#festive').on('mouseover', function() {
+				$('#body').removeClass();
+				$('#body').addClass('backgroundDefault');
+			});
 			$('#happy').addClass('happy');
 			$('#sad').addClass('sad');
 			$('#angry').addClass('angry');
 			$('#silly').addClass('silly');
 			$('#festive').addClass('festive');
 			$('body').attr('style', 'overflow: visible');
+			$('body').addClass('backgroundDefault');
 		}
 
 		if (testvalue === true) {
 			$('body').attr('class', 'white');
 		}
+		// if ($(window).width() < 994 && $(window).width() > 768) {
+		// 	$('#movies-view').addClass('test');
+		// 	$('#songs-view').addClass('test');
+		// }
 	});
 
 	$('#bth').hide();
@@ -96,27 +124,44 @@ $(document).ready(function () {
 
 	//---------------------------"Back to home" button-----------------------------//
 
-	$('#bth').on('click', function () {
+	$('#bth').on('click', function() {
 		testvalue = false;
 		$('html, body').animate(
 			{
-				scrollTop: '0px'
+				scrollTop : '0px'
 			},
 			0
 		);
+		var windoww = $(window).width();
+
 		$('#main').show();
 		$('#stuff').hide();
-		$('body').attr('style', 'overflow: hidden');
+		if (windoww > 1000) {
+			$('body').attr('style', 'overflow: hidden');
+			$('#happy').removeClass('happy');
+			$('#sad').removeClass('sad');
+			$('#angry').removeClass('angry');
+			$('#silly').removeClass('silly');
+			$('#festive').removeClass('festive');
+		}
+		if (windoww < 1000) {
+			$('body').attr('style', 'overflow: visible');
+		}
 		$('body').attr('class', 'backgroundDefault');
-		$('#navbarHere').css("visibility", "hidden");
+		$('#navbarHere').css('visibility', 'hidden');
 	});
-
 
 	//---------------------When any mood button is clicked------------------------//
 
-	$('button').on('click', function (event) {
+	$('button').on('click', function(event) {
 		event.preventDefault();
 		testvalue = true;
+		$('html, body').animate(
+			{
+				scrollTop : '0px'
+			},
+			0
+		);
 		const mood = $(this).attr('data-mood');
 		$('#header').text('You chose ' + mood);
 		$('#main').hide();
@@ -129,27 +174,31 @@ $(document).ready(function () {
 		displayMovieInfo(mood);
 		displayMusicInfo(mood);
 		getVideo(mood);
-		const footer = $("<footer class='footer mt-auto py-3'><div class='container-fluid'><p class='pt-3 text-center'>Copyright &copy;</p></div></footer>");
+		const footer = $(
+			"<footer class='footer mt-auto py-3'><div class='container-fluid'><p class='pt-3 text-center'>Copyright &copy;</p></div></footer>"
+		);
 		$('#footerHere').html(footer);
-		const navbar = $("<div class='navbar fixed-top' style='text-align:center' id='moodia'>Moodia: Media for Your Mood.</div>");
+		const navbar = $(
+			"<div class='navbar fixed-top' style='text-align:center' id='moodia'>Moodia: Media for Your Mood.</div>"
+		);
 		$('#navbarHere').html(navbar);
-		if (mood === "Happy") {
-			$(".btns").removeClass("sadColors angryColors sillyColors festiveColors");
-			$(".btns, .footer, .navbar").addClass("happyColors");
-		} else if (mood === "Sad") {
-			$(".btns").removeClass("happyColors angryColors sillyColors festiveColors");
-			$(".btns, .footer, .navbar").addClass("sadColors");
-		} else if (mood === "Angry") {
-			$(".btns").removeClass("sadColors happyColors sillyColors festiveColors");
-			$(".btns, .footer, .navbar").addClass("angryColors");
-		} else if (mood === "Silly") {
-			$(".btns").removeClass("sadColors angryColors happyColors festiveColors");
-			$(".btns, .footer, .navbar").addClass("sillyColors");
-		} else if (mood === "Festive") {
-			$(".btns").removeClass("sadColors angryColors sillyColors happyColors");
-			$(".btns, .footer, .navbar").addClass("festiveColors");
+		if (mood === 'Happy') {
+			$('.btns').removeClass('sadColors angryColors sillyColors festiveColors');
+			$('.btns, .footer, .navbar').addClass('happyColors');
+		} else if (mood === 'Sad') {
+			$('.btns').removeClass('happyColors angryColors sillyColors festiveColors');
+			$('.btns, .footer, .navbar').addClass('sadColors');
+		} else if (mood === 'Angry') {
+			$('.btns').removeClass('sadColors happyColors sillyColors festiveColors');
+			$('.btns, .footer, .navbar').addClass('angryColors');
+		} else if (mood === 'Silly') {
+			$('.btns').removeClass('sadColors angryColors happyColors festiveColors');
+			$('.btns, .footer, .navbar').addClass('sillyColors');
+		} else if (mood === 'Festive') {
+			$('.btns').removeClass('sadColors angryColors sillyColors happyColors');
+			$('.btns, .footer, .navbar').addClass('festiveColors');
 		}
-		$('#navbarHere').css("visibility", "visible");
+		$('#navbarHere').css('visibility', 'visible');
 	});
 
 	//---------------------------Giphy-----------------------------//
@@ -160,11 +209,11 @@ $(document).ready(function () {
 
 		// Performing our AJAX GET request
 		$.ajax({
-			url: queryURL,
-			method: 'GET'
+			url    : queryURL,
+			method : 'GET'
 		})
 			// After the data comes back from the API
-			.then(function (response) {
+			.then(function(response) {
 				// Storing an array of results in the results variable
 				const results = response.data;
 
@@ -203,8 +252,8 @@ $(document).ready(function () {
 	function displayMovieInfo(mood) {
 		const moviesArray = [
 			{
-				movieMood: 'Happy',
-				choices: [
+				movieMood : 'Happy',
+				choices   : [
 					'School of Rock',
 					'Love Actually',
 					'Forrest Gump',
@@ -228,8 +277,8 @@ $(document).ready(function () {
 				]
 			},
 			{
-				movieMood: 'Sad',
-				choices: [
+				movieMood : 'Sad',
+				choices   : [
 					"My Sister's Keeper",
 					"Hachi: A Dog's Tale",
 					'The Green Mile',
@@ -253,8 +302,8 @@ $(document).ready(function () {
 				]
 			},
 			{
-				movieMood: 'Angry',
-				choices: [
+				movieMood : 'Angry',
+				choices   : [
 					'Inglourious Basterds',
 					'Texas Chainsaw Massacre',
 					'Kill Bill',
@@ -278,8 +327,8 @@ $(document).ready(function () {
 				]
 			},
 			{
-				movieMood: 'Silly',
-				choices: [
+				movieMood : 'Silly',
+				choices   : [
 					'Napoleon Dynamite',
 					'Dumb and Dumber',
 					'Monty Python and the Holy Grail',
@@ -303,8 +352,8 @@ $(document).ready(function () {
 				]
 			},
 			{
-				movieMood: 'Festive',
-				choices: [
+				movieMood : 'Festive',
+				choices   : [
 					// Christmas movies
 					'The Holiday',
 					'Bad Santa',
@@ -344,9 +393,9 @@ $(document).ready(function () {
 
 		// Creating an AJAX call for the specific movie button being clicked
 		$.ajax({
-			url: queryURL,
-			method: 'GET'
-		}).then(function (response) {
+			url    : queryURL,
+			method : 'GET'
+		}).then(function(response) {
 			// Creating a div to hold the movie
 			const movieDiv = $("<div class='movie'>");
 
@@ -403,9 +452,9 @@ $(document).ready(function () {
 	function displayMusicInfo(mood) {
 		const songsArray = [
 			{
-				musicMood: 'Happy',
+				musicMood : 'Happy',
 				// song IDs for Love Shack, Happy, Come On Eileen, Just Like Fire, Walking On Sunshine, Say Hey (I Love You), I Gotta Feeling, Don't Stop Believin', Don't Worry Be Happy, I Got You (I feel good), Somewhere Over the Rainbow, Hey Ya!, (If You’re Wondering If I Want You To) I Want You To, Just Fine, Girls Just Wanna Have Fun, Can't Stop the Feeling, All Star, Twist and Shout, Hooked on a Feeling, Celebration
-				choices: [
+				choices   : [
 					'4W4wYHtsrgDiivRASVOINL',
 					'60nZcImufyMA1MKQY3dcCH',
 					'6tmslRyHPI7dyTe8rAHcbQ',
@@ -429,9 +478,9 @@ $(document).ready(function () {
 				]
 			},
 			{
-				musicMood: 'Sad',
+				musicMood : 'Sad',
 				// song IDs for Say Something, Creep, Mad World, Fade Into You, Summertime Sadness, Nothing Compares 2 U, The Scientist, Breathe Me, Bruises, Can We Kiss Forever?, The Love You Left Behind, Love is a Losing Game, Will You Still Love Me Tomorrow?, I'd Rather Go Blind, Cry Baby, Kozmic Blues, Sad Forever, bury a friend, lovely, Liability
-				choices: [
+				choices   : [
 					'6Vc5wAMmXdKIAM7WUoEb7N',
 					'6b2oQwSGFkzsMtQruIWm2p',
 					'3JOVTQ5h8HGFnDdp4VT3MP',
@@ -455,9 +504,9 @@ $(document).ready(function () {
 				]
 			},
 			{
-				musicMood: 'Angry',
+				musicMood : 'Angry',
 				// song IDs for Break Stuff, I Hate Everything About You, Down with the Sickness, Bodies, Prison Song, Platypus (I Hate You), Party Up, Shit Luck, Don't Look Back in Anger, Angry Again, Drop the World, Worst Behavior, Murder in My Heart for the Judge, Hell No I Ain't Happy, Angry Chair, War Pigs, Cool to Hate, You Fucked Up, I've Had It, One Step Closer
-				choices: [
+				choices   : [
 					'5cZqsjVs6MevCnAkasbEOX',
 					'6rUp7v3l8yC4TKxAAR5Bmx',
 					'40rvBMQizxkIqnjPdEWY1v',
@@ -481,9 +530,9 @@ $(document).ready(function () {
 				]
 			},
 			{
-				musicMood: 'Silly',
+				musicMood : 'Silly',
 				// song IDs for White & Nerdy, Itsy-Bitsy Teeny-Weeny Yellow Polka Dot Bikini, F.U.N. Song, Axel F, Barbie Girl, Touch my Tooter, Peaches, Business Time, A Boy Named Sue, Lonely Island, WDIDLN, #deep, ART IS DEAD, Like a Boss, Low Hangin' Fruit, Kickapoo, ROBOT, Satan Gave Me a Taco, Pretty Fly (For a White Guy), Baby Got Back
-				choices: [
+				choices   : [
 					'60R2v9lheAu3lwZwAFxMZK',
 					'3B3jI9LaQyOwrtjdlnNOw0',
 					'0gdLTqxAY4DDUQxXzmwj1z',
@@ -507,10 +556,10 @@ $(document).ready(function () {
 				]
 			},
 			{
-				musicMood: 'Festive',
+				musicMood : 'Festive',
 				// song IDs (xmas) for Grandma Got Run Over by a Reindeer, All I Want for Christmas is You,  It's the Most Wonderful Time of the Year, Jingle Bell Rock, Holly Jolly Christmas, Santa Baby, Rockin' Around the Christmas Tree, You're a Mean One Mr. Grinch, Feliz Navidad, Baby It's Cold Outside
 				// song IDs (halloween) for Monster Mash, Thriller, Ghostbusters, Disturbia, Superstition, This is Halloween, I'm in Love with a Monster, Freak on Me, Somebody's Watching Me, I Put a Spell on You
-				choices: [
+				choices   : [
 					// Christmas songs:
 					'49iHYFjT5yO6WEw6KerX9o',
 					'0bYg9bo50gSsH3LtXe2SQn',
@@ -547,16 +596,15 @@ $(document).ready(function () {
 
 		const getTracksURL = 'https://api.spotify.com/v1/tracks?ids=' + song + '&market=US';
 		$.ajax({
-			url: getTracksURL,
-			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/json',
-				Authorization:
+			url     : getTracksURL,
+			method  : 'GET',
+			headers : {
+				Accept         : 'application/json',
+				'Content-Type' : 'application/json',
+				Authorization  :
 					'Bearer BQBd1JuDQ5dZnqd49ZEnHRfNO9wewfxmyuqdFyjHl0e6YSnPXRLDcogPqMj8vLJJ8FGgINtkz0m3RUONLD5fSNDYUe2BLkSLehpaDGrvuBSIw_Fz05fAAeUpobQJubYmw1XC6AN4ydYIBsvdZ6FHlg'
 			}
-		}).then(function (response) {
-
+		}).then(function(response) {
 			// Creating a div to hold the song
 			const songDiv = $("<div class='songDiv'>");
 
@@ -574,7 +622,7 @@ $(document).ready(function () {
 			// Storing the title
 			const title = response.tracks['0'].name;
 			// Creating an element to have the title displayed
-			const pOne = $('<p>').text('Song: ' + '\"' + title + '\"');
+			const pOne = $('<p>').text('Song: ' + '"' + title + '"');
 			// Displaying the title
 			songDiv.append(pOne);
 
@@ -620,8 +668,8 @@ $(document).ready(function () {
 			},
 
 			{
-				videoMood: 'Sad',
-				choices: [
+				videoMood : 'Sad',
+				choices   : [
 					'https://www.youtube.com/embed/eRl2OlyNMuc',
 					'https://www.youtube.com/embed/AZS5cgybKcI',
 					'https://www.youtube.com/embed/WjqiU5FgsYc',
@@ -641,8 +689,8 @@ $(document).ready(function () {
 				]
 			},
 			{
-				videoMood: 'Silly',
-				choices: [
+				videoMood : 'Silly',
+				choices   : [
 					'https://www.youtube.com/embed/Dd7FixvoKBw',
 					'https://www.youtube.com/embed/DODLEX4zzLQ',
 					'https://www.youtube.com/embed/mAX9qzX_LQU',
@@ -652,8 +700,8 @@ $(document).ready(function () {
 				]
 			},
 			{
-				videoMood: 'Festive',
-				choices: [
+				videoMood : 'Festive',
+				choices   : [
 					'https://www.youtube.com/embed/O1C9zOQpKG4',
 					'https://www.youtube.com/embed/Qota928VTXw',
 					'https://www.youtube.com/embed/vOGhAV-84iI',
@@ -667,14 +715,14 @@ $(document).ready(function () {
 			if (mood === videosArray[i].videoMood) {
 				var randomNum = Math.floor(Math.random() * 5); //change to match any added videos//
 				video = videosArray[i].choices[randomNum];
-				$("#chewtube").attr("src", video);
+				$('#chewtube').attr('src', video);
 			}
 		}
 		console.log(video);
 	}
 
 	//---------------------------'I want more' button-----------------------------//
-	$('#tryagain').on('click', function (event) {
+	$('#tryagain').on('click', function(event) {
 		const mood = localStorage.getItem('mood');
 		event.preventDefault();
 		displayMovieInfo(mood);
@@ -682,5 +730,4 @@ $(document).ready(function () {
 		getGif(mood);
 		getVideo(mood);
 	});
-
 });
