@@ -1,7 +1,7 @@
-$(document).ready(function() {
+$(document).ready(function () {
 	$('html, body').animate(
 		{
-			scrollTop : '0px'
+			scrollTop: '0px'
 		},
 		0
 	);
@@ -20,22 +20,22 @@ $(document).ready(function() {
 	}
 	if ($(window).width() > 1000 && testvalue === false) {
 		$('body').attr('style', 'overflow: hidden');
-		$('#sad').on('mouseover', function() {
+		$('#sad').on('mouseover', function () {
 			$('#body').removeClass();
 			$('body').fadeIn('slow').attr('class', 'sad');
 		});
-		$('#angry').on('mouseover', function() {
+		$('#angry').on('mouseover', function () {
 			$('#body').removeClass();
 			$('body').fadeIn('slow').attr('class', 'angry');
 		});
-		$('#silly').on('mouseover', function() {
+		$('#silly').on('mouseover', function () {
 			$('#body').removeClass();
 			$('body').fadeIn('slow').attr('class', 'silly');
 		});
-		$('#happy').on('mouseover', function() {
+		$('#happy').on('mouseover', function () {
 			$('body').fadeIn('slow').attr('class', 'happy');
 		});
-		$('#festive').on('mouseover', function() {
+		$('#festive').on('mouseover', function () {
 			$('body').fadeIn('slow').attr('class', 'festive');
 		});
 		$('.footer').hide();
@@ -47,22 +47,22 @@ $(document).ready(function() {
 		console.log(windoww);
 		if ($(window).width() > 1000 && testvalue === false) {
 			$('body').attr('style', 'overflow: hidden');
-			$('#sad').on('mouseover', function() {
+			$('#sad').on('mouseover', function () {
 				$('#body').removeClass();
 				$('body').fadeIn('slow').attr('class', 'sad');
 			});
-			$('#angry').on('mouseover', function() {
+			$('#angry').on('mouseover', function () {
 				$('#body').removeClass();
 				$('body').fadeIn('slow').attr('class', 'angry');
 			});
-			$('#silly').on('mouseover', function() {
+			$('#silly').on('mouseover', function () {
 				$('#body').removeClass();
 				$('body').fadeIn('slow').attr('class', 'silly');
 			});
-			$('#happy').on('mouseover', function() {
+			$('#happy').on('mouseover', function () {
 				$('body').fadeIn('slow').attr('class', 'happy');
 			});
-			$('#festive').on('mouseover', function() {
+			$('#festive').on('mouseover', function () {
 				$('body').fadeIn('slow').attr('class', 'festive');
 			});
 			$('#happy').attr('class', 'col-lg-5ths col-md-5ths col-sm-5ths col-xs-5ths moods');
@@ -73,7 +73,7 @@ $(document).ready(function() {
 		} else {
 			$('html, body').animate(
 				{
-					scrollTop : '0px'
+					scrollTop: '0px'
 				},
 				0
 			);
@@ -97,11 +97,11 @@ $(document).ready(function() {
 
 	// console.log(moment);
 
-	$('#bth').on('click', function() {
+	$('#bth').on('click', function () {
 		testvalue = false;
 		$('html, body').animate(
 			{
-				scrollTop : '0px'
+				scrollTop: '0px'
 			},
 			0
 		);
@@ -113,7 +113,7 @@ $(document).ready(function() {
 		// $('#footerHere').remove();
 	});
 
-	$('button').on('click', function(event) {
+	$('button').on('click', function (event) {
 		event.preventDefault();
 		testvalue = true;
 		const mood = $(this).attr('data-mood');
@@ -125,21 +125,23 @@ $(document).ready(function() {
 		$('body').attr('style', 'overflow: show');
 		localStorage.setItem('mood', mood);
 		displayMovieInfo(mood);
+		getGif(mood);
 		const footer = $("<footer class='footer mt-auto py-3 bg-light'><div class='container-fluid'><p class='pt-3 text-muted text-center'>Copyright &copy;</p></div></footer>");
 		$('#footerHere').html(footer);
+	});
 
-		// GIFS:
-
+	// GIFS:
+	function getGif(mood) {
 		// Constructing a URL to search Giphy for the mood
 		const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=25';
 
 		// Performing our AJAX GET request
 		$.ajax({
-			url    : queryURL,
-			method : 'GET'
+			url: queryURL,
+			method: 'GET'
 		})
 			// After the data comes back from the API
-			.then(function(response) {
+			.then(function (response) {
 				// Storing an array of results in the results variable
 				const results = response.data;
 				console.log(results.length);
@@ -149,7 +151,7 @@ $(document).ready(function() {
 					var randomNum = Math.floor(Math.random() * 25);
 					gifrandom = results[randomNum];
 					// Only taking action if the photo has an appropriate rating
-					function getGif() {
+					function getGifs() {
 						// Creating a div for the gif
 						const gifDiv = $('<div>');
 
@@ -169,18 +171,18 @@ $(document).ready(function() {
 						// Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
 						$('#gifs-appear-here').html(gifDiv);
 					}
-					getGif();
+					getGifs();
 				}
 			});
-	});
+	}
 
 	// MOVIES:
 
 	function displayMovieInfo(mood) {
 		const moviesArray = [
 			{
-				movieMood : 'Happy',
-				choices   : [
+				movieMood: 'Happy',
+				choices: [
 					'School of Rock',
 					'Love Actually',
 					'Forrest Gump',
@@ -204,8 +206,8 @@ $(document).ready(function() {
 				]
 			},
 			{
-				movieMood : 'Sad',
-				choices   : [
+				movieMood: 'Sad',
+				choices: [
 					"My Sister's Keeper",
 					"Hachi: A Dog's Tale",
 					'The Green Mile',
@@ -229,8 +231,8 @@ $(document).ready(function() {
 				]
 			},
 			{
-				movieMood : 'Angry',
-				choices   : [
+				movieMood: 'Angry',
+				choices: [
 					'Inglourious Basterds',
 					'Texas Chainsaw Massacre',
 					'Kill Bill',
@@ -254,8 +256,8 @@ $(document).ready(function() {
 				]
 			},
 			{
-				movieMood : 'Silly',
-				choices   : [
+				movieMood: 'Silly',
+				choices: [
 					'Napoleon Dynamite',
 					'Dumb and Dumber',
 					'Monty Python and the Holy Grail',
@@ -279,8 +281,8 @@ $(document).ready(function() {
 				]
 			},
 			{
-				movieMood : 'Festive',
-				choices   : [
+				movieMood: 'Festive',
+				choices: [
 					// Christmas movies
 					'The Holiday',
 					'Bad Santa',
@@ -322,9 +324,9 @@ $(document).ready(function() {
 
 		// Creating an AJAX call for the specific movie button being clicked
 		$.ajax({
-			url    : queryURL,
-			method : 'GET'
-		}).then(function(response) {
+			url: queryURL,
+			method: 'GET'
+		}).then(function (response) {
 			// Creating a div to hold the movie
 			const movieDiv = $("<div class='movie'>");
 
@@ -376,7 +378,7 @@ $(document).ready(function() {
 
 	// SPOTIFY:
 
-	$('button').on('click', function() {
+	$('button').on('click', function () {
 		const mood = $(this).attr('data-mood');
 		displayMusicInfo(mood);
 	});
@@ -384,9 +386,9 @@ $(document).ready(function() {
 	function displayMusicInfo(mood) {
 		const songsArray = [
 			{
-				musicMood : 'Happy',
+				musicMood: 'Happy',
 				// song IDs for Love Shack, Happy, Come On Eileen, Just Like Fire, Walking On Sunshine, Say Hey (I Love You), I Gotta Feeling, Don't Stop Believin', Don't Worry Be Happy, I Got You (I feel good), Somewhere Over the Rainbow, Hey Ya!, (If You’re Wondering If I Want You To) I Want You To, Just Fine, Girls Just Wanna Have Fun, Can't Stop the Feeling, All Star, Twist and Shout, Hooked on a Feeling, Celebration
-				choices   : [
+				choices: [
 					'4W4wYHtsrgDiivRASVOINL',
 					'60nZcImufyMA1MKQY3dcCH',
 					'6tmslRyHPI7dyTe8rAHcbQ',
@@ -410,9 +412,9 @@ $(document).ready(function() {
 				]
 			},
 			{
-				musicMood : 'Sad',
+				musicMood: 'Sad',
 				// song IDs for Say Something, Creep, Mad World, Fade Into You, Summertime Sadness, Nothing Compares 2 U, The Scientist, Breathe Me, Bruises, Can We Kiss Forever?, The Love You Left Behind, Love is a Losing Game, Will You Still Love Me Tomorrow?, I'd Rather Go Blind, Cry Baby, Kozmic Blues, Sad Forever, bury a friend, lovely, Liability
-				choices   : [
+				choices: [
 					'6Vc5wAMmXdKIAM7WUoEb7N',
 					'6b2oQwSGFkzsMtQruIWm2p',
 					'3JOVTQ5h8HGFnDdp4VT3MP',
@@ -436,9 +438,9 @@ $(document).ready(function() {
 				]
 			},
 			{
-				musicMood : 'Angry',
+				musicMood: 'Angry',
 				// song IDs for Break Stuff, I Hate Everything About You, Down with the Sickness, Bodies, Prison Song, Platypus (I Hate You), Party Up, Shit Luck, Don't Look Back in Anger, Angry Again, Drop the World, Worst Behavior, Murder in My Heart for the Judge, Hell No I Ain't Happy, Angry Chair, War Pigs, Cool to Hate, You Fucked Up, I've Had It, One Step Closer
-				choices   : [
+				choices: [
 					'5cZqsjVs6MevCnAkasbEOX',
 					'6rUp7v3l8yC4TKxAAR5Bmx',
 					'40rvBMQizxkIqnjPdEWY1v',
@@ -462,9 +464,9 @@ $(document).ready(function() {
 				]
 			},
 			{
-				musicMood : 'Silly',
+				musicMood: 'Silly',
 				// song IDs for White & Nerdy, Itsy-Bitsy Teeny-Weeny Yellow Polka Dot Bikini, F.U.N. Song, Axel F, Barbie Girl, Touch my Tooter, Peaches, Business Time, A Boy Named Sue, Lonely Island, WDIDLN, #deep, ART IS DEAD, Like a Boss, Low Hangin' Fruit, Kickapoo, ROBOT, Satan Gave Me a Taco, Pretty Fly (For a White Guy), Baby Got Back
-				choices   : [
+				choices: [
 					'60R2v9lheAu3lwZwAFxMZK',
 					'3B3jI9LaQyOwrtjdlnNOw0',
 					'0gdLTqxAY4DDUQxXzmwj1z',
@@ -488,10 +490,10 @@ $(document).ready(function() {
 				]
 			},
 			{
-				musicMood : 'Festive',
+				musicMood: 'Festive',
 				// song IDs (xmas) for Grandma Got Run Over by a Reindeer, All I Want for Christmas is You,  It's the Most Wonderful Time of the Year, Jingle Bell Rock, Holly Jolly Christmas, Santa Baby, Rockin' Around the Christmas Tree, You're a Mean One Mr. Grinch, Feliz Navidad, Baby It's Cold Outside
 				// song IDs (halloween) for Monster Mash, Thriller, Ghostbusters, Disturbia, Superstition, This is Halloween, I'm in Love with a Monster, Freak on Me, Somebody's Watching Me, I Put a Spell on You
-				choices   : [
+				choices: [
 					// Christmas songs:
 					'49iHYFjT5yO6WEw6KerX9o',
 					'0bYg9bo50gSsH3LtXe2SQn',
@@ -530,15 +532,15 @@ $(document).ready(function() {
 
 		const getTracksURL = 'https://api.spotify.com/v1/tracks?ids=' + song + '&market=US';
 		$.ajax({
-			url     : getTracksURL,
-			method  : 'GET',
-			headers : {
-				Accept         : 'application/json',
-				'Content-Type' : 'application/json',
-				Authorization  :
-					'Bearer BQAcaPpNrABhkoXq00-8zIND7BhiuQYCnRDo9O2HenYvHJ9SkDXlXN1Zpauka97YCOQQors2BjBbyup8fJ_BqT0tzzHLR0qcjtezWa1ja4le2KM_w16_iks_qp4RE8rg5DHhbqoZdarusONZw2wszw'
+			url: getTracksURL,
+			method: 'GET',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+				Authorization:
+					'Bearer BBQAcaPpNrABhkoXq00-8zIND7BhiuQYCnRDo9O2HenYvHJ9SkDXlXN1Zpauka97YCOQQors2BjBbyup8fJ_BqT0tzzHLR0qcjtezWa1ja4le2KM_w16_iks_qp4RE8rg5DHhbqoZdarusONZw2wszw'
 			}
-		}).then(function(response) {
+		}).then(function (response) {
 			console.log(response);
 			// Creating a div to hold the song
 			const songDiv = $("<div class='songDiv'>");
@@ -585,98 +587,86 @@ $(document).ready(function() {
 			$('#songs-view').html(songDiv);
 		});
 	}
-	$('#tryagain').on('click', function(event) {
+	$('#tryagain').on('click', function (event) {
 		const mood = localStorage.getItem('mood');
-
 		event.preventDefault();
 		displayMovieInfo(mood);
 		displayMusicInfo(mood);
+		getGif(mood);
 	});
 });
 
-// function displayVideo(mood) {
-// 	const videosArray = [
-// 		{
-// 			videoMood : 'Happy',
-// 			choices   : [
-// 				'heavy is dead',
-// 				'funny cats',
-// 				'inspiring',]
-// 		},
-// 		{
-// 			videoMood : 'Sad',
-// 			choices   : [
-// 				"paperman",
-// 				"kitbull",
-// 				'Giving',]
-// 		},
-// 		{
-// 			videoMood : 'Angry',
-// 			choices   : [
-// 				'spooky ghost',
-// 				'avatar trailer',
-// 				'Kill Bill',]
-// 		},
-// 	];
+//---------------------------youtube-----------------------------//
+$('button').on('click', function() {
+	const mood = $(this).attr('data-mood');
 
-// 	let video = $(this).attr('data-name');
 
-// 	// if statement for each of the mood
-// 	for (let i = 0; i < videosArray.length; i++) {
-// 		if (mood === videosArray[i].videoMood) {
-// 			var randomNum = Math.floor(Math.random() * 3);
-// 			video = videosArray[i].choices[randomNum];
-// 		}
-// 	}
-// 	console.log(video);
+const videosArray = [
+  {
+      videoMood: 'Happy',
+      // Heavy is dead, Adorable pets, 
+      choices: [
+          "https://www.youtube.com/embed/vZE1pev2IWE",
+		  "https://www.youtube.com/embed/oiuyhxp4w9I" ,
+		  "https://www.youtube.com/embed/Eb0qWVmpY9U",
+		  "https://www.youtube.com/embed/wTblbYqQQag",
+		  "https://www.youtube.com/embed/mgmVOuLgFB0"
+      ]
+  },
+//   $("#imageID").attr('src', 'srcImage.jpg');//
 
-// 	const queryURL = 'https://www.googleapis.com/youtube/v3/search' + video + '&apikey=AIzaSyDAGGCpLGmBI-YC8qWftw53XEQ47Iv8vRc';
+  {
+      videoMood: 'Sad',
+      choices: [
+          'https://www.youtube.com/embed/eRl2OlyNMuc',
+          'https://www.youtube.com/embed/AZS5cgybKcI',
+          'https://www.youtube.com/embed/WjqiU5FgsYc',
+          'https://www.youtube.com/embed/kweN7VLx-JE',
+          'https://www.youtube.com/embed/Cwn3Ru0o8Io'
+      ]
+  },
+  {
+      videoMood: 'Angry',
+      // song IDs for Break Stuff, I Hate Everything About You, Down with the Sickness, Bodies, Prison Song
+      choices: [
+          '',
+          '',
+          '',
+          '',
+          ''
+      ]
+  },
+  {
+      videoMood: 'Silly',
+      // song IDs for White & Nerdy, Itsy-Bitsy Teeny-Weeny Yellow Polka Dot Bikini, F.U.N. Song, Axel F, Barbie Girl
+      choices: [
+          'https://www.youtube.com/embed/Dd7FixvoKBw',
+          '',
+          '',
+          '',
+          ''
+      ]
+  },
+  {
+      videoMood: 'Festive',
+      // song IDs for Grandma Got Run Over by a Reindeer, All I Want for Christmas is You, Monster Mash, Thriller, It's the Most Wonderful Time of the Year
+      choices: [
+          '',
+          '',
+          '',
+          '',
+          ''
+      ]
+  }
+];
+let video = $(this).attr('data-name');
+for (let i = 0; i < videosArray.length; i++) {
+  if (mood === videosArray[i].videoMood) {
+      var randomNum = Math.floor(Math.random() * 5);
+	  video = videosArray[i].choices[randomNum];
+	  $("#chewtube").attr("src", video);
+  }
+}
 
-// 	// Creating an AJAX call for the specific movie button being clicked
-// 	$.ajax({
-// 		url    : queryURL,
-// 		method : 'GET'
-// 	}).then(function(response) {
-// 		// Creating a div to hold the movie
-// 		const videoDiv = $("<div class='video'>");
-
-// 		// Storing the rating data
-// 		const rating = response.Rated;
-
-// 		// Creating an element to have the rating displayed
-// 		const pOne = $('<p>').text('Rating: ' + rating);
-
-// 		// Displaying the rating
-// 		movieDiv.append(pOne);
-
-// 		// Storing the release year
-// 		const released = response.Released;
-
-// 		// Creating an element to hold the release year
-// 		const pTwo = $('<p>').text('Released: ' + released);
-
-// 		// Displaying the release year
-// 		movieDiv.append(pTwo);
-
-// 		// Storing the plot
-// 		const plot = response.Plot;
-
-// 		// Creating an element to hold the plot
-// 		const pThree = $('<p>').text('Plot: ' + plot);
-
-// 		// Appending the plot
-// 		movieDiv.append(pThree);
-
-// 		// Retrieving the URL for the image
-// 		const imgURL = response.Poster;
-
-// 		// Creating an element to hold the image
-// 		const image = $('<img>').attr('src', imgURL);
-
-// 		// Appending the image
-// 		movieDiv.prepend(image);
-
-// 		// Putting the entire movie above the previous movies
-// 		$('#videos-view').html(videoDiv);
-// 	});
-// }
+console.log(video);
+});
