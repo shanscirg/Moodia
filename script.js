@@ -1,92 +1,4 @@
 $(document).ready(function() {
-	// console.log(moment);
-	$('#sad').on('mouseover', function() {
-		$('#body').removeClass();
-		$('body').fadeIn('slow').attr('class', 'sad');
-	});
-	$('#angry').on('mouseover', function() {
-		$('#body').removeClass();
-		$('body').fadeIn('slow').attr('class', 'angry');
-	});
-	$('#silly').on('mouseover', function() {
-		$('#body').removeClass();
-		$('body').fadeIn('slow').attr('class', 'silly');
-	});
-	$('#happy').on('mouseover', function() {
-		$('body').fadeIn('slow').attr('class', 'happy');
-	});
-	$('#festive').on('mouseover', function() {
-		$('body').fadeIn('slow').attr('class', 'festive');
-	});
-});
-
-//SPOTIFY
-// const request = require("request");
-// const user_id = "shannon";
-// const token = "Bearer "
-// const playlists_url = "https://api.spotify.com/v1/users/" + user_id + "/playlists"
-
-// request({ url: playlists_url, headers: { "Authorization": token } }, function (err, res) {
-//
-
-// click mood and have GIF appear
-$('button').on('click', function() {
-	$('#main').hide();
-	$('body').removeClass();
-	// In this case, the "this" keyword refers to the button that was clicked
-	const mood = $(this).attr('data-mood');
-	displayMovieInfo(mood);
-
-	// Constructing a URL to search Giphy for the mood
-	const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=25';
-
-	// Performing our AJAX GET request
-	$.ajax({
-		url    : queryURL,
-		method : 'GET'
-	})
-		// After the data comes back from the API
-		.then(function(response) {
-			// Storing an array of results in the results variable
-			const results = response.data;
-			console.log(results.length);
-
-			// telling us how many times to get a gif
-			for (let i = 0; i < 3; i++) {
-				var randomNum = Math.floor(Math.random() * 25);
-				gifrandom = results[randomNum];
-				// Only taking action if the photo has an appropriate rating
-				function getGif() {
-					// Creating a div for the gif
-					const gifDiv = $('<div>');
-
-					// Creating an image tag
-					const moodImage = $('<img>');
-
-					// Giving the image tag an src attribute of a property pulled off the
-					// result item
-					moodImage.attr('src', gifrandom.images.fixed_height.url);
-
-					// Appending the moodImage we created to the "gifDiv" div we created
-					gifDiv
-						.append(moodImage)
-						.attr('data-target', '#gifs-appear-here')
-						.attr('data-slide-to', i.toString());
-
-					// Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
-					$('#gifs-appear-here').append(gifDiv);
-					// clear the div gifs-appear-here
-					// .
-					// .
-
-					
-				}
-				getGif();
-			}
-		});
-});
-
-
 	$('html, body').animate(
 		{
 			scrollTop : '0px'
@@ -680,3 +592,89 @@ $('button').on('click', function() {
 	});
 });
 
+// function displayVideo(mood) {
+// 	const videosArray = [
+// 		{
+// 			videoMood : 'Happy',
+// 			choices   : [
+// 				'heavy is dead',
+// 				'funny cats',
+// 				'inspiring',]
+// 		},
+// 		{
+// 			videoMood : 'Sad',
+// 			choices   : [
+// 				"paperman",
+// 				"kitbull",
+// 				'Giving',]
+// 		},
+// 		{
+// 			videoMood : 'Angry',
+// 			choices   : [
+// 				'spooky ghost',
+// 				'avatar trailer',
+// 				'Kill Bill',]
+// 		},
+// 	];
+
+// 	let video = $(this).attr('data-name');
+
+// 	// if statement for each of the mood
+// 	for (let i = 0; i < videosArray.length; i++) {
+// 		if (mood === videosArray[i].videoMood) {
+// 			var randomNum = Math.floor(Math.random() * 3);
+// 			video = videosArray[i].choices[randomNum];
+// 		}
+// 	}
+// 	console.log(video);
+
+// 	const queryURL = 'https://www.googleapis.com/youtube/v3/search' + video + '&apikey=AIzaSyDAGGCpLGmBI-YC8qWftw53XEQ47Iv8vRc';
+
+// 	// Creating an AJAX call for the specific movie button being clicked
+// 	$.ajax({
+// 		url    : queryURL,
+// 		method : 'GET'
+// 	}).then(function(response) {
+// 		// Creating a div to hold the movie
+// 		const videoDiv = $("<div class='video'>");
+
+// 		// Storing the rating data
+// 		const rating = response.Rated;
+
+// 		// Creating an element to have the rating displayed
+// 		const pOne = $('<p>').text('Rating: ' + rating);
+
+// 		// Displaying the rating
+// 		movieDiv.append(pOne);
+
+// 		// Storing the release year
+// 		const released = response.Released;
+
+// 		// Creating an element to hold the release year
+// 		const pTwo = $('<p>').text('Released: ' + released);
+
+// 		// Displaying the release year
+// 		movieDiv.append(pTwo);
+
+// 		// Storing the plot
+// 		const plot = response.Plot;
+
+// 		// Creating an element to hold the plot
+// 		const pThree = $('<p>').text('Plot: ' + plot);
+
+// 		// Appending the plot
+// 		movieDiv.append(pThree);
+
+// 		// Retrieving the URL for the image
+// 		const imgURL = response.Poster;
+
+// 		// Creating an element to hold the image
+// 		const image = $('<img>').attr('src', imgURL);
+
+// 		// Appending the image
+// 		movieDiv.prepend(image);
+
+// 		// Putting the entire movie above the previous movies
+// 		$('#videos-view').html(videoDiv);
+// 	});
+// }
