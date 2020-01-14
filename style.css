@@ -13,6 +13,7 @@ body {
 }
 #moodJumbo {
 	padding-bottom: 0px;
+	margin-top: 40px;
 }
 .jumbotron1,
 .lead1 {
@@ -22,8 +23,25 @@ body {
 	min-height: 100%;
 	overflow: hidden;
 }
-.btn-secondary {
-	background-color: #448BCA;
+.sadColors{
+	background-color: #197184;
+	color: white;
+}
+.happyColors{
+	background-color: #EFFE13;
+	color: #5A5A5A;
+}
+.angryColors{
+	background-color: #AF0000;
+	color: white;
+}
+.sillyColors{
+	background-color: #FF84F9;
+	color: white;
+}
+.festiveColors{
+	background-color: #8D07FF;
+	color: white;
 }
 .happy {
 	background-image: url(images/happy.jpg);
@@ -144,9 +162,6 @@ body {
 		float: left;
 	}
 }
-#tryagain {
-	color: white;
-}
 @media screen and (max-width: 1000px) {
 	#happy {
 		width: 200px;
@@ -251,4 +266,13 @@ body {
 		overflow: visible !important;
 		background-color: #232838;
 	}
+}
+#navbarHere {
+	font-family: 'Chalkduster';
+	text-align: center;
+	font-size: 30px;
+	width: auto;
+}
+#moodia {
+	display: block;
 }

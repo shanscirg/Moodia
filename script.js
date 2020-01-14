@@ -108,6 +108,7 @@ $(document).ready(function () {
 		$('#stuff').hide();
 		$('body').attr('style', 'overflow: hidden');
 		$('body').attr('class', 'backgroundDefault');
+		$('#navbarHere').css("visibility", "hidden");
 	});
 
 
@@ -126,10 +127,29 @@ $(document).ready(function () {
 		localStorage.setItem('mood', mood);
 		getGif(mood);
 		displayMovieInfo(mood);
-		displayMusicInfo(mood)
+		displayMusicInfo(mood);
 		getVideo(mood);
-		const footer = $("<footer class='footer mt-auto py-3 bg-light'><div class='container-fluid'><p class='pt-3 text-muted text-center'>Copyright &copy;</p></div></footer>");
+		const footer = $("<footer class='footer mt-auto py-3'><div class='container-fluid'><p class='pt-3 text-center'>Copyright &copy;</p></div></footer>");
 		$('#footerHere').html(footer);
+		const navbar = $("<div class='navbar fixed-top' style='text-align:center' id='moodia'>Moodia: Media for Your Mood.</div>");
+		$('#navbarHere').html(navbar);
+		if (mood === "Happy") {
+			$(".btns").removeClass("sadColors angryColors sillyColors festiveColors");
+			$(".btns, .footer, .navbar").addClass("happyColors");
+		} else if (mood === "Sad") {
+			$(".btns").removeClass("happyColors angryColors sillyColors festiveColors");
+			$(".btns, .footer, .navbar").addClass("sadColors");
+		} else if (mood === "Angry") {
+			$(".btns").removeClass("sadColors happyColors sillyColors festiveColors");
+			$(".btns, .footer, .navbar").addClass("angryColors");
+		} else if (mood === "Silly") {
+			$(".btns").removeClass("sadColors angryColors happyColors festiveColors");
+			$(".btns, .footer, .navbar").addClass("sillyColors");
+		} else if (mood === "Festive") {
+			$(".btns").removeClass("sadColors angryColors sillyColors happyColors");
+			$(".btns, .footer, .navbar").addClass("festiveColors");
+		}
+		$('#navbarHere').css("visibility", "visible");
 	});
 
 	//---------------------------Giphy-----------------------------//
@@ -377,6 +397,8 @@ $(document).ready(function () {
 	}
 
 	//---------------------------Spotify-----------------------------//
+	// client ID: 9ef312560d62468a900c43c84bc1e487
+	// client secret: afcbb263b8bb447aab59e6337063a256
 
 	function displayMusicInfo(mood) {
 		const songsArray = [
@@ -516,7 +538,6 @@ $(document).ready(function () {
 			}
 		];
 
-		// if statement for each of the moods
 		for (let i = 0; i < songsArray.length; i++) {
 			if (mood === songsArray[i].musicMood) {
 				var randomNum = Math.floor(Math.random() * 20);
@@ -532,7 +553,7 @@ $(document).ready(function () {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
 				Authorization:
-					'Bearer BQBi0UiRhb53IhBOcYfnrfXW0JXSEqPcEJLEf9Uuia19sTPEo_1yT060llPfeb3jVQqEkxniN0X6SzPlncaBS5KNMb6OfaE7pjQmg-2kVsBxiYifSfHqT_9lzVG7McgfVFo-ShYRgg4hUMpU16S9nw'
+					'Bearer BQBd1JuDQ5dZnqd49ZEnHRfNO9wewfxmyuqdFyjHl0e6YSnPXRLDcogPqMj8vLJJ8FGgINtkz0m3RUONLD5fSNDYUe2BLkSLehpaDGrvuBSIw_Fz05fAAeUpobQJubYmw1XC6AN4ydYIBsvdZ6FHlg'
 			}
 		}).then(function (response) {
 
@@ -553,7 +574,7 @@ $(document).ready(function () {
 			// Storing the title
 			const title = response.tracks['0'].name;
 			// Creating an element to have the title displayed
-			const pOne = $('<p>').text('Title: ' + title);
+			const pOne = $('<p>').text('Song: ' + '\"' + title + '\"');
 			// Displaying the title
 			songDiv.append(pOne);
 
@@ -573,7 +594,7 @@ $(document).ready(function () {
 
 			// Append song link
 			const songURL = response.tracks['0'].external_urls.spotify;
-			const link = $("<p><a title='songlink' href='" + songURL + "'>" + 'Click here to listen!' + '</a></p>');
+			const link = $("<p><a title='songlink' href='" + songURL + "'>" + 'Listen on Spotify!' + '</a></p>');
 			songDiv.append(link);
 
 			// Add each song's info to the songs-view div (and replace previous song info)
