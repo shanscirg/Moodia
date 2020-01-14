@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+	//----------------------Home page formatting/responsiveness---------------------//
+
 	$('html, body').animate(
 		{
 			scrollTop: '0px'
@@ -7,7 +10,6 @@ $(document).ready(function () {
 	);
 	$('body').attr('class', 'backgroundDefault');
 	let testvalue = false;
-	console.log(testvalue);
 	if ($(window).width() < 1000 && testvalue === false) {
 		$('body').attr('style', 'overflow: visible');
 		$('#happy').addClass('happy');
@@ -16,7 +18,7 @@ $(document).ready(function () {
 		$('#silly').addClass('silly');
 		$('#festive').addClass('festive');
 		$('body').attr('class', 'backgroundDefault');
-	
+
 	}
 	if ($(window).width() > 1000 && testvalue === false) {
 		$('body').attr('style', 'overflow: hidden');
@@ -41,7 +43,6 @@ $(document).ready(function () {
 	}
 
 	$(window).on('resize', function resizewindow() {
-		console.log(testvalue);
 		var windoww = $(window).width();
 		console.log(windoww);
 		if ($(window).width() > 1000 && testvalue === false) {
@@ -93,6 +94,7 @@ $(document).ready(function () {
 	$('#main').show();
 	$('#stuff').hide();
 
+	//---------------------------"Back to home" button-----------------------------//
 
 	$('#bth').on('click', function () {
 		testvalue = false;
@@ -102,13 +104,14 @@ $(document).ready(function () {
 			},
 			0
 		);
-
 		$('#main').show();
 		$('#stuff').hide();
 		$('body').attr('style', 'overflow: hidden');
 		$('body').attr('class', 'backgroundDefault');
-		// $('#footerHere').remove();
 	});
+
+
+	//---------------------When any mood button is clicked------------------------//
 
 	$('button').on('click', function (event) {
 		event.preventDefault();
@@ -121,13 +124,16 @@ $(document).ready(function () {
 		$('#stuff').show();
 		$('body').attr('style', 'overflow: show');
 		localStorage.setItem('mood', mood);
-		displayMovieInfo(mood);
 		getGif(mood);
+		displayMovieInfo(mood);
+		displayMusicInfo(mood)
+		getVideo(mood);
 		const footer = $("<footer class='footer mt-auto py-3 bg-light'><div class='container-fluid'><p class='pt-3 text-muted text-center'>Copyright &copy;</p></div></footer>");
 		$('#footerHere').html(footer);
 	});
 
-	// GIFS:
+	//---------------------------Giphy-----------------------------//
+
 	function getGif(mood) {
 		// Constructing a URL to search Giphy for the mood
 		const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=25';
@@ -141,7 +147,6 @@ $(document).ready(function () {
 			.then(function (response) {
 				// Storing an array of results in the results variable
 				const results = response.data;
-				console.log(results.length);
 
 				// Looping over every result item
 				for (let i = 0; i < 3; i++) {
@@ -173,7 +178,7 @@ $(document).ready(function () {
 			});
 	}
 
-	// MOVIES:
+	//---------------------------OMDB-----------------------------//
 
 	function displayMovieInfo(mood) {
 		const moviesArray = [
@@ -217,7 +222,7 @@ $(document).ready(function () {
 					'Cinderella Man',
 					'P.S. I Love You',
 					'Dallas Buyers Club',
-					'Marley and Me',
+					'Marley & Me',
 					'Seven Pounds',
 					'The Notebook',
 					'Brokeback Mountain',
@@ -306,7 +311,6 @@ $(document).ready(function () {
 				]
 			}
 		];
-		let movie = $(this).attr('data-name');
 
 		// if statement for each of the moods
 		for (let i = 0; i < moviesArray.length; i++) {
@@ -315,7 +319,6 @@ $(document).ready(function () {
 				movie = moviesArray[i].choices[randomNum];
 			}
 		}
-		console.log(movie);
 
 		const queryURL = 'https://www.omdbapi.com/?t=' + movie + '&apikey=66fdabe8';
 
@@ -373,12 +376,7 @@ $(document).ready(function () {
 		});
 	}
 
-	// SPOTIFY:
-
-	$('button').on('click', function () {
-		const mood = $(this).attr('data-mood');
-		displayMusicInfo(mood);
-	});
+	//---------------------------Spotify-----------------------------//
 
 	function displayMusicInfo(mood) {
 		const songsArray = [
@@ -517,15 +515,14 @@ $(document).ready(function () {
 				]
 			}
 		];
-		let song = $(this).attr('data-name');
+
+		// if statement for each of the moods
 		for (let i = 0; i < songsArray.length; i++) {
 			if (mood === songsArray[i].musicMood) {
 				var randomNum = Math.floor(Math.random() * 20);
 				song = songsArray[i].choices[randomNum];
 			}
 		}
-
-		console.log(song);
 
 		const getTracksURL = 'https://api.spotify.com/v1/tracks?ids=' + song + '&market=US';
 		$.ajax({
@@ -535,10 +532,10 @@ $(document).ready(function () {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
 				Authorization:
-					'Bearer BQAcaPpNrABhkoXq00-8zIND7BhiuQYCnRDo9O2HenYvHJ9SkDXlXN1Zpauka97YCOQQors2BjBbyup8fJ_BqT0tzzHLR0qcjtezWa1ja4le2KM_w16_iks_qp4RE8rg5DHhbqoZdarusONZw2wszw'
+					'Bearer BQBi0UiRhb53IhBOcYfnrfXW0JXSEqPcEJLEf9Uuia19sTPEo_1yT060llPfeb3jVQqEkxniN0X6SzPlncaBS5KNMb6OfaE7pjQmg-2kVsBxiYifSfHqT_9lzVG7McgfVFo-ShYRgg4hUMpU16S9nw'
 			}
 		}).then(function (response) {
-			console.log(response);
+
 			// Creating a div to hold the song
 			const songDiv = $("<div class='songDiv'>");
 
@@ -556,7 +553,6 @@ $(document).ready(function () {
 			// Storing the title
 			const title = response.tracks['0'].name;
 			// Creating an element to have the title displayed
-			console.log(title);
 			const pOne = $('<p>').text('Title: ' + title);
 			// Displaying the title
 			songDiv.append(pOne);
@@ -584,86 +580,83 @@ $(document).ready(function () {
 			$('#songs-view').html(songDiv);
 		});
 	}
+
+	//---------------------------YouTube-----------------------------//
+
+	function getVideo(mood) {
+		const videosArray = [
+			{
+				videoMood: 'Happy',
+				// Heavy is dead, Adorable pets, 
+				choices: [
+					"https://www.youtube.com/embed/vZE1pev2IWE",
+					"https://www.youtube.com/embed/oiuyhxp4w9I",
+					"https://www.youtube.com/embed/Eb0qWVmpY9U",
+					"https://www.youtube.com/embed/wTblbYqQQag",
+					"https://www.youtube.com/embed/mgmVOuLgFB0"
+				]
+			},
+
+			{
+				videoMood: 'Sad',
+				choices: [
+					'https://www.youtube.com/embed/eRl2OlyNMuc',
+					'https://www.youtube.com/embed/AZS5cgybKcI',
+					'https://www.youtube.com/embed/WjqiU5FgsYc',
+					'https://www.youtube.com/embed/kweN7VLx-JE',
+					'https://www.youtube.com/embed/Cwn3Ru0o8Io'
+				]
+			},
+			{
+				videoMood: 'Angry',
+				choices: [
+					'',
+					'',
+					'',
+					'',
+					''
+				]
+			},
+			{
+				videoMood: 'Silly',
+				choices: [
+					'https://www.youtube.com/embed/Dd7FixvoKBw',
+					'https://www.youtube.com/embed/DODLEX4zzLQ',
+					'https://www.youtube.com/embed/mAX9qzX_LQU',
+					'https://www.youtube.com/embed/2aK8hy50fS4',
+					'https://www.youtube.com/embed/P2qOZDuiYlM'
+				]
+			},
+			{
+				videoMood: 'Festive',
+				choices: [
+					'https://www.youtube.com/embed/O1C9zOQpKG4',
+					'https://www.youtube.com/embed/Qota928VTXw',
+					'https://www.youtube.com/embed/vOGhAV-84iI',
+					'https://www.youtube.com/embed/BlcYd_arZYE',
+					''
+				]
+			}
+		];
+		let video = $(this).attr('data-name');
+		for (let i = 0; i < videosArray.length; i++) {
+			if (mood === videosArray[i].videoMood) {
+				var randomNum = Math.floor(Math.random() * 5); //change to match any added videos//
+				video = videosArray[i].choices[randomNum];
+				$("#chewtube").attr("src", video);
+			}
+		}
+		console.log(video);
+	}
+
+	//---------------------------'I want more' button-----------------------------//
 	$('#tryagain').on('click', function (event) {
 		const mood = localStorage.getItem('mood');
 		event.preventDefault();
 		displayMovieInfo(mood);
 		displayMusicInfo(mood);
 		getGif(mood);
+		getVideo(mood);
 	});
-});
 
-//---------------------------youtube-----------------------------//
-$('button').on('click', function() {
-	const mood = $(this).attr('data-mood');
-
-
-const videosArray = [
-  {
-      videoMood: 'Happy',
-      // Heavy is dead, Adorable pets, 
-      choices: [
-          "https://www.youtube.com/embed/vZE1pev2IWE",
-		  "https://www.youtube.com/embed/oiuyhxp4w9I" ,
-		  "https://www.youtube.com/embed/Eb0qWVmpY9U",
-		  "https://www.youtube.com/embed/wTblbYqQQag",
-		  "https://www.youtube.com/embed/mgmVOuLgFB0"
-      ]
-  },
-//   $("#imageID").attr('src', 'srcImage.jpg');//
-
-  {
-      videoMood: 'Sad',
-      choices: [
-          'https://www.youtube.com/embed/eRl2OlyNMuc',
-          'https://www.youtube.com/embed/AZS5cgybKcI',
-          'https://www.youtube.com/embed/WjqiU5FgsYc',
-          'https://www.youtube.com/embed/kweN7VLx-JE',
-          'https://www.youtube.com/embed/Cwn3Ru0o8Io'
-      ]
-  },
-  {
-      videoMood: 'Angry',
-      // song IDs for Break Stuff, I Hate Everything About You, Down with the Sickness, Bodies, Prison Song
-      choices: [
-          '',
-          '',
-          '',
-          '',
-          ''
-      ]
-  },
-  {
-      videoMood: 'Silly',
-      // song IDs for White & Nerdy, Itsy-Bitsy Teeny-Weeny Yellow Polka Dot Bikini, F.U.N. Song, Axel F, Barbie Girl
-      choices: [
-          'https://www.youtube.com/embed/Dd7FixvoKBw',
-          'https://www.youtube.com/embed/DODLEX4zzLQ',
-          'https://www.youtube.com/embed/mAX9qzX_LQU',
-          'https://www.youtube.com/embed/2aK8hy50fS4',
-          'https://www.youtube.com/embed/P2qOZDuiYlM'
-      ]
-  },
-  {
-      videoMood: 'Festive',
-      // song IDs for Grandma Got Run Over by a Reindeer, All I Want for Christmas is You, Monster Mash, Thriller, It's the Most Wonderful Time of the Year
-      choices: [
-          'https://www.youtube.com/embed/O1C9zOQpKG4',
-          'https://www.youtube.com/embed/Qota928VTXw',
-          'https://www.youtube.com/embed/vOGhAV-84iI',
-          'https://www.youtube.com/embed/BlcYd_arZYE',
-          ''
-      ]
-  }
-];
-let video = $(this).attr('data-name');
-for (let i = 0; i < videosArray.length; i++) {
-  if (mood === videosArray[i].videoMood) {
-      var randomNum = Math.floor(Math.random() * 5); //change to match any added videos//
-	  video = videosArray[i].choices[randomNum];
-	  $("#chewtube").attr("src", video);
-  }
-}
-
-console.log(video);
 });
