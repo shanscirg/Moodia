@@ -117,12 +117,11 @@ body {
 	margin: 20px;
 }
 
-/* .movie {
-	/* width: 325px; */
-/* } */
+#videos-view {
+	margin-bottom: 30px;
+}
 
 .songDiv {
-	/* width: 325px; */
 	padding-top: 20px;
 }
 
