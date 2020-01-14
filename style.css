@@ -1,6 +1,7 @@
 html,
 body {
 	height: 100%;
+	/* overscroll-behavior: none; */
 }
 .backgroundDefault {
 	background-color: #232838;
@@ -10,9 +11,11 @@ body {
 }
 .jumbotron {
 	background-color: rgba(0, 0, 0, 0);
+	padding-bottom: 50;
 }
 #moodJumbo {
 	padding-bottom: 0px;
+	margin-top: 40px;
 }
 .jumbotron1,
 .lead1 {
@@ -22,8 +25,25 @@ body {
 	min-height: 100%;
 	overflow: hidden;
 }
-.btn-secondary {
-	background-color: #448BCA;
+.sadColors {
+	background-color: #197184;
+	color: white;
+}
+.happyColors {
+	background-color: #effe13;
+	color: #5a5a5a;
+}
+.angryColors {
+	background-color: #af0000;
+	color: white;
+}
+.sillyColors {
+	background-color: #ff84f9;
+	color: white;
+}
+.festiveColors {
+	background-color: #8d07ff;
+	color: white;
 }
 .happy {
 	background-image: url(images/happy.jpg);
@@ -35,7 +55,7 @@ body {
 	transition: all 0.28s ease;
 }
 .moods {
-	padding-bottom: 450px;
+	padding-bottom: 400px;
 }
 #happybtn {
 	margin-top: 70%;
@@ -100,13 +120,14 @@ body {
 	margin: 20px;
 }
 #movies-view {
-	margin: 20px;
+	margin: 20px 20px 20px 4px;
 }
 #videos-view {
 	margin-bottom: 30px;
 }
 .songDiv {
 	padding-top: 20px;
+	margin-right: 0;
 }
 .col-xs-5ths,
 .col-sm-5ths {
@@ -143,9 +164,6 @@ body {
 		width: 20%;
 		float: left;
 	}
-}
-#tryagain {
-	color: white;
 }
 @media screen and (max-width: 1000px) {
 	#happy {
@@ -251,4 +269,13 @@ body {
 		overflow: visible !important;
 		background-color: #232838;
 	}
+}
+#navbarHere {
+	font-family: 'Chalkduster';
+	text-align: center;
+	font-size: 30px;
+	width: auto;
+}
+#moodia {
+	display: block;
 }
