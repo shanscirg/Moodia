@@ -535,7 +535,7 @@ $(document).ready(function () {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
 				Authorization:
-					'Bearer BBQAcaPpNrABhkoXq00-8zIND7BhiuQYCnRDo9O2HenYvHJ9SkDXlXN1Zpauka97YCOQQors2BjBbyup8fJ_BqT0tzzHLR0qcjtezWa1ja4le2KM_w16_iks_qp4RE8rg5DHhbqoZdarusONZw2wszw'
+					'Bearer BQAcaPpNrABhkoXq00-8zIND7BhiuQYCnRDo9O2HenYvHJ9SkDXlXN1Zpauka97YCOQQors2BjBbyup8fJ_BqT0tzzHLR0qcjtezWa1ja4le2KM_w16_iks_qp4RE8rg5DHhbqoZdarusONZw2wszw'
 			}
 		}).then(function (response) {
 			console.log(response);
@@ -638,20 +638,20 @@ const videosArray = [
       // song IDs for White & Nerdy, Itsy-Bitsy Teeny-Weeny Yellow Polka Dot Bikini, F.U.N. Song, Axel F, Barbie Girl
       choices: [
           'https://www.youtube.com/embed/Dd7FixvoKBw',
-          '',
-          '',
-          '',
-          ''
+          'https://www.youtube.com/embed/DODLEX4zzLQ',
+          'https://www.youtube.com/embed/mAX9qzX_LQU',
+          'https://www.youtube.com/embed/2aK8hy50fS4',
+          'https://www.youtube.com/embed/P2qOZDuiYlM'
       ]
   },
   {
       videoMood: 'Festive',
       // song IDs for Grandma Got Run Over by a Reindeer, All I Want for Christmas is You, Monster Mash, Thriller, It's the Most Wonderful Time of the Year
       choices: [
-          '',
-          '',
-          '',
-          '',
+          'https://www.youtube.com/embed/O1C9zOQpKG4',
+          'https://www.youtube.com/embed/Qota928VTXw',
+          'https://www.youtube.com/embed/vOGhAV-84iI',
+          'https://www.youtube.com/embed/BlcYd_arZYE',
           ''
       ]
   }
@@ -659,7 +659,7 @@ const videosArray = [
 let video = $(this).attr('data-name');
 for (let i = 0; i < videosArray.length; i++) {
   if (mood === videosArray[i].videoMood) {
-      var randomNum = Math.floor(Math.random() * 5);
+      var randomNum = Math.floor(Math.random() * 5); //change to match any added videos//
 	  video = videosArray[i].choices[randomNum];
 	  $("#chewtube").attr("src", video);
   }
