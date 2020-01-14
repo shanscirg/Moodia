@@ -131,7 +131,7 @@ $(document).ready(function() {
 		// GIFS:
 
 		// Constructing a URL to search Giphy for the mood
-		const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=10';
+		const queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + mood + '&api_key=dc6zaTOxFJmzC&limit=25';
 
 		// Performing our AJAX GET request
 		$.ajax({
@@ -142,9 +142,12 @@ $(document).ready(function() {
 			.then(function(response) {
 				// Storing an array of results in the results variable
 				const results = response.data;
+				console.log(results.length);
 
 				// Looping over every result item
-				for (let i = 0; i < results.length; i++) {
+				for (let i = 0; i < 3; i++) {
+					var randomNum = Math.floor(Math.random() * 25);
+					gifrandom = results[randomNum];
 					// Only taking action if the photo has an appropriate rating
 					function getGif() {
 						// Creating a div for the gif
@@ -155,7 +158,7 @@ $(document).ready(function() {
 
 						// Giving the image tag an src attribute of a property pulled off the
 						// result item
-						moodImage.attr('src', results[i].images.fixed_height.url);
+						moodImage.attr('src', gifrandom.images.fixed_height.url);
 
 						// Appending the moodImage we created to the "gifDiv" div we created
 						gifDiv
