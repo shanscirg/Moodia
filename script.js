@@ -40,8 +40,6 @@ $(document).ready(function() {
 
 	$(window).on('resize', function resizewindow() {
 		console.log(testvalue);
-		var windoww = $(window).width();
-		console.log(windoww);
 		if ($(window).width() > 1000) {
 			$('body').attr('style', 'overflow-x: hidden');
 			$('#sad').on('mouseover', function() {
@@ -99,6 +97,7 @@ $(document).ready(function() {
 		$('#stuff').hide();
 		$('body').attr('style', 'overflow-x: hidden');
 		$('body').attr('class', 'backgroundDefault');
+		// $('#footerHere').remove();
 	});
 
 	$('button').on('click', function(event) {
@@ -113,6 +112,8 @@ $(document).ready(function() {
 		$('body').attr('style', 'overflow: show');
 		localStorage.setItem('mood', mood);
 		displayMovieInfo(mood);
+		const footer = $("<footer class='footer mt-auto py-3 bg-light'><div class='container-fluid'><p class='pt-3 text-muted text-center'>Copyright &copy;</p></div></footer>");
+		$('#footerHere').html(footer);
 
 		// GIFS:
 
@@ -342,7 +343,7 @@ $(document).ready(function() {
 			const imgURL = response.Poster;
 
 			// Creating an element to hold the image
-			const image = $('<img>').attr('src', imgURL);
+			const image = $('<img>').attr('src', imgURL).height(444);
 
 			// Appending the image
 			movieDiv.prepend(image);
@@ -519,7 +520,7 @@ $(document).ready(function() {
 				Accept         : 'application/json',
 				'Content-Type' : 'application/json',
 				Authorization  :
-					'Bearer BQBd3kJYONaQoiivPXQL3zLBnI8eOLH8MsTtzlxlMhuPAGXGl0JmAhi4bK6AyaI7lqgKz2tY5o23ow6UyXwn1a7jGQ788YRbOiKRw-bujAfENol399UcXiUA1QSo-guNpLh_Tfci0BIdWc_TdJBRIQ'
+					'Bearer BQBVEEumvX4jZKUUfCo5qhwqEtJhzvoZ-J5dBNGKDjvQ1eNCVrjRm8GRFoOa8dhjamQpL9wYq3Z0o6vXpzoqffbq1dQEJHsKUZ-XLaCL0xfK9irqfh6Vi0pAkqpD51M-gxz-c6IEh5zF8OsztfGCVw'
 			}
 		}).then(function(response) {
 			console.log(response);
@@ -531,7 +532,7 @@ $(document).ready(function() {
 
 			// Retrieving the URL for the album image
 			const imageURL = response.tracks['0'].album.images['0'].url;
-			const albumImage = $('<img>').attr('src', imageURL).width(250).height(250);
+			const albumImage = $('<img>').attr('src', imageURL).width(300).height(444);
 			//Displaying the albumImage
 			songDiv.append(albumImage);
 
