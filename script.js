@@ -600,7 +600,7 @@ $(document).ready(function() {
 				Accept         : 'application/json',
 				'Content-Type' : 'application/json',
 				Authorization  :
-					'Bearer BQBd1JuDQ5dZnqd49ZEnHRfNO9wewfxmyuqdFyjHl0e6YSnPXRLDcogPqMj8vLJJ8FGgINtkz0m3RUONLD5fSNDYUe2BLkSLehpaDGrvuBSIw_Fz05fAAeUpobQJubYmw1XC6AN4ydYIBsvdZ6FHlg'
+					'Bearer BQATcZD2BcgE9kPpWofUyYsWqdO0hekkTsky2sfHyf7oaJizn4spZbAR2nC_VZQn9_Wmihryo_C4UktbRI8h_MVpV4FKZaVuk7cQc1yK8UH9bGw6GStutLi3QrMoO6deucyBJ-n4F2j5mqCXodEpoQ'
 			}
 		}).then(function(response) {
 			// Creating a div to hold the song
